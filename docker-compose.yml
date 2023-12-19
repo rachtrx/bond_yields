@@ -1,0 +1,25 @@
+version: '3.8'
+
+services:
+  nginx:
+    build: ./services/nginx
+    ports:
+      - 80:80
+    depends_on:
+      - app
+  app:
+    build: ./services/app
+    expose: 
+      - 5001
+    ports:
+      - 8081:8081
+    environment:
+      HTTP_PROXY: "http://127.0.0.1:8080"
+      HTTPS_PROXY: "http://127.0.0.1:8080"
+      PYTHONUNBUFFERED: "1"
+      
+    volumes:
+      - ./services/app/data:/home/app/data
+      - ./services/app/img:/home/app/img
+      - ./services/app/logs:/home/app/logs
+      - ./services/app/page_source:/home/app/page_source

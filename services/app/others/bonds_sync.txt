@@ -1,0 +1,1 @@
+0 15 * * * /opt/conda/envs/bonds/bin/python /home/app/bonds_sync.py >> /var/log/cron.log 2>&1

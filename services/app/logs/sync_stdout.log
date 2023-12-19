@@ -1,0 +1,255 @@
+Permanent profile created at: /home/app/my_firefox_profiles/selenium_profile
+CERT ADDED
+Proxy is running. Starting main functionality.
+['australia', 'austria', 'bahrain', 'bangladesh', 'belgium', 'botswana', 'brazil', 'bulgaria', 'canada', 'chile', 'china', 'colombia', "cote-d'ivoire", 'croatia', 'cyprus', 'czech-republic', 'denmark', 'egypt', 'finland', 'france', 'germany', 'greece', 'hong-kong', 'hungary', 'iceland', 'india', 'indonesia', 'ireland', 'israel', 'italy', 'japan', 'kazakhstan', 'kenya', 'latvia', 'lithuania', 'malaysia', 'malta', 'mauritius', 'mexico', 'morocco', 'netherlands', 'new-zealand', 'nigeria', 'norway', 'pakistan', 'peru', 'philippines', 'poland', 'portugal', 'qatar', 'romania', 'russia', 'serbia', 'singapore', 'slovakia', 'slovenia', 'south-africa', 'south-korea', 'spain', 'sri-lanka', 'sweden', 'switzerland', 'taiwan', 'thailand', 'turkey', 'uganda', 'ukraine', 'u.k.', 'u.s.', 'vietnam', 'zambia']
+The IP address detected by WebDriver is: 155.69.181.17
+https://www.investing.com/rates-bonds/australia-2-year-bond-yield-historical-data
+Error: Message: Navigation timed out after 5000 ms
+Stacktrace:
+RemoteError@chrome://remote/content/shared/RemoteError.sys.mjs:8:8
+WebDriverError@chrome://remote/content/shared/webdriver/Errors.sys.mjs:189:5
+TimeoutError@chrome://remote/content/shared/webdriver/Errors.sys.mjs:691:5
+bail@chrome://remote/content/marionette/sync.sys.mjs:211:19
+
+checking for element
+id for australia: 23870
+FILE FOUND
+FILE RENAMED
+https://www.investing.com/rates-bonds/australia-5-year-bond-yield-historical-data
+Error: Message: Navigation timed out after 5000 ms
+Stacktrace:
+RemoteError@chrome://remote/content/shared/RemoteError.sys.mjs:8:8
+WebDriverError@chrome://remote/content/shared/webdriver/Errors.sys.mjs:189:5
+TimeoutError@chrome://remote/content/shared/webdriver/Errors.sys.mjs:691:5
+bail@chrome://remote/content/marionette/sync.sys.mjs:211:19
+
+checking for element
+id for australia: 23873
+FILE FOUND
+FILE RENAMED
+https://www.investing.com/rates-bonds/austria-2-year-bond-yield-historical-data
+Error: Message: Navigation timed out after 5000 ms
+Stacktrace:
+RemoteError@chrome://remote/content/shared/RemoteError.sys.mjs:8:8
+WebDriverError@chrome://remote/content/shared/webdriver/Errors.sys.mjs:189:5
+TimeoutError@chrome://remote/content/shared/webdriver/Errors.sys.mjs:691:5
+bail@chrome://remote/content/marionette/sync.sys.mjs:211:19
+
+checking for element
+id for austria: 23854
+FILE FOUND
+FILE RENAMED
+https://www.investing.com/rates-bonds/austria-5-year-bond-yield-historical-data
+Error: Message: Navigation timed out after 5000 ms
+Stacktrace:
+RemoteError@chrome://remote/content/shared/RemoteError.sys.mjs:8:8
+WebDriverError@chrome://remote/content/shared/webdriver/Errors.sys.mjs:189:5
+TimeoutError@chrome://remote/content/shared/webdriver/Errors.sys.mjs:691:5
+bail@chrome://remote/content/marionette/sync.sys.mjs:211:19
+
+checking for element
+Error: the JSON object must be str, bytes or bytearray, not NoneType
+Data for austria 5Y was not found
+https://www.investing.com/rates-bonds/bahrain-2-year-bond-yield-historical-data
+Error: Message: Navigation timed out after 5000 ms
+Stacktrace:
+RemoteError@chrome://remote/content/shared/RemoteError.sys.mjs:8:8
+WebDriverError@chrome://remote/content/shared/webdriver/Errors.sys.mjs:189:5
+TimeoutError@chrome://remote/content/shared/webdriver/Errors.sys.mjs:691:5
+bail@chrome://remote/content/marionette/sync.sys.mjs:211:19
+
+checking for element
+id for bahrain: None
+checking for substring
+substring found
+https://www.investing.com/rates-bonds/bahrain-2-year-historical-data
+Error: Message: Navigation timed out after 5000 ms
+Stacktrace:
+RemoteError@chrome://remote/content/shared/RemoteError.sys.mjs:8:8
+WebDriverError@chrome://remote/content/shared/webdriver/Errors.sys.mjs:189:5
+TimeoutError@chrome://remote/content/shared/webdriver/Errors.sys.mjs:691:5
+bail@chrome://remote/content/marionette/sync.sys.mjs:211:19
+
+checking for element
+id for bahrain: 1052505
+FILE FOUND
+FILE RENAMED
+https://www.investing.com/rates-bonds/bahrain-5-year-bond-yield-historical-data
+Error: Message: Navigation timed out after 5000 ms
+Stacktrace:
+RemoteError@chrome://remote/content/shared/RemoteError.sys.mjs:8:8
+WebDriverError@chrome://remote/content/shared/webdriver/Errors.sys.mjs:189:5
+TimeoutError@chrome://remote/content/shared/webdriver/Errors.sys.mjs:691:5
+bail@chrome://remote/content/marionette/sync.sys.mjs:211:19
+
+checking for element
+id for bahrain: None
+checking for substring
+substring found
+https://www.investing.com/rates-bonds/bahrain-5-year-historical-data
+checking for element
+id for bahrain: 1052507
+FILE FOUND
+FILE RENAMED
+https://www.investing.com/rates-bonds/bangladesh-2-year-bond-yield-historical-data
+Error: Message: Navigation timed out after 5000 ms
+Stacktrace:
+RemoteError@chrome://remote/content/shared/RemoteError.sys.mjs:8:8
+WebDriverError@chrome://remote/content/shared/webdriver/Errors.sys.mjs:189:5
+TimeoutError@chrome://remote/content/shared/webdriver/Errors.sys.mjs:691:5
+bail@chrome://remote/content/marionette/sync.sys.mjs:211:19
+
+checking for element
+id for bangladesh: None
+checking for substring
+substring found
+https://www.investing.com/rates-bonds/bangladesh-2-year-historical-data
+checking for element
+id for bangladesh: 1052589
+FILE FOUND
+FILE RENAMED
+https://www.investing.com/rates-bonds/bangladesh-5-year-bond-yield-historical-data
+Permanent profile created at: /home/app/my_firefox_profiles/selenium_profile
+CERT ADDED
+Proxy is running. Starting main functionality.
+['australia', 'austria', 'bahrain', 'bangladesh', 'belgium', 'botswana', 'brazil', 'bulgaria', 'canada', 'chile', 'china', 'colombia', "cote-d'ivoire", 'croatia', 'cyprus', 'czech-republic', 'denmark', 'egypt', 'finland', 'france', 'germany', 'greece', 'hong-kong', 'hungary', 'iceland', 'india', 'indonesia', 'ireland', 'israel', 'italy', 'japan', 'kazakhstan', 'kenya', 'latvia', 'lithuania', 'malaysia', 'malta', 'mauritius', 'mexico', 'morocco', 'netherlands', 'new-zealand', 'nigeria', 'norway', 'pakistan', 'peru', 'philippines', 'poland', 'portugal', 'qatar', 'romania', 'russia', 'serbia', 'singapore', 'slovakia', 'slovenia', 'south-africa', 'south-korea', 'spain', 'sri-lanka', 'sweden', 'switzerland', 'taiwan', 'thailand', 'turkey', 'uganda', 'ukraine', 'u.k.', 'u.s.', 'vietnam', 'zambia']
+The IP address detected by WebDriver is: 155.69.181.17
+https://www.investing.com/rates-bonds/australia-2-year-bond-yield-historical-data
+Error: Message: Navigation timed out after 5000 ms
+Stacktrace:
+RemoteError@chrome://remote/content/shared/RemoteError.sys.mjs:8:8
+WebDriverError@chrome://remote/content/shared/webdriver/Errors.sys.mjs:189:5
+TimeoutError@chrome://remote/content/shared/webdriver/Errors.sys.mjs:691:5
+bail@chrome://remote/content/marionette/sync.sys.mjs:211:19
+
+checking for element
+id for australia: 23870
+FILE FOUND
+FILE RENAMED
+https://www.investing.com/rates-bonds/australia-5-year-bond-yield-historical-data
+Error: Message: Navigation timed out after 5000 ms
+Stacktrace:
+RemoteError@chrome://remote/content/shared/RemoteError.sys.mjs:8:8
+WebDriverError@chrome://remote/content/shared/webdriver/Errors.sys.mjs:189:5
+TimeoutError@chrome://remote/content/shared/webdriver/Errors.sys.mjs:691:5
+bail@chrome://remote/content/marionette/sync.sys.mjs:211:19
+
+checking for element
+id for australia: 23873
+FILE FOUND
+FILE RENAMED
+https://www.investing.com/rates-bonds/austria-2-year-bond-yield-historical-data
+Error: Message: Navigation timed out after 5000 ms
+Stacktrace:
+RemoteError@chrome://remote/content/shared/RemoteError.sys.mjs:8:8
+WebDriverError@chrome://remote/content/shared/webdriver/Errors.sys.mjs:189:5
+TimeoutError@chrome://remote/content/shared/webdriver/Errors.sys.mjs:691:5
+bail@chrome://remote/content/marionette/sync.sys.mjs:211:19
+
+checking for element
+id for austria: 23854
+FILE FOUND
+FILE RENAMED
+https://www.investing.com/rates-bonds/austria-5-year-bond-yield-historical-data
+Error: Message: Navigation timed out after 5000 ms
+Stacktrace:
+RemoteError@chrome://remote/content/shared/RemoteError.sys.mjs:8:8
+WebDriverError@chrome://remote/content/shared/webdriver/Errors.sys.mjs:189:5
+TimeoutError@chrome://remote/content/shared/webdriver/Errors.sys.mjs:691:5
+bail@chrome://remote/content/marionette/sync.sys.mjs:211:19
+
+checking for element
+id for austria: 23857
+FILE FOUND
+FILE RENAMED
+https://www.investing.com/rates-bonds/bahrain-2-year-bond-yield-historical-data
+Error: Message: Navigation timed out after 5000 ms
+Stacktrace:
+RemoteError@chrome://remote/content/shared/RemoteError.sys.mjs:8:8
+WebDriverError@chrome://remote/content/shared/webdriver/Errors.sys.mjs:189:5
+TimeoutError@chrome://remote/content/shared/webdriver/Errors.sys.mjs:691:5
+bail@chrome://remote/content/marionette/sync.sys.mjs:211:19
+
+checking for element
+id for bahrain: None
+checking for substring
+substring found
+https://www.investing.com/rates-bonds/bahrain-2-year-historical-data
+Error: Message: Navigation timed out after 5000 ms
+Stacktrace:
+RemoteError@chrome://remote/content/shared/RemoteError.sys.mjs:8:8
+WebDriverError@chrome://remote/content/shared/webdriver/Errors.sys.mjs:189:5
+TimeoutError@chrome://remote/content/shared/webdriver/Errors.sys.mjs:691:5
+bail@chrome://remote/content/marionette/sync.sys.mjs:211:19
+
+checking for element
+id for bahrain: 1052505
+FILE FOUND
+FILE RENAMED
+https://www.investing.com/rates-bonds/bahrain-5-year-bond-yield-historical-data
+Error: Message: Navigation timed out after 5000 ms
+Stacktrace:
+RemoteError@chrome://remote/content/shared/RemoteError.sys.mjs:8:8
+WebDriverError@chrome://remote/content/shared/webdriver/Errors.sys.mjs:189:5
+TimeoutError@chrome://remote/content/shared/webdriver/Errors.sys.mjs:691:5
+bail@chrome://remote/content/marionette/sync.sys.mjs:211:19
+
+checking for element
+id for bahrain: None
+checking for substring
+substring found
+https://www.investing.com/rates-bonds/bahrain-5-year-historical-data
+checking for element
+id for bahrain: 1052507
+FILE FOUND
+FILE RENAMED
+https://www.investing.com/rates-bonds/bangladesh-2-year-bond-yield-historical-data
+checking for element
+id for bangladesh: None
+checking for substring
+substring found
+https://www.investing.com/rates-bonds/bangladesh-2-year-historical-data
+checking for element
+id for bangladesh: 1052589
+FILE FOUND
+FILE RENAMED
+https://www.investing.com/rates-bonds/bangladesh-5-year-bond-yield-historical-data
+Error: Message: Navigation timed out after 5000 ms
+Stacktrace:
+RemoteError@chrome://remote/content/shared/RemoteError.sys.mjs:8:8
+WebDriverError@chrome://remote/content/shared/webdriver/Errors.sys.mjs:189:5
+TimeoutError@chrome://remote/content/shared/webdriver/Errors.sys.mjs:691:5
+bail@chrome://remote/content/marionette/sync.sys.mjs:211:19
+
+checking for element
+id for bangladesh: None
+checking for substring
+substring found
+https://www.investing.com/rates-bonds/bangladesh-5-year-historical-data
+Error: Message: Navigation timed out after 5000 ms
+Stacktrace:
+RemoteError@chrome://remote/content/shared/RemoteError.sys.mjs:8:8
+WebDriverError@chrome://remote/content/shared/webdriver/Errors.sys.mjs:189:5
+TimeoutError@chrome://remote/content/shared/webdriver/Errors.sys.mjs:691:5
+bail@chrome://remote/content/marionette/sync.sys.mjs:211:19
+
+checking for element
+id for bangladesh: 1052591
+FILE FOUND
+FILE RENAMED
+https://www.investing.com/rates-bonds/belgium-2-year-bond-yield-historical-data
+Error: Message: Navigation timed out after 5000 ms
+Stacktrace:
+RemoteError@chrome://remote/content/shared/RemoteError.sys.mjs:8:8
+WebDriverError@chrome://remote/content/shared/webdriver/Errors.sys.mjs:189:5
+TimeoutError@chrome://remote/content/shared/webdriver/Errors.sys.mjs:691:5
+bail@chrome://remote/content/marionette/sync.sys.mjs:211:19
+
+checking for element
+id for belgium: None
+checking for substring
+substring found
+https://www.investing.com/rates-bonds/belgium-2-year-historical-data
+checking for element
+id for belgium: None
+Data for belgium 2Y was not found

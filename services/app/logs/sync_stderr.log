@@ -1,0 +1,443 @@
+Notice: Trust flag u is set automatically if the private key is present.
+Notice: Trust flag u is set automatically if the private key is present.
+Traceback (most recent call last):
+  File "/home/app/bonds_sync.py", line 249, in <module>
+    main()
+  File "/home/app/bonds_sync.py", line 162, in main
+    driver.get(historical_data_url)
+  File "/opt/conda/envs/bonds/lib/python3.12/site-packages/selenium/webdriver/remote/webdriver.py", line 357, in get
+    self.execute(Command.GET, {"url": url})
+  File "/opt/conda/envs/bonds/lib/python3.12/site-packages/selenium/webdriver/remote/webdriver.py", line 348, in execute
+    self.error_handler.check_response(response)
+  File "/opt/conda/envs/bonds/lib/python3.12/site-packages/selenium/webdriver/remote/errorhandler.py", line 229, in check_response
+    raise exception_class(message, screen, stacktrace)
+selenium.common.exceptions.TimeoutException: Message: Navigation timed out after 10000 ms
+Stacktrace:
+RemoteError@chrome://remote/content/shared/RemoteError.sys.mjs:8:8
+WebDriverError@chrome://remote/content/shared/webdriver/Errors.sys.mjs:189:5
+TimeoutError@chrome://remote/content/shared/webdriver/Errors.sys.mjs:691:5
+bail@chrome://remote/content/marionette/sync.sys.mjs:211:19
+
+Notice: Trust flag u is set automatically if the private key is present.
+Traceback (most recent call last):
+  File "/home/app/bonds_sync.py", line 239, in <module>
+    main()
+  File "/home/app/bonds_sync.py", line 147, in main
+    instrument_id = get_id(driver)
+                    ^^^^^^^^^^^^^^
+  File "/home/app/bonds_sync.py", line 68, in get_id
+    script_element = driver.find_element(By.ID, '__NEXT_DATA__')
+                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/conda/envs/bonds/lib/python3.12/site-packages/selenium/webdriver/remote/webdriver.py", line 742, in find_element
+    return self.execute(Command.FIND_ELEMENT, {"using": by, "value": value})["value"]
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/conda/envs/bonds/lib/python3.12/site-packages/selenium/webdriver/remote/webdriver.py", line 348, in execute
+    self.error_handler.check_response(response)
+  File "/opt/conda/envs/bonds/lib/python3.12/site-packages/selenium/webdriver/remote/errorhandler.py", line 229, in check_response
+    raise exception_class(message, screen, stacktrace)
+selenium.common.exceptions.NoSuchElementException: Message: Unable to locate element: [id="__NEXT_DATA__"]; For documentation on this error, please visit: https://www.selenium.dev/documentation/webdriver/troubleshooting/errors#no-such-element-exception
+Stacktrace:
+RemoteError@chrome://remote/content/shared/RemoteError.sys.mjs:8:8
+WebDriverError@chrome://remote/content/shared/webdriver/Errors.sys.mjs:189:5
+NoSuchElementError@chrome://remote/content/shared/webdriver/Errors.sys.mjs:507:5
+dom.find/</<@chrome://remote/content/shared/DOM.sys.mjs:132:16
+
+Notice: Trust flag u is set automatically if the private key is present.
+Notice: Trust flag u is set automatically if the private key is present.
+Notice: Trust flag u is set automatically if the private key is present.
+Notice: Trust flag u is set automatically if the private key is present.
+Notice: Trust flag u is set automatically if the private key is present.
+Notice: Trust flag u is set automatically if the private key is present.
+Notice: Trust flag u is set automatically if the private key is present.
+Notice: Trust flag u is set automatically if the private key is present.
+Notice: Trust flag u is set automatically if the private key is present.
+Notice: Trust flag u is set automatically if the private key is present.
+Notice: Trust flag u is set automatically if the private key is present.
+Traceback (most recent call last):
+  File "/home/app/bonds_sync.py", line 255, in <module>
+    main()
+  File "/home/app/bonds_sync.py", line 163, in main
+    instrument_id = get_id(driver, historical_data_url)
+                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/app/bonds_sync.py", line 73, in get_id
+    script_element = WebDriverWait(driver, 10).until(
+                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/conda/envs/bonds/lib/python3.12/site-packages/selenium/webdriver/support/wait.py", line 105, in until
+    raise TimeoutException(message, screen, stacktrace)
+selenium.common.exceptions.TimeoutException: Message: 
+Stacktrace:
+RemoteError@chrome://remote/content/shared/RemoteError.sys.mjs:8:8
+WebDriverError@chrome://remote/content/shared/webdriver/Errors.sys.mjs:189:5
+NoSuchElementError@chrome://remote/content/shared/webdriver/Errors.sys.mjs:507:5
+dom.find/</<@chrome://remote/content/shared/DOM.sys.mjs:132:16
+
+Notice: Trust flag u is set automatically if the private key is present.
+Notice: Trust flag u is set automatically if the private key is present.
+Notice: Trust flag u is set automatically if the private key is present.
+Notice: Trust flag u is set automatically if the private key is present.
+Notice: Trust flag u is set automatically if the private key is present.
+Notice: Trust flag u is set automatically if the private key is present.
+Traceback (most recent call last):
+  File "/home/app/bonds_sync.py", line 285, in <module>
+    main()
+  File "/home/app/bonds_sync.py", line 160, in main
+    ip_address = driver.find_element_by_tag_name('body').text.strip()
+                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AttributeError: 'WebDriver' object has no attribute 'find_element_by_tag_name'
+Notice: Trust flag u is set automatically if the private key is present.
+Notice: Trust flag u is set automatically if the private key is present.
+Notice: Trust flag u is set automatically if the private key is present.
+Notice: Trust flag u is set automatically if the private key is present.
+Notice: Trust flag u is set automatically if the private key is present.
+Notice: Trust flag u is set automatically if the private key is present.
+Traceback (most recent call last):
+  File "/home/app/bonds_sync.py", line 286, in <module>
+    main()
+  File "/home/app/bonds_sync.py", line 176, in main
+    script_element = WebDriverWait(driver, 10).until(
+                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/conda/envs/bonds/lib/python3.12/site-packages/selenium/webdriver/support/wait.py", line 105, in until
+    raise TimeoutException(message, screen, stacktrace)
+selenium.common.exceptions.TimeoutException: Message: 
+Stacktrace:
+RemoteError@chrome://remote/content/shared/RemoteError.sys.mjs:8:8
+WebDriverError@chrome://remote/content/shared/webdriver/Errors.sys.mjs:189:5
+NoSuchElementError@chrome://remote/content/shared/webdriver/Errors.sys.mjs:507:5
+dom.find/</<@chrome://remote/content/shared/DOM.sys.mjs:132:16
+
+urllib3.exceptions.SSLError: [SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: unable to get local issuer certificate (_ssl.c:1000)
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/opt/conda/envs/bonds/lib/python3.12/site-packages/requests/adapters.py", line 486, in send
+    resp = conn.urlopen(
+           ^^^^^^^^^^^^^
+  File "/opt/conda/envs/bonds/lib/python3.12/site-packages/urllib3/connectionpool.py", line 844, in urlopen
+    retries = retries.increment(
+              ^^^^^^^^^^^^^^^^^^
+  File "/opt/conda/envs/bonds/lib/python3.12/site-packages/urllib3/util/retry.py", line 515, in increment
+    raise MaxRetryError(_pool, url, reason) from reason  # type: ignore[arg-type]
+    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+urllib3.exceptions.MaxRetryError: HTTPSConnectionPool(host='www.investing.com', port=443): Max retries exceeded with url: /rates-bonds/world-government-bonds?maturity_from=10&maturity_to=310 (Caused by SSLError(SSLCertVerificationError(1, '[SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: unable to get local issuer certificate (_ssl.c:1000)')))
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/app/bonds_sync.py", line 286, in <module>
+    main()
+  File "/home/app/bonds_sync.py", line 116, in main
+    df = get_new_data(url, headers)
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/app/bonds_sync.py", line 43, in get_new_data
+    req = requests.get(url, headers=headers)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/conda/envs/bonds/lib/python3.12/site-packages/requests/api.py", line 73, in get
+    return request("get", url, params=params, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/conda/envs/bonds/lib/python3.12/site-packages/requests/api.py", line 59, in request
+    return session.request(method=method, url=url, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/conda/envs/bonds/lib/python3.12/site-packages/requests/sessions.py", line 589, in request
+    resp = self.send(prep, **send_kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/conda/envs/bonds/lib/python3.12/site-packages/requests/sessions.py", line 703, in send
+    r = adapter.send(request, **kwargs)
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/conda/envs/bonds/lib/python3.12/site-packages/requests/adapters.py", line 517, in send
+    raise SSLError(e, request=request)
+requests.exceptions.SSLError: HTTPSConnectionPool(host='www.investing.com', port=443): Max retries exceeded with url: /rates-bonds/world-government-bonds?maturity_from=10&maturity_to=310 (Caused by SSLError(SSLCertVerificationError(1, '[SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: unable to get local issuer certificate (_ssl.c:1000)')))
+urllib3.exceptions.SSLError: [SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: unable to get local issuer certificate (_ssl.c:1000)
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/opt/conda/envs/bonds/lib/python3.12/site-packages/requests/adapters.py", line 486, in send
+    resp = conn.urlopen(
+           ^^^^^^^^^^^^^
+  File "/opt/conda/envs/bonds/lib/python3.12/site-packages/urllib3/connectionpool.py", line 844, in urlopen
+    retries = retries.increment(
+              ^^^^^^^^^^^^^^^^^^
+  File "/opt/conda/envs/bonds/lib/python3.12/site-packages/urllib3/util/retry.py", line 515, in increment
+    raise MaxRetryError(_pool, url, reason) from reason  # type: ignore[arg-type]
+    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+urllib3.exceptions.MaxRetryError: HTTPSConnectionPool(host='www.investing.com', port=443): Max retries exceeded with url: /rates-bonds/world-government-bonds?maturity_from=10&maturity_to=310 (Caused by SSLError(SSLCertVerificationError(1, '[SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: unable to get local issuer certificate (_ssl.c:1000)')))
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/app/bonds_sync.py", line 286, in <module>
+    main()
+  File "/home/app/bonds_sync.py", line 116, in main
+    df = get_new_data(url, headers)
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/app/bonds_sync.py", line 43, in get_new_data
+    req = requests.get(url, headers=headers)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/conda/envs/bonds/lib/python3.12/site-packages/requests/api.py", line 73, in get
+    return request("get", url, params=params, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/conda/envs/bonds/lib/python3.12/site-packages/requests/api.py", line 59, in request
+    return session.request(method=method, url=url, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/conda/envs/bonds/lib/python3.12/site-packages/requests/sessions.py", line 589, in request
+    resp = self.send(prep, **send_kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/conda/envs/bonds/lib/python3.12/site-packages/requests/sessions.py", line 703, in send
+    r = adapter.send(request, **kwargs)
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/conda/envs/bonds/lib/python3.12/site-packages/requests/adapters.py", line 517, in send
+    raise SSLError(e, request=request)
+requests.exceptions.SSLError: HTTPSConnectionPool(host='www.investing.com', port=443): Max retries exceeded with url: /rates-bonds/world-government-bonds?maturity_from=10&maturity_to=310 (Caused by SSLError(SSLCertVerificationError(1, '[SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: unable to get local issuer certificate (_ssl.c:1000)')))
+urllib3.exceptions.SSLError: [SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: unable to get local issuer certificate (_ssl.c:1000)
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/opt/conda/envs/bonds/lib/python3.12/site-packages/requests/adapters.py", line 486, in send
+    resp = conn.urlopen(
+           ^^^^^^^^^^^^^
+  File "/opt/conda/envs/bonds/lib/python3.12/site-packages/urllib3/connectionpool.py", line 844, in urlopen
+    retries = retries.increment(
+              ^^^^^^^^^^^^^^^^^^
+  File "/opt/conda/envs/bonds/lib/python3.12/site-packages/urllib3/util/retry.py", line 515, in increment
+    raise MaxRetryError(_pool, url, reason) from reason  # type: ignore[arg-type]
+    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+urllib3.exceptions.MaxRetryError: HTTPSConnectionPool(host='www.investing.com', port=443): Max retries exceeded with url: /rates-bonds/world-government-bonds?maturity_from=10&maturity_to=310 (Caused by SSLError(SSLCertVerificationError(1, '[SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: unable to get local issuer certificate (_ssl.c:1000)')))
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/app/bonds_sync.py", line 286, in <module>
+    main()
+  File "/home/app/bonds_sync.py", line 116, in main
+    df = get_new_data(url, headers)
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/app/bonds_sync.py", line 43, in get_new_data
+    req = requests.get(url, headers=headers)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/conda/envs/bonds/lib/python3.12/site-packages/requests/api.py", line 73, in get
+    return request("get", url, params=params, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/conda/envs/bonds/lib/python3.12/site-packages/requests/api.py", line 59, in request
+    return session.request(method=method, url=url, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/conda/envs/bonds/lib/python3.12/site-packages/requests/sessions.py", line 589, in request
+    resp = self.send(prep, **send_kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/conda/envs/bonds/lib/python3.12/site-packages/requests/sessions.py", line 703, in send
+    r = adapter.send(request, **kwargs)
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/conda/envs/bonds/lib/python3.12/site-packages/requests/adapters.py", line 517, in send
+    raise SSLError(e, request=request)
+requests.exceptions.SSLError: HTTPSConnectionPool(host='www.investing.com', port=443): Max retries exceeded with url: /rates-bonds/world-government-bonds?maturity_from=10&maturity_to=310 (Caused by SSLError(SSLCertVerificationError(1, '[SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: unable to get local issuer certificate (_ssl.c:1000)')))
+urllib3.exceptions.SSLError: [SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: unable to get local issuer certificate (_ssl.c:1000)
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/opt/conda/envs/bonds/lib/python3.12/site-packages/requests/adapters.py", line 486, in send
+    resp = conn.urlopen(
+           ^^^^^^^^^^^^^
+  File "/opt/conda/envs/bonds/lib/python3.12/site-packages/urllib3/connectionpool.py", line 844, in urlopen
+    retries = retries.increment(
+              ^^^^^^^^^^^^^^^^^^
+  File "/opt/conda/envs/bonds/lib/python3.12/site-packages/urllib3/util/retry.py", line 515, in increment
+    raise MaxRetryError(_pool, url, reason) from reason  # type: ignore[arg-type]
+    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+urllib3.exceptions.MaxRetryError: HTTPSConnectionPool(host='www.investing.com', port=443): Max retries exceeded with url: /rates-bonds/world-government-bonds?maturity_from=10&maturity_to=310 (Caused by SSLError(SSLCertVerificationError(1, '[SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: unable to get local issuer certificate (_ssl.c:1000)')))
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/app/bonds_sync.py", line 286, in <module>
+    main()
+  File "/home/app/bonds_sync.py", line 116, in main
+    df = get_new_data(url, headers)
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/app/bonds_sync.py", line 43, in get_new_data
+    req = requests.get(url, headers=headers)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/conda/envs/bonds/lib/python3.12/site-packages/requests/api.py", line 73, in get
+    return request("get", url, params=params, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/conda/envs/bonds/lib/python3.12/site-packages/requests/api.py", line 59, in request
+    return session.request(method=method, url=url, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/conda/envs/bonds/lib/python3.12/site-packages/requests/sessions.py", line 589, in request
+    resp = self.send(prep, **send_kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/conda/envs/bonds/lib/python3.12/site-packages/requests/sessions.py", line 703, in send
+    r = adapter.send(request, **kwargs)
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/conda/envs/bonds/lib/python3.12/site-packages/requests/adapters.py", line 517, in send
+    raise SSLError(e, request=request)
+requests.exceptions.SSLError: HTTPSConnectionPool(host='www.investing.com', port=443): Max retries exceeded with url: /rates-bonds/world-government-bonds?maturity_from=10&maturity_to=310 (Caused by SSLError(SSLCertVerificationError(1, '[SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: unable to get local issuer certificate (_ssl.c:1000)')))
+Traceback (most recent call last):
+  File "/home/app/bonds_sync.py", line 286, in <module>
+    main()
+  File "/home/app/bonds_sync.py", line 144, in main
+    options.profile = PROFILE_PATH
+    ^^^^^^^^^^^^^^^
+  File "/opt/conda/envs/bonds/lib/python3.12/site-packages/selenium/webdriver/firefox/options.py", line 90, in profile
+    new_profile = FirefoxProfile(new_profile)
+                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/conda/envs/bonds/lib/python3.12/site-packages/selenium/webdriver/firefox/firefox_profile.py", line 70, in __init__
+    shutil.copytree(
+  File "/opt/conda/envs/bonds/lib/python3.12/shutil.py", line 586, in copytree
+    with os.scandir(src) as itr:
+         ^^^^^^^^^^^^^^^
+FileNotFoundError: [Errno 2] No such file or directory: '/home/app/my_firefox_profiles/selenium_profile'
+Notice: Trust flag u is set automatically if the private key is present.
+Traceback (most recent call last):
+  File "/home/app/bonds_sync.py", line 288, in <module>
+    main()
+  File "/home/app/bonds_sync.py", line 198, in main
+    rename_file(instrument_id, country, year)
+  File "/home/app/bonds_sync.py", line 218, in rename_file
+    os.rename(filename, new_filename)
+OSError: [Errno 18] Invalid cross-device link: '23870.txt' -> '/home/app/data/23870_australia_2.txt'
+Notice: Trust flag u is set automatically if the private key is present.
+Traceback (most recent call last):
+  File "/home/app/bonds_sync.py", line 288, in <module>
+    main()
+  File "/home/app/bonds_sync.py", line 198, in main
+    rename_file(instrument_id, country, year)
+  File "/home/app/bonds_sync.py", line 218, in rename_file
+    os.rename(filename, new_filename)
+FileNotFoundError: [Errno 2] No such file or directory: '23870.txt' -> '23870_australia_2.txt'
+Notice: Trust flag u is set automatically if the private key is present.
+Traceback (most recent call last):
+  File "/home/app/bonds_sync.py", line 172, in main
+    rename_file(instrument_id, country, year)
+  File "/home/app/bonds_sync.py", line 200, in rename_file
+    raise FileNotFoundError
+FileNotFoundError
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/app/bonds_sync.py", line 250, in <module>
+    main()
+  File "/home/app/bonds_sync.py", line 174, in main
+    instrument_id = get_id(driver, historical_data_url.replace("-bond-yield", ""))
+                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/app/bonds_sync.py", line 95, in get_id
+    script_element = WebDriverWait(driver, 10).until(
+                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/conda/envs/bonds/lib/python3.12/site-packages/selenium/webdriver/support/wait.py", line 105, in until
+    raise TimeoutException(message, screen, stacktrace)
+selenium.common.exceptions.TimeoutException: Message: 
+Stacktrace:
+RemoteError@chrome://remote/content/shared/RemoteError.sys.mjs:8:8
+WebDriverError@chrome://remote/content/shared/webdriver/Errors.sys.mjs:189:5
+NoSuchElementError@chrome://remote/content/shared/webdriver/Errors.sys.mjs:507:5
+dom.find/</<@chrome://remote/content/shared/DOM.sys.mjs:132:16
+
+Notice: Trust flag u is set automatically if the private key is present.
+Traceback (most recent call last):
+  File "/home/app/bonds_sync.py", line 172, in main
+    rename_file(instrument_id, country, year)
+  File "/home/app/bonds_sync.py", line 198, in rename_file
+    os.rename(filename, new_filename)
+FileNotFoundError: [Errno 2] No such file or directory: '23870.txt' -> '23870_australia_2.txt'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/app/bonds_sync.py", line 250, in <module>
+    main()
+  File "/home/app/bonds_sync.py", line 174, in main
+    instrument_id = get_id(driver, historical_data_url.replace("-bond-yield", ""))
+                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/app/bonds_sync.py", line 95, in get_id
+    script_element = WebDriverWait(driver, 10).until(
+                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/conda/envs/bonds/lib/python3.12/site-packages/selenium/webdriver/support/wait.py", line 105, in until
+    raise TimeoutException(message, screen, stacktrace)
+selenium.common.exceptions.TimeoutException: Message: 
+Stacktrace:
+RemoteError@chrome://remote/content/shared/RemoteError.sys.mjs:8:8
+WebDriverError@chrome://remote/content/shared/webdriver/Errors.sys.mjs:189:5
+NoSuchElementError@chrome://remote/content/shared/webdriver/Errors.sys.mjs:507:5
+dom.find/</<@chrome://remote/content/shared/DOM.sys.mjs:132:16
+
+Notice: Trust flag u is set automatically if the private key is present.
+Notice: Trust flag u is set automatically if the private key is present.
+Notice: Trust flag u is set automatically if the private key is present.
+Notice: Trust flag u is set automatically if the private key is present.
+Notice: Trust flag u is set automatically if the private key is present.
+Notice: Trust flag u is set automatically if the private key is present.
+Notice: Trust flag u is set automatically if the private key is present.
+Notice: Trust flag u is set automatically if the private key is present.
+Notice: Trust flag u is set automatically if the private key is present.
+Notice: Trust flag u is set automatically if the private key is present.
+Notice: Trust flag u is set automatically if the private key is present.
+Notice: Trust flag u is set automatically if the private key is present.
+Notice: Trust flag u is set automatically if the private key is present.
+Notice: Trust flag u is set automatically if the private key is present.
+Notice: Trust flag u is set automatically if the private key is present.
+Notice: Trust flag u is set automatically if the private key is present.
+Notice: Trust flag u is set automatically if the private key is present.
+Notice: Trust flag u is set automatically if the private key is present.
+Notice: Trust flag u is set automatically if the private key is present.
+  File "/home/app/bonds_sync.py", line 201
+    def rename_file(_id, country, year):
+    ^
+IndentationError: expected an indented block after function definition on line 198
+  File "/home/app/bonds_sync.py", line 201
+    def rename_file(_id, country, year):
+    ^
+IndentationError: expected an indented block after function definition on line 198
+  File "/home/app/bonds_sync.py", line 201
+    def rename_file(_id, country, year):
+    ^
+IndentationError: expected an indented block after function definition on line 198
+  File "/home/app/bonds_sync.py", line 201
+    def rename_file(_id, country, year):
+    ^
+IndentationError: expected an indented block after function definition on line 198
+Notice: Trust flag u is set automatically if the private key is present.
+Traceback (most recent call last):
+  File "/home/app/bonds_sync.py", line 175, in main
+    rename_file(instrument_id, country, year)
+  File "/home/app/bonds_sync.py", line 206, in rename_file
+    raise FileNotFoundError
+FileNotFoundError
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/app/bonds_sync.py", line 276, in <module>
+    main()
+  File "/home/app/bonds_sync.py", line 183, in main
+    rename_file(instrument_id, country, year)
+  File "/home/app/bonds_sync.py", line 206, in rename_file
+    raise FileNotFoundError
+FileNotFoundError
+Notice: Trust flag u is set automatically if the private key is present.
+Notice: Trust flag u is set automatically if the private key is present.
+Notice: Trust flag u is set automatically if the private key is present.
+Notice: Trust flag u is set automatically if the private key is present.
+Notice: Trust flag u is set automatically if the private key is present.
+Notice: Trust flag u is set automatically if the private key is present.
+Notice: Trust flag u is set automatically if the private key is present.
+Notice: Trust flag u is set automatically if the private key is present.
+Notice: Trust flag u is set automatically if the private key is present.
+Traceback (most recent call last):
+  File "/home/app/bonds_sync.py", line 175, in main
+    rename_file(instrument_id, country, year)
+  File "/home/app/bonds_sync.py", line 206, in rename_file
+    raise FileNotFoundError
+FileNotFoundError
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/app/bonds_sync.py", line 276, in <module>
+    main()
+  File "/home/app/bonds_sync.py", line 183, in main
+    rename_file(instrument_id, country, year)
+  File "/home/app/bonds_sync.py", line 206, in rename_file
+    raise FileNotFoundError
+FileNotFoundError
