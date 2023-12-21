@@ -1,0 +1,458 @@
+{
+    "australia_2": {
+        "url": "https://www.investing.com/rates-bonds/australia-2-year-bond-yield-historical-data",
+        "id": "23870"
+    },
+    "australia_5": {
+        "url": "https://www.investing.com/rates-bonds/australia-5-year-bond-yield-historical-data",
+        "id": "23873"
+    },
+    "austria_2": {
+        "url": "https://www.investing.com/rates-bonds/austria-2-year-bond-yield-historical-data",
+        "id": "23854"
+    },
+    "austria_5": {
+        "url": "https://www.investing.com/rates-bonds/austria-5-year-bond-yield-historical-data",
+        "id": "23857"
+    },
+    "bahrain_2": {
+        "url": "https://www.investing.com/rates-bonds/bahrain-2-year-historical-data",
+        "id": "1052505"
+    },
+    "bahrain_5": {
+        "url": "https://www.investing.com/rates-bonds/bahrain-5-year-historical-data",
+        "id": "1052507"
+    },
+    "bangladesh_2": {
+        "url": "https://www.investing.com/rates-bonds/bangladesh-2-year-historical-data",
+        "id": "1052589"
+    },
+    "bangladesh_5": {
+        "url": "https://www.investing.com/rates-bonds/bangladesh-5-year-historical-data",
+        "id": "1052591"
+    },
+    "belgium_2": {
+        "url": "https://www.investing.com/rates-bonds/belguim-2-year-bond-yield-historical-data",
+        "id": "23818"
+    },
+    "belgium_5": {
+        "url": "https://www.investing.com/rates-bonds/belguim-5-year-bond-yield-historical-data",
+        "id": "23821"
+    },
+    "brazil_2": {
+        "url": "https://www.investing.com/rates-bonds/brazil-2-year-bond-yield-historical-data",
+        "id": "24025"
+    },
+    "brazil_5": {
+        "url": "https://www.investing.com/rates-bonds/brazil-5-year-bond-yield-historical-data",
+        "id": "24027"
+    },
+    "bulgaria_2": {
+        "url": "https://www.investing.com/rates-bonds/bulgaria-2-year-bond-yield-historical-data",
+        "id": "1173525"
+    },
+    "bulgaria_5": {
+        "url": "https://www.investing.com/rates-bonds/bulgaria-5-year-bond-yield-historical-data",
+        "id": "23994"
+    },
+    "canada_2": {
+        "url": "https://www.investing.com/rates-bonds/canada-2-year-bond-yield-historical-data",
+        "id": "25270"
+    },
+    "canada_5": {
+        "url": "https://www.investing.com/rates-bonds/canada-5-year-bond-yield-historical-data",
+        "id": "25273"
+    },
+    "chile_2": {
+        "url": "https://www.investing.com/rates-bonds/chile-2-year-bond-yield-historical-data",
+        "id": "29219"
+    },
+    "chile_5": {
+        "url": "https://www.investing.com/rates-bonds/chile-5-year-bond-yield-historical-data",
+        "id": "29222"
+    },
+    "china_2": {
+        "url": "https://www.investing.com/rates-bonds/china-2-year-bond-yield-historical-data",
+        "id": "29232"
+    },
+    "china_5": {
+        "url": "https://www.investing.com/rates-bonds/china-5-year-bond-yield-historical-data",
+        "id": "29234"
+    },
+    "colombia_2": {
+        "url": "https://www.investing.com/rates-bonds/colombia-2-year-bond-yield-historical-data",
+        "id": "29238"
+    },
+    "colombia_5": {
+        "url": "https://www.investing.com/rates-bonds/colombia-5-year-bond-yield-historical-data",
+        "id": "29240"
+    },
+    "croatia_2": {
+        "url": "https://www.investing.com/rates-bonds/croatia-2-year-historical-data",
+        "id": "1199848"
+    },
+    "croatia_5": {
+        "url": "https://www.investing.com/rates-bonds/croatia-5-year-bond-yield-historical-data",
+        "id": "24001"
+    },
+    "czech-republic_2": {
+        "url": "https://www.investing.com/rates-bonds/czech-republic-2-year-bond-yield-historical-data",
+        "id": "29249"
+    },
+    "czech-republic_5": {
+        "url": "https://www.investing.com/rates-bonds/czech-republic-5-year-bond-yield-historical-data",
+        "id": "29252"
+    },
+    "denmark_2": {
+        "url": "https://www.investing.com/rates-bonds/denmark-2-year-bond-yield-historical-data",
+        "id": "23834"
+    },
+    "denmark_5": {
+        "url": "https://www.investing.com/rates-bonds/denmark-5-year-bond-yield-historical-data",
+        "id": "23836"
+    },
+    "egypt_2": {
+        "url": "https://www.investing.com/rates-bonds/egypt-2-year-historical-data",
+        "id": "1052495"
+    },
+    "egypt_5": {
+        "url": "https://www.investing.com/rates-bonds/egypt-5-year-bond-yield-historical-data",
+        "id": "40643"
+    },
+    "finland_2": {
+        "url": "https://www.investing.com/rates-bonds/finland-2-year-bond-yield-historical-data",
+        "id": "23845"
+    },
+    "finland_5": {
+        "url": "https://www.investing.com/rates-bonds/finland-5-year-bond-yield-historical-data",
+        "id": "23848"
+    },
+    "france_2": {
+        "url": "https://www.investing.com/rates-bonds/france-2-year-bond-yield-historical-data",
+        "id": "23770"
+    },
+    "france_5": {
+        "url": "https://www.investing.com/rates-bonds/france-5-year-bond-yield-historical-data",
+        "id": "23773"
+    },
+    "germany_2": {
+        "url": "https://www.investing.com/rates-bonds/germany-2-year-bond-yield-historical-data",
+        "id": "23685"
+    },
+    "germany_5": {
+        "url": "https://www.investing.com/rates-bonds/germany-5-year-bond-yield-historical-data",
+        "id": "23688"
+    },
+    "greece_2": {
+        "url": "https://www.investing.com/rates-bonds/greece-2-year-bond-yield-historical-data",
+        "id": "23979"
+    },
+    "greece_5": {
+        "url": "https://www.investing.com/rates-bonds/greece-5-year-bond-yield-historical-data",
+        "id": "23981"
+    },
+    "hong-kong_2": {
+        "url": "https://www.investing.com/rates-bonds/hong-kong-2-year-bond-yield-historical-data",
+        "id": "23912"
+    },
+    "hong-kong_5": {
+        "url": "https://www.investing.com/rates-bonds/hong-kong-5-year-bond-yield-historical-data",
+        "id": "23915"
+    },
+    "iceland_2": {
+        "url": "https://www.investing.com/rates-bonds/iceland-2-year-bond-yield-historical-data",
+        "id": "29225"
+    },
+    "iceland_5": {
+        "url": "https://www.investing.com/rates-bonds/iceland-5-year-bond-yield",
+        "id": "29226"
+    },
+    "india_2": {
+        "url": "https://www.investing.com/rates-bonds/india-2-year-bond-yield-historical-data",
+        "id": "24006"
+    },
+    "india_5": {
+        "url": "https://www.investing.com/rates-bonds/india-5-year-bond-yield-historical-data",
+        "id": "24009"
+    },
+    "ireland_2": {
+        "url": "https://www.investing.com/rates-bonds/ireland-2-year-bond-yield-historical-data",
+        "id": "29268"
+    },
+    "ireland_5": {
+        "url": "https://www.investing.com/rates-bonds/ireland-5-year-bond-yield-historical-data",
+        "id": "29270"
+    },
+    "israel_2": {
+        "url": "https://www.investing.com/rates-bonds/israel-2-year-historical-data",
+        "id": "1052482"
+    },
+    "israel_5": {
+        "url": "https://www.investing.com/rates-bonds/israel-5-year-bond-yield-historical-data",
+        "id": "24043"
+    },
+    "italy_2": {
+        "url": "https://www.investing.com/rates-bonds/italy-2-year-bond-yield-historical-data",
+        "id": "23730"
+    },
+    "italy_5": {
+        "url": "https://www.investing.com/rates-bonds/italy-5-year-bond-yield-historical-data",
+        "id": "23733"
+    },
+    "japan_2": {
+        "url": "https://www.investing.com/rates-bonds/japan-2-year-bond-yield-historical-data",
+        "id": "23893"
+    },
+    "japan_5": {
+        "url": "https://www.investing.com/rates-bonds/japan-5-year-bond-yield-historical-data",
+        "id": "23896"
+    },
+    "kazakhstan_2": {
+        "url": "https://www.investing.com/rates-bonds/kazakhstan-2-year-historical-data",
+        "id": "1173024"
+    },
+    "kazakhstan_5": {
+        "url": "https://www.investing.com/rates-bonds/kazakhstan-5-year-historical-data",
+        "id": "1173027"
+    },
+    "kenya_2": {
+        "url": "https://www.investing.com/rates-bonds/kenya-2-year-bond-yield-historical-data",
+        "id": "29284"
+    },
+    "kenya_5": {
+        "url": "https://www.investing.com/rates-bonds/kenya-5-year-bond-yield-historical-data",
+        "id": "29287"
+    },
+    "latvia_2": {
+        "url": "https://www.investing.com/rates-bonds/latvia-2-years-bond-yield",
+        "id": "42392"
+    },
+    "latvia_5": {
+        "url": "https://www.investing.com/rates-bonds/latvia-5-years-bond-yield",
+        "id": "42391"
+    },
+    "mauritius_2": {
+        "url": "https://www.investing.com/rates-bonds/mauritius-2-year-historical-data",
+        "id": "1052563"
+    },
+    "mauritius_5": {
+        "url": "https://www.investing.com/rates-bonds/mauritius-5-year",
+        "id": "1052566"
+    },
+    "morocco_2": {
+        "url": "https://www.investing.com/rates-bonds/morocco-2-year-historical-data",
+        "id": "1052498"
+    },
+    "morocco_5": {
+        "url": "https://www.investing.com/rates-bonds/morocco-5-year-historical-data",
+        "id": "1052500"
+    },
+    "netherlands_2": {
+        "url": "https://www.investing.com/rates-bonds/netherlands-2-year-bond-yield",
+        "id": "23743"
+    },
+    "netherlands_5": {
+        "url": "https://www.investing.com/rates-bonds/netherlands-5-year-bond-yield-historical-data",
+        "id": "23746"
+    },
+    "new-zealand_2": {
+        "url": "https://www.investing.com/rates-bonds/new-zealand-2-years-bond-yield",
+        "id": "42407"
+    },
+    "new-zealand_5": {
+        "url": "https://www.investing.com/rates-bonds/new-zealand-5-years-bond-yield",
+        "id": "42408"
+    },
+    "nigeria_2": {
+        "url": "https://www.investing.com/rates-bonds/nigeria-2-year-historical-data",
+        "id": "1052571"
+    },
+    "nigeria_5": {
+        "url": "https://www.investing.com/rates-bonds/nigeria-5-year-historical-data",
+        "id": "1052574"
+    },
+    "peru_2": {
+        "url": "https://www.investing.com/rates-bonds/peru-2-year-historical-data",
+        "id": "1141798"
+    },
+    "peru_5": {
+        "url": "https://www.investing.com/rates-bonds/peru-5-year-bond-yield-historical-data",
+        "id": "29320"
+    },
+    "philippines_2": {
+        "url": "https://www.investing.com/rates-bonds/philippines-2-year-bond-yield-historical-data",
+        "id": "29329"
+    },
+    "philippines_5": {
+        "url": "https://www.investing.com/rates-bonds/philippines-5-year-bond-yield-historical-data",
+        "id": "29332"
+    },
+    "poland_2": {
+        "url": "https://www.investing.com/rates-bonds/poland-2-year-bond-yield-historical-data",
+        "id": "23940"
+    },
+    "poland_5": {
+        "url": "https://www.investing.com/rates-bonds/poland-5-year-bond-yield-historical-data",
+        "id": "23943"
+    },
+    "portugal_2": {
+        "url": "https://www.investing.com/rates-bonds/portugal-2-year-bond-yield-historical-data",
+        "id": "23784"
+    },
+    "portugal_5": {
+        "url": "https://www.investing.com/rates-bonds/portugal-5-year-bond-yield-historical-data",
+        "id": "23787"
+    },
+    "qatar_2": {
+        "url": "https://www.investing.com/rates-bonds/qatar-2-year-bond-yield-historical-data",
+        "id": "29204"
+    },
+    "qatar_5": {
+        "url": "https://www.investing.com/rates-bonds/qatar-5-year-bond-yield-historical-data",
+        "id": "29205"
+    },
+    "romania_2": {
+        "url": "https://www.investing.com/rates-bonds/romania-2-year-historical-data",
+        "id": "1052511"
+    },
+    "romania_5": {
+        "url": "https://www.investing.com/rates-bonds/romania-5-year-bond-yield-historical-data",
+        "id": "23989"
+    },
+    "russia_2": {
+        "url": "https://www.investing.com/rates-bonds/russia-2-year-bond-yield-historical-data",
+        "id": "23971"
+    },
+    "russia_5": {
+        "url": "https://www.investing.com/rates-bonds/russia-5-year-bond-yield-historical-data",
+        "id": "23973"
+    },
+    "serbia_2": {
+        "url": "https://www.investing.com/rates-bonds/serbia-2-year-historical-data",
+        "id": "1052578"
+    },
+    "serbia_5": {
+        "url": "https://www.investing.com/rates-bonds/serbia-5-year-historical-data",
+        "id": "1052581"
+    },
+    "singapore_2": {
+        "url": "https://www.investing.com/rates-bonds/singapore-2-year-bond-yield-historical-data",
+        "id": "23885"
+    },
+    "singapore_5": {
+        "url": "https://www.investing.com/rates-bonds/singapore-5-year-bond-yield-historical-data",
+        "id": "23886"
+    },
+    "slovakia_2": {
+        "url": "https://www.investing.com/rates-bonds/slovakia-2-year-bond-yield-historical-data",
+        "id": "29337"
+    },
+    "slovakia_5": {
+        "url": "https://www.investing.com/rates-bonds/slovakia-5-year-bond-yield-historical-data",
+        "id": "29339"
+    },
+    "south-korea_2": {
+        "url": "https://www.investing.com/rates-bonds/south-korea-2-year-bond-yield-historical-data",
+        "id": "29295"
+    },
+    "south-korea_5": {
+        "url": "https://www.investing.com/rates-bonds/south-korea-5-year-bond-yield-historical-data",
+        "id": "29298"
+    },
+    "spain_2": {
+        "url": "https://www.investing.com/rates-bonds/spain-2-year-bond-yield-historical-data",
+        "id": "23798"
+    },
+    "spain_5": {
+        "url": "https://www.investing.com/rates-bonds/spain-5-year-bond-yield-historical-data",
+        "id": "23801"
+    },
+    "sri-lanka_2": {
+        "url": "https://www.investing.com/rates-bonds/sri-lanka-2-year-bond-yield-historical-data",
+        "id": "29347"
+    },
+    "sri-lanka_5": {
+        "url": "https://www.investing.com/rates-bonds/sri-lanka-5-year-bond-yield-historical-data",
+        "id": "29350"
+    },
+    "sweden_2": {
+        "url": "https://www.investing.com/rates-bonds/sweden-2-year-bond-yield-historical-data",
+        "id": "23814"
+    },
+    "sweden_5": {
+        "url": "https://www.investing.com/rates-bonds/sweden-5-year-bond-yield-historical-data",
+        "id": "24039"
+    },
+    "switzerland_2": {
+        "url": "https://www.investing.com/rates-bonds/switzerland-2-year-bond-yield-historical-data",
+        "id": "23714"
+    },
+    "switzerland_5": {
+        "url": "https://www.investing.com/rates-bonds/switzerland-5-year-bond-yield-historical-data",
+        "id": "23717"
+    },
+    "taiwan_2": {
+        "url": "https://www.investing.com/rates-bonds/taiwan-2-year-bond-yield-historical-data",
+        "id": "29358"
+    },
+    "taiwan_5": {
+        "url": "https://www.investing.com/rates-bonds/taiwan-5-year-bond-yield-historical-data",
+        "id": "29359"
+    },
+    "thailand_2": {
+        "url": "https://www.investing.com/rates-bonds/thailand-2-year-bond-yield-historical-data",
+        "id": "29366"
+    },
+    "thailand_5": {
+        "url": "https://www.investing.com/rates-bonds/thailand-5-year-bond-yield-historical-data",
+        "id": "29367"
+    },
+    "turkey_2": {
+        "url": "https://www.investing.com/rates-bonds/turkey-2-year-bond-yield-historical-data",
+        "id": "24034"
+    },
+    "turkey_5": {
+        "url": "https://www.investing.com/rates-bonds/turkey-5-year-bond-yield-historical-data",
+        "id": "24036"
+    },
+    "u.k._2": {
+        "url": "https://www.investing.com/rates-bonds/uk-2-year-bond-yield-historical-data",
+        "id": "23665"
+    },
+    "u.k._5": {
+        "url": "https://www.investing.com/rates-bonds/uk-5-year-bond-yield-historical-data",
+        "id": "23668"
+    },
+    "u.s._2": {
+        "url": "https://www.investing.com/rates-bonds/u.s.-2-year-bond-yield-historical-data",
+        "id": "23701"
+    },
+    "u.s._5": {
+        "url": "https://www.investing.com/rates-bonds/u.s.-5-year-bond-yield-historical-data",
+        "id": "23703"
+    },
+    "uganda_2": {
+        "url": "https://www.investing.com/rates-bonds/uganda-2-years-bond-yield",
+        "id": "42342"
+    },
+    "uganda_5": {
+        "url": "https://www.investing.com/rates-bonds/uganda-5-years-bond-yield",
+        "id": "42326"
+    },
+    "vietnam_2": {
+        "url": "https://www.investing.com/rates-bonds/vietnam-2-year-bond-yield-historical-data",
+        "id": "29381"
+    },
+    "vietnam_5": {
+        "url": "https://www.investing.com/rates-bonds/vietnam-5-year-bond-yield-historical-data",
+        "id": "29383"
+    },
+    "zambia_2": {
+        "url": "https://www.investing.com/rates-bonds/zambia-2-year-historical-data",
+        "id": "1199820"
+    },
+    "zambia_5": {
+        "url": "https://www.investing.com/rates-bonds/zambia-5-year-historical-data",
+        "id": "1199823"
+    }
+}
