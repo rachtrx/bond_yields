@@ -2,8 +2,16 @@
 
 set -e
 
-if [ "$DATABASE" = "sqlite" ] && [ "$LIVE" = "1" ]
+if [ "$DATABASE" = "postgres" ]
 then
+    echo "Waiting for postgres..."
+
+    while ! pg_isready -h $SQL_HOST -p $SQL_PORT -q; do
+      echo "Waiting for PostgreSQL to start..."
+      sleep 1
+  done
+
+    echo "PostgreSQL started"
     echo "Creating the database tables..."
     flask create_db
     echo "Tables created"

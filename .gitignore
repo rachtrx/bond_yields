@@ -1,1 +1,8 @@
 .env
+**/.env
+**/logs/*
+!/logs/indiv_logs/
+!/logs/url_list.log
+**/img
+**/page_source
+**/old
