@@ -3104,3 +3104,451 @@ Traceback (most recent call last):
     raise NoSuchDriverException(msg) from err
 selenium.common.exceptions.NoSuchDriverException: Message: Unable to obtain driver for firefox using Selenium Manager.; For documentation on this error, please visit: https://www.selenium.dev/documentation/webdriver/troubleshooting/errors/driver_location
 
+Notice: Trust flag u is set automatically if the private key is present.
+/root/.mitmproxy/mitmproxy-ca-cert.pem
+Traceback (most recent call last):
+  File "/opt/conda/envs/bonds/lib/python3.12/site-packages/selenium/webdriver/common/driver_finder.py", line 38, in get_path
+    path = SeleniumManager().driver_location(options) if path is None else path
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/conda/envs/bonds/lib/python3.12/site-packages/selenium/webdriver/common/selenium_manager.py", line 86, in driver_location
+    args = [str(self.get_binary()), "--browser", browser]
+                ^^^^^^^^^^^^^^^^^
+  File "/opt/conda/envs/bonds/lib/python3.12/site-packages/selenium/webdriver/common/selenium_manager.py", line 70, in get_binary
+    raise WebDriverException(f"Unable to obtain working Selenium Manager binary; {path}")
+selenium.common.exceptions.WebDriverException: Message: Unable to obtain working Selenium Manager binary; /opt/conda/envs/bonds/lib/python3.12/site-packages/selenium/webdriver/common/linux/selenium-manager
+
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/home/app/bonds_sync_realtime.py", line 81, in <module>
+    main()
+  File "/home/app/bonds_sync_realtime.py", line 73, in main
+    new_data = bond_sync_controller.get_new_data(retries=3)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/app/bonds_sync_daily.py", line 111, in get_new_data
+    with webdriver.Firefox(options=self.options) as driver:
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/conda/envs/bonds/lib/python3.12/site-packages/selenium/webdriver/firefox/webdriver.py", line 59, in __init__
+    self.service.path = DriverFinder.get_path(self.service, options)
+                        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/conda/envs/bonds/lib/python3.12/site-packages/selenium/webdriver/common/driver_finder.py", line 41, in get_path
+    raise NoSuchDriverException(msg) from err
+selenium.common.exceptions.NoSuchDriverException: Message: Unable to obtain driver for firefox using Selenium Manager.; For documentation on this error, please visit: https://www.selenium.dev/documentation/webdriver/troubleshooting/errors/driver_location
+
+Notice: Trust flag u is set automatically if the private key is present.
+/root/.mitmproxy/mitmproxy-ca-cert.pem
+Traceback (most recent call last):
+  File "/opt/conda/envs/bonds/lib/python3.12/site-packages/selenium/webdriver/common/driver_finder.py", line 38, in get_path
+    path = SeleniumManager().driver_location(options) if path is None else path
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/conda/envs/bonds/lib/python3.12/site-packages/selenium/webdriver/common/selenium_manager.py", line 86, in driver_location
+    args = [str(self.get_binary()), "--browser", browser]
+                ^^^^^^^^^^^^^^^^^
+  File "/opt/conda/envs/bonds/lib/python3.12/site-packages/selenium/webdriver/common/selenium_manager.py", line 70, in get_binary
+    raise WebDriverException(f"Unable to obtain working Selenium Manager binary; {path}")
+selenium.common.exceptions.WebDriverException: Message: Unable to obtain working Selenium Manager binary; /opt/conda/envs/bonds/lib/python3.12/site-packages/selenium/webdriver/common/linux/selenium-manager
+
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/home/app/bonds_sync_realtime.py", line 81, in <module>
+    main()
+  File "/home/app/bonds_sync_realtime.py", line 73, in main
+    new_data = bond_sync_controller.get_new_data(retries=3)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/app/bonds_sync_daily.py", line 111, in get_new_data
+    with webdriver.Firefox(options=self.options) as driver:
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/conda/envs/bonds/lib/python3.12/site-packages/selenium/webdriver/firefox/webdriver.py", line 59, in __init__
+    self.service.path = DriverFinder.get_path(self.service, options)
+                        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/conda/envs/bonds/lib/python3.12/site-packages/selenium/webdriver/common/driver_finder.py", line 41, in get_path
+    raise NoSuchDriverException(msg) from err
+selenium.common.exceptions.NoSuchDriverException: Message: Unable to obtain driver for firefox using Selenium Manager.; For documentation on this error, please visit: https://www.selenium.dev/documentation/webdriver/troubleshooting/errors/driver_location
+
+Notice: Trust flag u is set automatically if the private key is present.
+/root/.mitmproxy/mitmproxy-ca-cert.pem
+Traceback (most recent call last):
+  File "/opt/conda/envs/bonds/lib/python3.12/site-packages/selenium/webdriver/common/driver_finder.py", line 38, in get_path
+    path = SeleniumManager().driver_location(options) if path is None else path
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/conda/envs/bonds/lib/python3.12/site-packages/selenium/webdriver/common/selenium_manager.py", line 86, in driver_location
+    args = [str(self.get_binary()), "--browser", browser]
+                ^^^^^^^^^^^^^^^^^
+  File "/opt/conda/envs/bonds/lib/python3.12/site-packages/selenium/webdriver/common/selenium_manager.py", line 70, in get_binary
+    raise WebDriverException(f"Unable to obtain working Selenium Manager binary; {path}")
+selenium.common.exceptions.WebDriverException: Message: Unable to obtain working Selenium Manager binary; /opt/conda/envs/bonds/lib/python3.12/site-packages/selenium/webdriver/common/linux/selenium-manager
+
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/home/app/bonds_sync_realtime.py", line 81, in <module>
+    main()
+  File "/home/app/bonds_sync_realtime.py", line 73, in main
+    new_data = bond_sync_controller.get_new_data(retries=3)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/app/bonds_sync_daily.py", line 111, in get_new_data
+    with webdriver.Firefox(options=self.options) as driver:
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/conda/envs/bonds/lib/python3.12/site-packages/selenium/webdriver/firefox/webdriver.py", line 59, in __init__
+    self.service.path = DriverFinder.get_path(self.service, options)
+                        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/conda/envs/bonds/lib/python3.12/site-packages/selenium/webdriver/common/driver_finder.py", line 41, in get_path
+    raise NoSuchDriverException(msg) from err
+selenium.common.exceptions.NoSuchDriverException: Message: Unable to obtain driver for firefox using Selenium Manager.; For documentation on this error, please visit: https://www.selenium.dev/documentation/webdriver/troubleshooting/errors/driver_location
+
+Notice: Trust flag u is set automatically if the private key is present.
+/root/.mitmproxy/mitmproxy-ca-cert.pem
+Traceback (most recent call last):
+  File "/opt/conda/envs/bonds/lib/python3.12/site-packages/selenium/webdriver/common/driver_finder.py", line 38, in get_path
+    path = SeleniumManager().driver_location(options) if path is None else path
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/conda/envs/bonds/lib/python3.12/site-packages/selenium/webdriver/common/selenium_manager.py", line 86, in driver_location
+    args = [str(self.get_binary()), "--browser", browser]
+                ^^^^^^^^^^^^^^^^^
+  File "/opt/conda/envs/bonds/lib/python3.12/site-packages/selenium/webdriver/common/selenium_manager.py", line 70, in get_binary
+    raise WebDriverException(f"Unable to obtain working Selenium Manager binary; {path}")
+selenium.common.exceptions.WebDriverException: Message: Unable to obtain working Selenium Manager binary; /opt/conda/envs/bonds/lib/python3.12/site-packages/selenium/webdriver/common/linux/selenium-manager
+
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/home/app/bonds_sync_realtime.py", line 81, in <module>
+    main()
+  File "/home/app/bonds_sync_realtime.py", line 73, in main
+    new_data = bond_sync_controller.get_new_data(retries=3)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/app/bonds_sync_daily.py", line 111, in get_new_data
+    with webdriver.Firefox(options=self.options) as driver:
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/conda/envs/bonds/lib/python3.12/site-packages/selenium/webdriver/firefox/webdriver.py", line 59, in __init__
+    self.service.path = DriverFinder.get_path(self.service, options)
+                        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/conda/envs/bonds/lib/python3.12/site-packages/selenium/webdriver/common/driver_finder.py", line 41, in get_path
+    raise NoSuchDriverException(msg) from err
+selenium.common.exceptions.NoSuchDriverException: Message: Unable to obtain driver for firefox using Selenium Manager.; For documentation on this error, please visit: https://www.selenium.dev/documentation/webdriver/troubleshooting/errors/driver_location
+
+Notice: Trust flag u is set automatically if the private key is present.
+/root/.mitmproxy/mitmproxy-ca-cert.pem
+Traceback (most recent call last):
+  File "/opt/conda/envs/bonds/lib/python3.12/site-packages/selenium/webdriver/common/driver_finder.py", line 38, in get_path
+    path = SeleniumManager().driver_location(options) if path is None else path
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/conda/envs/bonds/lib/python3.12/site-packages/selenium/webdriver/common/selenium_manager.py", line 86, in driver_location
+    args = [str(self.get_binary()), "--browser", browser]
+                ^^^^^^^^^^^^^^^^^
+  File "/opt/conda/envs/bonds/lib/python3.12/site-packages/selenium/webdriver/common/selenium_manager.py", line 70, in get_binary
+    raise WebDriverException(f"Unable to obtain working Selenium Manager binary; {path}")
+selenium.common.exceptions.WebDriverException: Message: Unable to obtain working Selenium Manager binary; /opt/conda/envs/bonds/lib/python3.12/site-packages/selenium/webdriver/common/linux/selenium-manager
+
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/home/app/bonds_sync_realtime.py", line 81, in <module>
+    main()
+  File "/home/app/bonds_sync_realtime.py", line 73, in main
+    new_data = bond_sync_controller.get_new_data(retries=3)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/app/bonds_sync_daily.py", line 111, in get_new_data
+    with webdriver.Firefox(options=self.options) as driver:
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/conda/envs/bonds/lib/python3.12/site-packages/selenium/webdriver/firefox/webdriver.py", line 59, in __init__
+    self.service.path = DriverFinder.get_path(self.service, options)
+                        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/conda/envs/bonds/lib/python3.12/site-packages/selenium/webdriver/common/driver_finder.py", line 41, in get_path
+    raise NoSuchDriverException(msg) from err
+selenium.common.exceptions.NoSuchDriverException: Message: Unable to obtain driver for firefox using Selenium Manager.; For documentation on this error, please visit: https://www.selenium.dev/documentation/webdriver/troubleshooting/errors/driver_location
+
+Notice: Trust flag u is set automatically if the private key is present.
+/root/.mitmproxy/mitmproxy-ca-cert.pem
+Traceback (most recent call last):
+  File "/opt/conda/envs/bonds/lib/python3.12/site-packages/selenium/webdriver/common/driver_finder.py", line 38, in get_path
+    path = SeleniumManager().driver_location(options) if path is None else path
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/conda/envs/bonds/lib/python3.12/site-packages/selenium/webdriver/common/selenium_manager.py", line 86, in driver_location
+    args = [str(self.get_binary()), "--browser", browser]
+                ^^^^^^^^^^^^^^^^^
+  File "/opt/conda/envs/bonds/lib/python3.12/site-packages/selenium/webdriver/common/selenium_manager.py", line 70, in get_binary
+    raise WebDriverException(f"Unable to obtain working Selenium Manager binary; {path}")
+selenium.common.exceptions.WebDriverException: Message: Unable to obtain working Selenium Manager binary; /opt/conda/envs/bonds/lib/python3.12/site-packages/selenium/webdriver/common/linux/selenium-manager
+
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/home/app/bonds_sync_realtime.py", line 81, in <module>
+    main()
+  File "/home/app/bonds_sync_realtime.py", line 73, in main
+    new_data = bond_sync_controller.get_new_data(retries=3)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/app/bonds_sync_daily.py", line 111, in get_new_data
+    with webdriver.Firefox(options=self.options) as driver:
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/conda/envs/bonds/lib/python3.12/site-packages/selenium/webdriver/firefox/webdriver.py", line 59, in __init__
+    self.service.path = DriverFinder.get_path(self.service, options)
+                        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/conda/envs/bonds/lib/python3.12/site-packages/selenium/webdriver/common/driver_finder.py", line 41, in get_path
+    raise NoSuchDriverException(msg) from err
+selenium.common.exceptions.NoSuchDriverException: Message: Unable to obtain driver for firefox using Selenium Manager.; For documentation on this error, please visit: https://www.selenium.dev/documentation/webdriver/troubleshooting/errors/driver_location
+
+Notice: Trust flag u is set automatically if the private key is present.
+/root/.mitmproxy/mitmproxy-ca-cert.pem
+Traceback (most recent call last):
+  File "/opt/conda/envs/bonds/lib/python3.12/site-packages/selenium/webdriver/common/driver_finder.py", line 38, in get_path
+    path = SeleniumManager().driver_location(options) if path is None else path
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/conda/envs/bonds/lib/python3.12/site-packages/selenium/webdriver/common/selenium_manager.py", line 86, in driver_location
+    args = [str(self.get_binary()), "--browser", browser]
+                ^^^^^^^^^^^^^^^^^
+  File "/opt/conda/envs/bonds/lib/python3.12/site-packages/selenium/webdriver/common/selenium_manager.py", line 70, in get_binary
+    raise WebDriverException(f"Unable to obtain working Selenium Manager binary; {path}")
+selenium.common.exceptions.WebDriverException: Message: Unable to obtain working Selenium Manager binary; /opt/conda/envs/bonds/lib/python3.12/site-packages/selenium/webdriver/common/linux/selenium-manager
+
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/home/app/bonds_sync_realtime.py", line 81, in <module>
+    main()
+  File "/home/app/bonds_sync_realtime.py", line 73, in main
+    new_data = bond_sync_controller.get_new_data(retries=3)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/app/bonds_sync_daily.py", line 111, in get_new_data
+    with webdriver.Firefox(options=self.options) as driver:
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/conda/envs/bonds/lib/python3.12/site-packages/selenium/webdriver/firefox/webdriver.py", line 59, in __init__
+    self.service.path = DriverFinder.get_path(self.service, options)
+                        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/conda/envs/bonds/lib/python3.12/site-packages/selenium/webdriver/common/driver_finder.py", line 41, in get_path
+    raise NoSuchDriverException(msg) from err
+selenium.common.exceptions.NoSuchDriverException: Message: Unable to obtain driver for firefox using Selenium Manager.; For documentation on this error, please visit: https://www.selenium.dev/documentation/webdriver/troubleshooting/errors/driver_location
+
+Notice: Trust flag u is set automatically if the private key is present.
+/root/.mitmproxy/mitmproxy-ca-cert.pem
+Traceback (most recent call last):
+  File "/opt/conda/envs/bonds/lib/python3.12/site-packages/selenium/webdriver/common/driver_finder.py", line 38, in get_path
+    path = SeleniumManager().driver_location(options) if path is None else path
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/conda/envs/bonds/lib/python3.12/site-packages/selenium/webdriver/common/selenium_manager.py", line 86, in driver_location
+    args = [str(self.get_binary()), "--browser", browser]
+                ^^^^^^^^^^^^^^^^^
+  File "/opt/conda/envs/bonds/lib/python3.12/site-packages/selenium/webdriver/common/selenium_manager.py", line 70, in get_binary
+    raise WebDriverException(f"Unable to obtain working Selenium Manager binary; {path}")
+selenium.common.exceptions.WebDriverException: Message: Unable to obtain working Selenium Manager binary; /opt/conda/envs/bonds/lib/python3.12/site-packages/selenium/webdriver/common/linux/selenium-manager
+
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/home/app/bonds_sync_realtime.py", line 81, in <module>
+    main()
+  File "/home/app/bonds_sync_realtime.py", line 73, in main
+    new_data = bond_sync_controller.get_new_data(retries=3)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/app/bonds_sync_daily.py", line 111, in get_new_data
+    with webdriver.Firefox(options=self.options) as driver:
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/conda/envs/bonds/lib/python3.12/site-packages/selenium/webdriver/firefox/webdriver.py", line 59, in __init__
+    self.service.path = DriverFinder.get_path(self.service, options)
+                        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/conda/envs/bonds/lib/python3.12/site-packages/selenium/webdriver/common/driver_finder.py", line 41, in get_path
+    raise NoSuchDriverException(msg) from err
+selenium.common.exceptions.NoSuchDriverException: Message: Unable to obtain driver for firefox using Selenium Manager.; For documentation on this error, please visit: https://www.selenium.dev/documentation/webdriver/troubleshooting/errors/driver_location
+
+Notice: Trust flag u is set automatically if the private key is present.
+/root/.mitmproxy/mitmproxy-ca-cert.pem
+Traceback (most recent call last):
+  File "/opt/conda/envs/bonds/lib/python3.12/site-packages/selenium/webdriver/common/driver_finder.py", line 38, in get_path
+    path = SeleniumManager().driver_location(options) if path is None else path
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/conda/envs/bonds/lib/python3.12/site-packages/selenium/webdriver/common/selenium_manager.py", line 86, in driver_location
+    args = [str(self.get_binary()), "--browser", browser]
+                ^^^^^^^^^^^^^^^^^
+  File "/opt/conda/envs/bonds/lib/python3.12/site-packages/selenium/webdriver/common/selenium_manager.py", line 70, in get_binary
+    raise WebDriverException(f"Unable to obtain working Selenium Manager binary; {path}")
+selenium.common.exceptions.WebDriverException: Message: Unable to obtain working Selenium Manager binary; /opt/conda/envs/bonds/lib/python3.12/site-packages/selenium/webdriver/common/linux/selenium-manager
+
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/home/app/bonds_sync_realtime.py", line 81, in <module>
+    main()
+  File "/home/app/bonds_sync_realtime.py", line 73, in main
+    new_data = bond_sync_controller.get_new_data(retries=3)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/app/bonds_sync_daily.py", line 111, in get_new_data
+    with webdriver.Firefox(options=self.options) as driver:
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/conda/envs/bonds/lib/python3.12/site-packages/selenium/webdriver/firefox/webdriver.py", line 59, in __init__
+    self.service.path = DriverFinder.get_path(self.service, options)
+                        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/conda/envs/bonds/lib/python3.12/site-packages/selenium/webdriver/common/driver_finder.py", line 41, in get_path
+    raise NoSuchDriverException(msg) from err
+selenium.common.exceptions.NoSuchDriverException: Message: Unable to obtain driver for firefox using Selenium Manager.; For documentation on this error, please visit: https://www.selenium.dev/documentation/webdriver/troubleshooting/errors/driver_location
+
+Notice: Trust flag u is set automatically if the private key is present.
+/root/.mitmproxy/mitmproxy-ca-cert.pem
+Traceback (most recent call last):
+  File "/opt/conda/envs/bonds/lib/python3.12/site-packages/selenium/webdriver/common/driver_finder.py", line 38, in get_path
+    path = SeleniumManager().driver_location(options) if path is None else path
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/conda/envs/bonds/lib/python3.12/site-packages/selenium/webdriver/common/selenium_manager.py", line 86, in driver_location
+    args = [str(self.get_binary()), "--browser", browser]
+                ^^^^^^^^^^^^^^^^^
+  File "/opt/conda/envs/bonds/lib/python3.12/site-packages/selenium/webdriver/common/selenium_manager.py", line 70, in get_binary
+    raise WebDriverException(f"Unable to obtain working Selenium Manager binary; {path}")
+selenium.common.exceptions.WebDriverException: Message: Unable to obtain working Selenium Manager binary; /opt/conda/envs/bonds/lib/python3.12/site-packages/selenium/webdriver/common/linux/selenium-manager
+
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/home/app/bonds_sync_realtime.py", line 81, in <module>
+    main()
+  File "/home/app/bonds_sync_realtime.py", line 73, in main
+    new_data = bond_sync_controller.get_new_data(retries=3)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/app/bonds_sync_daily.py", line 111, in get_new_data
+    with webdriver.Firefox(options=self.options) as driver:
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/conda/envs/bonds/lib/python3.12/site-packages/selenium/webdriver/firefox/webdriver.py", line 59, in __init__
+    self.service.path = DriverFinder.get_path(self.service, options)
+                        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/conda/envs/bonds/lib/python3.12/site-packages/selenium/webdriver/common/driver_finder.py", line 41, in get_path
+    raise NoSuchDriverException(msg) from err
+selenium.common.exceptions.NoSuchDriverException: Message: Unable to obtain driver for firefox using Selenium Manager.; For documentation on this error, please visit: https://www.selenium.dev/documentation/webdriver/troubleshooting/errors/driver_location
+
+Notice: Trust flag u is set automatically if the private key is present.
+/root/.mitmproxy/mitmproxy-ca-cert.pem
+Traceback (most recent call last):
+  File "/opt/conda/envs/bonds/lib/python3.12/site-packages/selenium/webdriver/common/driver_finder.py", line 38, in get_path
+    path = SeleniumManager().driver_location(options) if path is None else path
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/conda/envs/bonds/lib/python3.12/site-packages/selenium/webdriver/common/selenium_manager.py", line 86, in driver_location
+    args = [str(self.get_binary()), "--browser", browser]
+                ^^^^^^^^^^^^^^^^^
+  File "/opt/conda/envs/bonds/lib/python3.12/site-packages/selenium/webdriver/common/selenium_manager.py", line 70, in get_binary
+    raise WebDriverException(f"Unable to obtain working Selenium Manager binary; {path}")
+selenium.common.exceptions.WebDriverException: Message: Unable to obtain working Selenium Manager binary; /opt/conda/envs/bonds/lib/python3.12/site-packages/selenium/webdriver/common/linux/selenium-manager
+
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/home/app/bonds_sync_realtime.py", line 81, in <module>
+    main()
+  File "/home/app/bonds_sync_realtime.py", line 73, in main
+    new_data = bond_sync_controller.get_new_data(retries=3)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/app/bonds_sync_daily.py", line 111, in get_new_data
+    with webdriver.Firefox(options=self.options) as driver:
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/conda/envs/bonds/lib/python3.12/site-packages/selenium/webdriver/firefox/webdriver.py", line 59, in __init__
+    self.service.path = DriverFinder.get_path(self.service, options)
+                        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/conda/envs/bonds/lib/python3.12/site-packages/selenium/webdriver/common/driver_finder.py", line 41, in get_path
+    raise NoSuchDriverException(msg) from err
+selenium.common.exceptions.NoSuchDriverException: Message: Unable to obtain driver for firefox using Selenium Manager.; For documentation on this error, please visit: https://www.selenium.dev/documentation/webdriver/troubleshooting/errors/driver_location
+
+Notice: Trust flag u is set automatically if the private key is present.
+/root/.mitmproxy/mitmproxy-ca-cert.pem
+Traceback (most recent call last):
+  File "/opt/conda/envs/bonds/lib/python3.12/site-packages/selenium/webdriver/common/driver_finder.py", line 38, in get_path
+    path = SeleniumManager().driver_location(options) if path is None else path
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/conda/envs/bonds/lib/python3.12/site-packages/selenium/webdriver/common/selenium_manager.py", line 86, in driver_location
+    args = [str(self.get_binary()), "--browser", browser]
+                ^^^^^^^^^^^^^^^^^
+  File "/opt/conda/envs/bonds/lib/python3.12/site-packages/selenium/webdriver/common/selenium_manager.py", line 70, in get_binary
+    raise WebDriverException(f"Unable to obtain working Selenium Manager binary; {path}")
+selenium.common.exceptions.WebDriverException: Message: Unable to obtain working Selenium Manager binary; /opt/conda/envs/bonds/lib/python3.12/site-packages/selenium/webdriver/common/linux/selenium-manager
+
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/home/app/bonds_sync_realtime.py", line 81, in <module>
+    main()
+  File "/home/app/bonds_sync_realtime.py", line 73, in main
+    new_data = bond_sync_controller.get_new_data(retries=3)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/app/bonds_sync_daily.py", line 111, in get_new_data
+    with webdriver.Firefox(options=self.options) as driver:
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/conda/envs/bonds/lib/python3.12/site-packages/selenium/webdriver/firefox/webdriver.py", line 59, in __init__
+    self.service.path = DriverFinder.get_path(self.service, options)
+                        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/conda/envs/bonds/lib/python3.12/site-packages/selenium/webdriver/common/driver_finder.py", line 41, in get_path
+    raise NoSuchDriverException(msg) from err
+selenium.common.exceptions.NoSuchDriverException: Message: Unable to obtain driver for firefox using Selenium Manager.; For documentation on this error, please visit: https://www.selenium.dev/documentation/webdriver/troubleshooting/errors/driver_location
+
+Notice: Trust flag u is set automatically if the private key is present.
+/root/.mitmproxy/mitmproxy-ca-cert.pem
+Traceback (most recent call last):
+  File "/opt/conda/envs/bonds/lib/python3.12/site-packages/selenium/webdriver/common/driver_finder.py", line 38, in get_path
+    path = SeleniumManager().driver_location(options) if path is None else path
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/conda/envs/bonds/lib/python3.12/site-packages/selenium/webdriver/common/selenium_manager.py", line 86, in driver_location
+    args = [str(self.get_binary()), "--browser", browser]
+                ^^^^^^^^^^^^^^^^^
+  File "/opt/conda/envs/bonds/lib/python3.12/site-packages/selenium/webdriver/common/selenium_manager.py", line 70, in get_binary
+    raise WebDriverException(f"Unable to obtain working Selenium Manager binary; {path}")
+selenium.common.exceptions.WebDriverException: Message: Unable to obtain working Selenium Manager binary; /opt/conda/envs/bonds/lib/python3.12/site-packages/selenium/webdriver/common/linux/selenium-manager
+
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/home/app/bonds_sync_realtime.py", line 81, in <module>
+    main()
+  File "/home/app/bonds_sync_realtime.py", line 73, in main
+    new_data = bond_sync_controller.get_new_data(retries=3)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/app/bonds_sync_daily.py", line 111, in get_new_data
+    with webdriver.Firefox(options=self.options) as driver:
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/conda/envs/bonds/lib/python3.12/site-packages/selenium/webdriver/firefox/webdriver.py", line 59, in __init__
+    self.service.path = DriverFinder.get_path(self.service, options)
+                        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/conda/envs/bonds/lib/python3.12/site-packages/selenium/webdriver/common/driver_finder.py", line 41, in get_path
+    raise NoSuchDriverException(msg) from err
+selenium.common.exceptions.NoSuchDriverException: Message: Unable to obtain driver for firefox using Selenium Manager.; For documentation on this error, please visit: https://www.selenium.dev/documentation/webdriver/troubleshooting/errors/driver_location
+
+Notice: Trust flag u is set automatically if the private key is present.
+/root/.mitmproxy/mitmproxy-ca-cert.pem
+Traceback (most recent call last):
+  File "/opt/conda/envs/bonds/lib/python3.12/site-packages/selenium/webdriver/common/driver_finder.py", line 38, in get_path
+    path = SeleniumManager().driver_location(options) if path is None else path
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/conda/envs/bonds/lib/python3.12/site-packages/selenium/webdriver/common/selenium_manager.py", line 86, in driver_location
+    args = [str(self.get_binary()), "--browser", browser]
+                ^^^^^^^^^^^^^^^^^
+  File "/opt/conda/envs/bonds/lib/python3.12/site-packages/selenium/webdriver/common/selenium_manager.py", line 70, in get_binary
+    raise WebDriverException(f"Unable to obtain working Selenium Manager binary; {path}")
+selenium.common.exceptions.WebDriverException: Message: Unable to obtain working Selenium Manager binary; /opt/conda/envs/bonds/lib/python3.12/site-packages/selenium/webdriver/common/linux/selenium-manager
+
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/home/app/bonds_sync_realtime.py", line 81, in <module>
+    main()
+  File "/home/app/bonds_sync_realtime.py", line 73, in main
+    new_data = bond_sync_controller.get_new_data(retries=3)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/app/bonds_sync_daily.py", line 111, in get_new_data
+    with webdriver.Firefox(options=self.options) as driver:
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/conda/envs/bonds/lib/python3.12/site-packages/selenium/webdriver/firefox/webdriver.py", line 59, in __init__
+    self.service.path = DriverFinder.get_path(self.service, options)
+                        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/conda/envs/bonds/lib/python3.12/site-packages/selenium/webdriver/common/driver_finder.py", line 41, in get_path
+    raise NoSuchDriverException(msg) from err
+selenium.common.exceptions.NoSuchDriverException: Message: Unable to obtain driver for firefox using Selenium Manager.; For documentation on this error, please visit: https://www.selenium.dev/documentation/webdriver/troubleshooting/errors/driver_location
+

@@ -44,13 +44,21 @@ class CaptureAuthHeader:
                     flow.request.headers["Accept"] = "application/json, text/plain, */*"
                     flow.request.headers["Accept-Encoding"] = "gzip, deflate, br"
                     flow.request.headers["Accept-Language"] = "en-US,en;q=0.9,zh-CN;q=0.8,zh;q=0.7"
+                    flow.request.headers["Cache-Control"] = "no-cache"
+                    flow.request.headers["Domain-Id"] = "www"
+                    flow.request.headers["Origin"] = "https://www.investing.com"
+                    flow.request.headers["Referer"] = "https://www.investing.com/"
                     flow.request.headers["Sec-Ch-Ua"] = '"Not_A Brand";v="8", "Chromium";v="120", "Google Chrome";v="120"'
-                    flow.request.headers["Sec-Ch-Ua-Mobile:"] = "?0"
-                    flow.request.headers["Sec-Ch-Ua-Platform"] = "Windows"
+                    flow.request.headers["Sec-Ch-Ua-Mobile"] = "?0"
+                    flow.request.headers["Sec-Ch-Ua-Platform"] = '"Windows"'
+                    flow.request.headers["Sec-Fetch-Dest"] = "empty"
+                    flow.request.headers["Sec-Fetch-Mode"] = "cors"
+                    flow.request.headers["Sec-Fetch-Site"] = "same-site"
+
                     write_to_logfile(_id, f"(PROXY) Getting data from {flow.request.query["start-date"]} to {flow.request.query["end-date"]}")
             except Exception as e:
                 write_to_logfile(_id, traceback.format_exc())
-                
+
     def response(self, flow: http.HTTPFlow) -> None:
         # Check if the URL matches the pattern for which you want to log the response
         if flow.request.pretty_url.startswith("https://api.investing.com") and \
@@ -59,7 +67,7 @@ class CaptureAuthHeader:
             if _id:
                 complete_file = f"/home/app/data/{_id}_COMPLETE.txt"
                 if flow.response.status_code != OK and flow.response.status_code != NO_CONTENT:
-                    write_to_logfile(_id, f"{flow.response.status_code}: {flow.response.get_text()}")
+                    write_to_logfile(_id, f"status code: {flow.response.status_code}")
                     return
                 
                 data = json.loads(flow.response.get_text())
