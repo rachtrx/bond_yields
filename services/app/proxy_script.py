@@ -16,14 +16,14 @@ class CaptureAuthHeader:
         # Check if the request URL meets the criteria. its always in the form /api/financialdata/historical/23703?start_date=2023-11-20&end-date=2023-12-18&time-frame=Daily&add-missing-rows=false
         if flow.request.pretty_url.startswith("https://api.investing.com") and \
            flow.request.pretty_url.endswith("add-missing-rows=false"):
-            _id = self.get_req_id(flow.request.pretty_url)
-            sending = True
-            if not flow.is_replay:
-                latest_date = self.get_latest_date_by_ref_id(_id)
-                if not latest_date:
-                    flow.request.query["start-date"] = "2000-01-01"
-                else:
-                    try:
+            try:
+                _id = self.get_req_id(flow.request.pretty_url)
+                sending = True
+                if not flow.is_replay:
+                    latest_date = self.get_latest_date_by_ref_id(_id)
+                    if not latest_date:
+                        flow.request.query["start-date"] = "2000-01-01"
+                    else:
                         next_day = latest_date + timedelta(days=1)
                         if next_day < datetime.now().date():
                             write_to_logfile(_id, f"Latest date was {latest_date}")
@@ -39,12 +39,18 @@ class CaptureAuthHeader:
                                 content=b"Database is up to date",
                                 headers={"Content-Type": "text/plain"}
                             )
-                    except Exception as e:
-                        write_to_logfile(_id, traceback.format_exc())
-            if sending == True:        
-                flow.request.headers["user-agent"] = "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/92.0.4515.159 Safari/537.36"
-                write_to_logfile(_id, f"(PROXY) Getting data from {flow.request.query["start-date"]} to {flow.request.query["end-date"]}")
-
+                if sending == True:        
+                    flow.request.headers["user-agent"] = "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36"
+                    flow.request.headers["Accept"] = "application/json, text/plain, */*"
+                    flow.request.headers["Accept-Encoding"] = "gzip, deflate, br"
+                    flow.request.headers["Accept-Language"] = "en-US,en;q=0.9,zh-CN;q=0.8,zh;q=0.7"
+                    flow.request.headers["Sec-Ch-Ua"] = '"Not_A Brand";v="8", "Chromium";v="120", "Google Chrome";v="120"'
+                    flow.request.headers["Sec-Ch-Ua-Mobile:"] = "?0"
+                    flow.request.headers["Sec-Ch-Ua-Platform"] = "Windows"
+                    write_to_logfile(_id, f"(PROXY) Getting data from {flow.request.query["start-date"]} to {flow.request.query["end-date"]}")
+            except Exception as e:
+                write_to_logfile(_id, traceback.format_exc())
+                
     def response(self, flow: http.HTTPFlow) -> None:
         # Check if the URL matches the pattern for which you want to log the response
         if flow.request.pretty_url.startswith("https://api.investing.com") and \
