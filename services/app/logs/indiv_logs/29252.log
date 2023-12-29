@@ -1,8 +1,0 @@
-2023-12-21 16:47:40,259 - INFO - (PROXY) latest bond yield for 29252: None
-2023-12-21 16:47:40,261 - INFO - (PROXY) Getting data from 2000-01-01 to 2023-12-21
-2023-12-21 16:47:40,879 - INFO - (PROXY) latest bond yield for 29252: None
-2023-12-21 16:47:40,881 - INFO - (PROXY) Getting data from 2000-01-01 to 2023-12-21
-2023-12-21 16:47:43,516 - INFO - Added data for /home/app/data/29252_PENDING.txt
-2023-12-21 16:47:45,489 - INFO - (PROXY) Getting data from 2021-05-04 to 2023-12-21
-2023-12-21 16:47:46,880 - INFO - Appended data for /home/app/data/29252_PENDING.txt
-2023-12-21 16:48:47,680 - INFO - FILE ADDED TO DATABASE

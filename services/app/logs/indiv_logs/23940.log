@@ -1,8 +1,0 @@
-2023-12-21 17:00:45,097 - INFO - (PROXY) latest bond yield for 23940: None
-2023-12-21 17:00:45,100 - INFO - (PROXY) Getting data from 2000-01-01 to 2023-12-21
-2023-12-21 17:00:45,848 - INFO - (PROXY) latest bond yield for 23940: None
-2023-12-21 17:00:45,851 - INFO - (PROXY) Getting data from 2000-01-01 to 2023-12-21
-2023-12-21 17:00:48,371 - INFO - Added data for /home/app/data/23940_PENDING.txt
-2023-12-21 17:00:48,735 - INFO - (PROXY) Getting data from 2018-02-27 to 2023-12-21
-2023-12-21 17:00:51,215 - INFO - Appended data for /home/app/data/23940_PENDING.txt
-2023-12-21 17:01:57,438 - INFO - FILE ADDED TO DATABASE

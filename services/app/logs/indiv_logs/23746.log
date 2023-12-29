@@ -1,8 +1,0 @@
-2023-12-21 16:58:32,789 - INFO - (PROXY) latest bond yield for 23746: None
-2023-12-21 16:58:32,790 - INFO - (PROXY) Getting data from 2000-01-01 to 2023-12-21
-2023-12-21 16:58:33,436 - INFO - (PROXY) latest bond yield for 23746: None
-2023-12-21 16:58:33,438 - INFO - (PROXY) Getting data from 2000-01-01 to 2023-12-21
-2023-12-21 16:58:35,169 - INFO - Added data for /home/app/data/23746_PENDING.txt
-2023-12-21 16:58:35,605 - INFO - (PROXY) Getting data from 2018-01-21 to 2023-12-21
-2023-12-21 16:58:36,704 - INFO - Appended data for /home/app/data/23746_PENDING.txt
-2023-12-21 16:59:23,281 - INFO - FILE ADDED TO DATABASE

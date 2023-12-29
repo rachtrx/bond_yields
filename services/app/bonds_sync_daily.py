@@ -4,7 +4,7 @@ from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
 from selenium.webdriver.firefox.options import Options as FirefoxOptions
 from selenium.webdriver.common.desired_capabilities import DesiredCapabilities
-from selenium.common.exceptions import TimeoutException
+from selenium.common.exceptions import TimeoutException, NoSuchElementException
 from selenium.webdriver import FirefoxProfile
 from sqlalchemy.orm import Session
 
@@ -29,7 +29,7 @@ import logging
 import traceback
 
 from extensions import db
-from models import BondYield, Country
+from models import BondYield, Asset
 from app import app
 from logging_config import write_to_logfile, OK, NO_CONTENT
 
@@ -41,7 +41,7 @@ from logging_config import write_to_logfile, OK, NO_CONTENT
 
 write_lock = threading.Lock()
 
-MAX_THREADS = 5
+MAX_THREADS = 2
 
 class BondSync():
 
@@ -87,7 +87,7 @@ class BondSync():
         if not os.path.exists(self.profile_path):
             os.makedirs(self.profile_path)
         shutil.copytree(profile_path, self.profile_path, dirs_exist_ok=True)
-        print("Permanent profile created at:", self.profile_path)
+        # print("Permanent profile created at:", self.profile_path)
 
         if not self.is_certificate_installed():
             # Construct the certutil command
@@ -98,40 +98,90 @@ class BondSync():
 
             # Run the certutil command
             subprocess.run(certutil_command)
-            print("CERT ADDED")
+            # print("CERT ADDED")
+
+        # print("profile set up!")
 
 
     ##################################################################
     # SENDING HTTP REQUESTS FOR REALTIME DATA / GETTING COUNTRIES LIST
     ##################################################################
 
+    def get_new_data(self, retries):
+        with webdriver.Firefox(options=self.options) as driver:
+            try:
+                driver.set_page_load_timeout(5)
+                driver.get(self.realtime_url)
+            except TimeoutException:
+                pass
+                # print("TImeout, continuing to extract element")
+            except Exception as e:
+                logging.error(traceback.format_exc())
+            finally:
+                for _ in range(retries):
+                    try:
+                        WebDriverWait(driver, 10).until(EC.presence_of_element_located((By.ID, 'rates_bonds_table_99')))
+                        # Initialize a list to store the data
+                        data = []
 
-    def get_new_data(self):
-        req = requests.get(self.realtime_url, headers=self.headers, verify=self.cert_path)
-        html_content = StringIO(req.text)
-        tables = pd.read_html(html_content)
-        df = pd.concat(tables, ignore_index=True)
-        df.dropna(subset=['Name'], inplace=True)
-        df.dropna(axis=1, how='all', inplace=True)
-        df = df.loc[:, ['Name', 'Yield']]
-        mask = (df.Name.str.endswith(' 2Y') | df.Name.str.endswith(' 5Y'))
-        df = df.loc[mask]
-        df = df.reset_index(drop=True)
+                        # Find all the rows in the table
+                        rows = driver.find_elements(By.XPATH, '//tr[contains(@id, "pair_")]')
+
+                        for row in rows:
+                            try:
+                                # Check if the row contains "2Y" or "5Y"
+                                period = row.find_element(By.XPATH, './/td/a[contains(text(), " 2Y") or contains(text(), " 5Y")]')
+                                if period:
+                                    # Extract the last value
+                                    last = row.find_element(By.XPATH, './/td[contains(@class, "last") and not(contains(@class, "last_close"))]').text
+                                    # Check for the clock icon status
+                                    status = 'closed' if row.find_elements(By.XPATH, './/span[contains(@class, "redClockIcon")]') else 'open'
+                                    # Append the extracted data to the list
+                                    data.append((period.text, last, status))
+
+                            except NoSuchElementException as e:
+                                continue
+
+                        # Close the WebDriver
+                        driver.quit()
+
+                        # Return the data
+                        return data
+                    except TimeoutException:
+                        pass
+                    except Exception as e:
+                        logging.error(traceback.format_exc())
+
+                driver.quit()
+                return None
+
+
+    def convert_realtime_to_df(self, data):
+        
+        df = pd.DataFrame(data=data, columns=['Name', 'Yield', 'Status'])
+
+        df = df[df['Name'].notna() & df['Name'].str.strip().ne('')]
+
+        # format the countries
         df['Country'] = df['Name'].apply(lambda x: ' '.join(x.split()[:-1]))
-        df['Name'] = df['Name'].apply(lambda x: x.split()[-1])
-        df.rename(columns = {'Name': 'Period', 'Yield': datetime.now().strftime('%Y-%m-%d %H:%M:%S')}, inplace=True)
+        df['Country'] = df['Country'].str.lower().str.replace(" ", "-", regex=True)
+
+        # format the period
+        df['Name'] = df['Name'].apply(lambda x: x.split()[-1][:-1]) # remove the Y as well
+        df.rename(columns = {'Name': 'Period'}, inplace=True)
+
+        # hierachical index
         df = df.set_index(['Country', 'Period'])
 
-        # drop the top level if the 2nd level is only 1 index
+        # drop the top level if the 2nd level is only 1 index (ie only either has 2Y or 5Y)
         unique_top_level = df.index.get_level_values(0).unique()
         indices_to_drop = [idx for idx in unique_top_level if len(df.loc[idx]) != 2]
         df.drop(index=indices_to_drop, level=0, inplace = True)
-        df = df.transpose()
         return df
 
     @staticmethod
     def get_countries(df):
-        countries_list = [country.lower().replace(" ", "-") for country in df.columns.get_level_values(0).unique().tolist()]
+        countries_list = df.index.get_level_values(0).unique().tolist()
         return countries_list
     
     ###################################################################
@@ -169,10 +219,11 @@ class BondSync():
                 logging.error("Proxy or database not started!")
                 exit(1)
 
-            df = self.get_new_data()
+            data = self.get_new_data(retries=2)
+            df = self.convert_realtime_to_df(data)
             countries_list = self.get_countries(df)
 
-            print(countries_list)
+            # print(countries_list)
 
             # BUG Seems like does not work for Docker
             # PROXY = "127.0.0.1:8080"
@@ -188,10 +239,10 @@ class BondSync():
                 for year in ('2', '5'):
                     latest_date = self.get_latest_date(country, int(year))
                     if not latest_date or latest_date + timedelta(days=1) < datetime.now().date():
-                        if not latest_date:
-                            print(f"Getting data for {country} {year}Y as no latest date")
-                        else:
-                            print(f"Getting data for {country} {year}Y as latest date was {datetime.strftime(latest_date, "%Y/%m/%d")}")
+                        # if not latest_date:
+                        #     print(f"Getting data for {country} {year}Y as no latest date")
+                        # else:
+                        #     print(f"Getting data for {country} {year}Y as latest date was {datetime.strftime(latest_date, "%Y/%m/%d")}")
                         self.jobs.put((country, year))
 
             for _ in range(MAX_THREADS):
@@ -204,11 +255,11 @@ class BondSync():
     def get_latest_date(country, year):
         with app.app_context():
             latest_bond_yield = (BondYield.query
-                            .join(Country)  # Assuming 'country' is the relationship attribute in BondYield
+                            .join(Asset)  # Assuming 'country' is the relationship attribute in BondYield
                             .filter(
-                                Country.name == country,
-                                BondYield.period == year
-                            )  # Assuming 'name' is the attribute in Country
+                                Asset.name == country,
+                                Asset.period == year
+                            )
                             .order_by(BondYield.date.desc())
                             .first())
         if not latest_bond_yield:
@@ -218,7 +269,7 @@ class BondSync():
 
 class CountryYearData():
 
-    url_list_path = "/home/app/logs/url_list.log"
+    url_list_path = "/var/log/url_list.log"
 
     def __init__(self, country, year):
         self.country = country
@@ -259,7 +310,7 @@ class CountryYearData():
 
     def get_possible_urls(self):
 
-        print("getting urls")
+        # print("getting urls")
 
         country = self.country
 
@@ -269,12 +320,10 @@ class CountryYearData():
             country = "belguim"
 
         url_1 = f"https://www.investing.com/rates-bonds/{country}-{self.year}-year-bond-yield-historical-data"
-        url_2 = f"https://www.investing.com/rates-bonds/{country}-{self.year}-year-historical-data"
-        url_3 = f"https://www.investing.com/rates-bonds/{country}-{self.year}-year-bond-yield"
-        url_4 = f"https://www.investing.com/rates-bonds/{country}-{self.year}-years-bond-yield"
-        url_5 = f"https://www.investing.com/rates-bonds/{country}-{self.year}-year"
+        url_2 = f"https://www.investing.com/rates-bonds/{country}-{self.year}-years-bond-yield-historical-data"
+        url_3 = f"https://www.investing.com/rates-bonds/{country}-{self.year}-year-historical-data"
 
-        return [url_1, url_2, url_3, url_4, url_5]
+        return [url_1, url_2, url_3]
 
     def match_possible_urls(self):
         try:
@@ -285,7 +334,7 @@ class CountryYearData():
                     url_dict = json.load(file)
                     official_url = url_dict.get(f"{self.country}_{self.year}", {}).get("url")
                     if official_url:
-                        print(f"shortcut url found for {self.country}_{self.year}")
+                        # print(f"shortcut url found for {self.country}_{self.year}: {official_url}")
                         # Strip whitespace and newlines from each line before comparing
                         try:
                             official_index = self.url_list.index(official_url)
@@ -335,12 +384,13 @@ class CountryYearData():
     #############################################################
 
     def get_id(self, driver, url, retries):
-        print(url)
-        global count
+        # print(url)
+        # global count
         try:
             driver.get(url)
         except TimeoutException:
-            print("TImeout, continuing to extract element")
+            pass
+            # print("TImeout, continuing to extract element")
         except Exception as e:
             logging.error(traceback.format_exc())
         finally:
@@ -367,13 +417,12 @@ class CountryYearData():
                         state = outer_json['props']['pageProps']['state']
                         new_json = json.loads(state)
                         self._id = new_json['dataStore']['pageInfoStore']['identifiers']['instrument_id']
-
-                        os.listdir()
+                        return
                     # else:
                         # print("no element found")
                 except TimeoutException:
-                    print("NO ID, RETRYING")
-                    return None
+                    # print("NO ID, RETRYING")
+                    pass
                 except Exception as e:
                     logging.error(traceback.format_exc())
 
@@ -415,6 +464,7 @@ class CountryYearData():
             
         if status == NO_CONTENT:
             write_to_logfile(self._id, f"COMPLETE FILE EMPTY")
+            os.remove(self.complete_file)
             return
 
         self.write_to_database()
@@ -446,13 +496,13 @@ class CountryYearData():
             df.sort_values(by='date', ascending=True, inplace=True)
 
             with app.app_context():
-                country = db.session.query(Country).filter_by(name=self.country).first()
-                if not country:
-                    country = Country(name=self.country)
+                asset = db.session.query(Asset).filter_by(name=self.country, period=int(self.year)).first()
+                if not asset:
+                    asset = Asset(name=self.country, period=self.year)
 
                 # Iterate over the DataFrame and insert bond yields
                 for _, row in df.iterrows():
-                    BondYield(date=row['date'], country_name=self.country, country_id=country.id, bond_yield=row['yield'], period=self.year, ref_id = self._id)
+                    BondYield(date=row['date'], asset_id=asset.id, bond_yield=row['yield'], ref_id = self._id)
         
         except Exception as e:
             write_to_logfile(self._id, traceback.format_exc())
@@ -469,7 +519,7 @@ class CountryYearData():
                 driver.set_page_load_timeout(5)  # Set timeout to 10 seconds
 
                 self.url_list = self.get_possible_urls()
-                print(self.url_list)
+                # print(self.url_list)
             
                 found = 0
                 attempt_count = 0
@@ -483,7 +533,7 @@ class CountryYearData():
                         # get the instrument id, or return None if 404 returned
                         self.get_id(driver, historical_data_url, retries=2)
 
-                        print(f"instrument id: {self._id}")
+                        # print(f"instrument id: {self._id}")
                         if self._id is None:
                             raise FileNotFoundError
 

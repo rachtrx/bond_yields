@@ -1,8 +1,0 @@
-2023-12-21 17:01:48,208 - INFO - (PROXY) latest bond yield for 23784: None
-2023-12-21 17:01:48,210 - INFO - (PROXY) Getting data from 2000-01-01 to 2023-12-21
-2023-12-21 17:01:48,953 - INFO - (PROXY) latest bond yield for 23784: None
-2023-12-21 17:01:48,955 - INFO - (PROXY) Getting data from 2000-01-01 to 2023-12-21
-2023-12-21 17:01:50,743 - INFO - Added data for /home/app/data/23784_PENDING.txt
-2023-12-21 17:01:51,140 - INFO - (PROXY) Getting data from 2018-06-10 to 2023-12-21
-2023-12-21 17:01:53,265 - INFO - Appended data for /home/app/data/23784_PENDING.txt
-2023-12-21 17:03:00,863 - INFO - FILE ADDED TO DATABASE

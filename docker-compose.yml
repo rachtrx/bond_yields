@@ -18,7 +18,7 @@ services:
     volumes:
       - ./services/app/data:/home/app/data
       - ./services/app/img:/home/app/img
-      - ./services/app/logs:/home/app/logs
+      - ./services/app/logs:/var/log
       - ./services/app/page_source:/home/app/page_source
     depends_on:
       - db

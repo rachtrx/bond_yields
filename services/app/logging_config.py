@@ -11,7 +11,7 @@ def setup_logger(_id):
     # Check if the logger already has handlers set up
     if not logger.handlers:
         logger.setLevel(logging.INFO)
-        log_directory = "/home/app/logs/indiv_logs/"
+        log_directory = "/var/log/indiv_logs/"
         os.makedirs(log_directory, exist_ok=True)
 
         log_filename = os.path.join(log_directory, f"{_id}.log")

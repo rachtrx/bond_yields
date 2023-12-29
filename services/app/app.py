@@ -6,10 +6,11 @@ import traceback
 
 from config import Config
 from extensions import db
-from models import BondYield, Country
-from sqlalchemy import inspect
-from sqlalchemy.orm import joinedload
+from models import BondYield, Asset, BondYieldRealtime
+from sqlalchemy import inspect, desc
+from sqlalchemy.orm import joinedload, aliased
 from datetime import datetime
+from utilities import timeframes
 
 import pandas as pd
 import pytz
@@ -19,7 +20,7 @@ timezone = pytz.timezone('Asia/Singapore')
 
 # Configure the logging
 logging.basicConfig(
-    filename='/home/app/logs/main.log',  # Log file path
+    filename='/var/log/main.log',  # Log file path
     filemode='a',  # Append mode
     format='%(asctime)s - %(name)s - %(levelname)s - %(message)s',  # Log message format
     level=logging.INFO  # Log level
@@ -38,16 +39,16 @@ def create_db():
 
     # List of all tables that should be created
     # Replace 'YourModel' with actual model class names
-    tables = [Country.__tablename__, BondYield.__tablename__]
+    tables = [Asset.__tablename__, BondYield.__tablename__, BondYieldRealtime.__tablename__]
 
     # Iterate over the tables and check if they exist
     for table in tables:
         if not inspector.has_table(table):
-            print(f"Creating table: {table}")
+            logging.info(f"Creating table: {table}")
             # Reflect only the specific table
             db.Model.metadata.create_all(db.engine, tables=[db.Model.metadata.tables[table]])
         else:
-            print(f"Table {table} already exists.")
+            logging.info(f"Table {table} already exists.")
 
     db.session.commit()
 
@@ -57,8 +58,79 @@ def remove_db():
     db.drop_all()
     db.session.commit()
 
-@app.route("/get_bond", methods=['GET'])
-def get_bond():
+@app.route("/get_realtime", methods=['GET'])
+def get_realtime():
+    try:
+        countries = request.args.get('countries')
+        timeframe = request.args.get('timeframe')
+
+        try:
+            max_rows = int(request.args.get('max_rows'))
+        except ValueError:
+            return Response("Bad Request: Max rows must be a number", status=400)
+
+        if not countries:
+            return Response("Bad Request: No parameter for 'countries'", status=400)
+        if not timeframe:
+            return Response("Bad Request: No parameter for 'timeframe'", status=400)
+        if not max_rows:
+            return Response("Bad Request: No parameter for 'max_rows'", status=400)
+        if max_rows > 5000:
+            return Response("Bad Request: Largest value for 'max_rows' is 5000", status=400)
+        if not timeframes.get(timeframe):
+            return Response("Bad Request: Timeframe must be one of the following values: ['1M', '5M', '15M', '30M', '1H', '2H', '4H']", status=400)
+
+        timeframe = timeframes.get(timeframe)
+
+        query = db.session.query(BondYieldRealtime).join(Asset)
+
+        if countries != "All":
+            country_list = countries.split()
+            query = query.filter(Asset.name.in_(country_list))
+
+        query = query.filter(
+                BondYieldRealtime.timeframe == timeframe,
+            ).order_by(
+                desc(BondYieldRealtime.datetime)
+            ).limit(max_rows)
+            
+        bond_yield_records = query.all()
+
+        if len(bond_yield_records) == 0 and max_rows != 0:
+            return Response("Bad Request: Country does not exist in database or has discontinued real time data", status=400)
+
+        data = [
+            {
+                'DateTime': record.datetime,
+                'Country': record.asset.name,  # Assuming 'name' is an attribute of Country
+                'Period': f"{record.asset.period}Y",
+                'bond_yield': record.bond_yield,
+            }
+            for record in bond_yield_records
+        ]
+
+        df = pd.DataFrame(data)
+
+        df['bond_yield'] = pd.to_numeric(df['bond_yield'], errors='coerce')
+
+        pivot_df = df.pivot_table(index='DateTime', columns=['Country', 'Period'], values='bond_yield')
+        pivot_df.sort_values(by="DateTime", inplace=True)
+
+        pivot_df.rename_axis(index=None, inplace=True)
+
+        logging.info(pivot_df.head())
+
+        html_table = pivot_df.to_html()
+        return Response(html_table, mimetype='text/html')
+
+
+    except Exception as e:
+        logging.error(traceback.format_exc())
+        return Response("Internal Server Error", status=500, mimetype='text/html')
+
+
+@app.route("/get_historical", methods=['GET'])
+def get_historical():
 
     try:
         countries = request.args.get('countries') # this already splits on +
@@ -78,11 +150,11 @@ def get_bond():
         except ValueError:
             return Response("Bad Request: Format for date is wrong", status=400)
 
-        query = db.session.query(BondYield).join(Country)
+        query = db.session.query(BondYield).join(Asset)
         if countries != "All":
             country_list = countries.split()
             logging.info(country_list)
-            query = query.filter(Country.name.in_(country_list))
+            query = query.filter(Asset.name.in_(country_list))
         if start_date != "All":
             logging.info(start_date)
             start_date = datetime.strptime(start_date, '%Y-%m-%d').date()
@@ -97,8 +169,8 @@ def get_bond():
         data = [
             {
                 'Date': record.date,
-                'Country': record.country.name,  # Assuming 'name' is an attribute of Country
-                'Period': f"{record.period}Y",
+                'Country': record.asset.name,  # Assuming 'name' is an attribute of Country
+                'Period': f"{record.asset.period}Y",
                 'bond_yield': record.bond_yield,
             }
             for record in bond_yield_records
@@ -113,7 +185,7 @@ def get_bond():
 
         pivot_df.rename_axis(index=None, inplace=True)
 
-        # logging.info(pivot_df.head())
+        logging.info(pivot_df.head())
 
         html_table = pivot_df.to_html()
         return Response(html_table, mimetype='text/html')

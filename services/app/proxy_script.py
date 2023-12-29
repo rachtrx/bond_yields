@@ -87,7 +87,6 @@ class CaptureAuthHeader:
                 except IOError as e:
                     # Handle error, e.g., logging or retrying
                     write_to_logfile(_id, traceback.format_exc())
-                    traceback.print_exc()
                 except Exception as e:
                     write_to_logfile(_id, traceback.format_exc())
 
