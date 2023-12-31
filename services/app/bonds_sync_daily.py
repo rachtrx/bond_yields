@@ -60,10 +60,7 @@ class BondSync():
         options.add_argument("--headless")  # Run in headless mode
         options.add_argument('--no-sandbox')
         options.add_argument('--disable-gpu')
-        options.add_argument("--incognito")
         options.add_argument("--enable-javascript")
-        # options.add_experimental_option("excludeSwitches", ["enable-automation"])
-        # options.add_experimental_option('useAutomationExtension', False)
         options.add_argument('--disable-blink-features=AutomationControlled')
         self.options = options
 
@@ -123,10 +120,6 @@ class BondSync():
             except Exception as e:
                 logging.error(traceback.format_exc())
             finally:
-                cookie = [f"{c['name']}={c['value']};" for c in driver.get_cookies()]
-                cookie = ' '.join(cookie).strip()
-                with open("/home/app/logs/cookie.log", 'w') as file:
-                    file.write(cookie)
                 
                 for _ in range(retries):
                     try:
@@ -397,7 +390,6 @@ class CountryYearData():
         # print(url)
         # global count
         try:
-            driver.execute_script("Object.defineProperty(navigator, 'webdriver', {get: () => undefined})")
             driver.get(url)
         except TimeoutException:
             pass

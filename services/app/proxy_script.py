@@ -54,9 +54,6 @@ class CaptureAuthHeader:
                     flow.request.headers["Sec-Fetch-Dest"] = "empty"
                     flow.request.headers["Sec-Fetch-Mode"] = "cors"
                     flow.request.headers["Sec-Fetch-Site"] = "same-site"
-                    with open("/home/app/logs/cookie.log", 'r') as file:
-                        cookie = file.read().strip()
-                    flow.request.headers["Cookie"] = cookie
 
                     write_to_logfile(_id, f"(PROXY) Getting data from {flow.request.query["start-date"]} to {flow.request.query["end-date"]}")
             except Exception as e:

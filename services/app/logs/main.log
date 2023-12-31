@@ -12,3 +12,55 @@
 2023-12-31 14:37:56,651 - logger_1052591 - INFO - COMPLETE FILE EMPTY
 2023-12-31 14:38:03,846 - logger_23818 - INFO - COMPLETE FILE EMPTY
 2023-12-31 14:38:08,660 - logger_23821 - INFO - COMPLETE FILE EMPTY
+2023-12-31 15:34:22,595 - root - INFO - Table asset already exists.
+2023-12-31 15:34:22,596 - root - INFO - Table bond_yield already exists.
+2023-12-31 15:34:22,597 - root - INFO - Table bond_yield_realtime already exists.
+2023-12-31 15:34:34,678 - root - INFO - Proxy and database are running. Starting main functionality.
+2023-12-31 15:37:12,656 - logger_23873 - INFO - COMPLETE FILE NOT FOUND
+2023-12-31 15:37:14,090 - logger_23870 - INFO - COMPLETE FILE NOT FOUND
+2023-12-31 15:40:19,570 - root - INFO - Table asset already exists.
+2023-12-31 15:40:19,571 - root - INFO - Table bond_yield already exists.
+2023-12-31 15:40:19,572 - root - INFO - Table bond_yield_realtime already exists.
+2023-12-31 15:40:31,551 - root - INFO - Proxy and database are running. Starting main functionality.
+2023-12-31 15:42:28,207 - root - INFO - Table asset already exists.
+2023-12-31 15:42:28,208 - root - INFO - Table bond_yield already exists.
+2023-12-31 15:42:28,209 - root - INFO - Table bond_yield_realtime already exists.
+2023-12-31 15:42:40,382 - root - INFO - Proxy and database are running. Starting main functionality.
+2023-12-31 15:45:16,990 - logger_23873 - INFO - COMPLETE FILE NOT FOUND
+2023-12-31 15:45:19,422 - logger_23870 - INFO - COMPLETE FILE NOT FOUND
+2023-12-31 15:45:45,389 - root - ERROR - Modifying URL to https://www.investing.com/rates-bonds/austria-2-year-bond-yield-historical-data.
+2023-12-31 15:46:10,997 - root - ERROR - Modifying URL to https://www.investing.com/rates-bonds/austria-2-years-bond-yield-historical-data.
+2023-12-31 15:46:37,077 - root - ERROR - Modifying URL to https://www.investing.com/rates-bonds/austria-2-year-historical-data.
+2023-12-31 15:46:37,083 - logger_failed_ids - INFO - Failed to extract data for austria 2Y after 3 attempts.
+2023-12-31 15:46:41,762 - logger_23857 - INFO - COMPLETE FILE NOT FOUND
+2023-12-31 15:47:05,728 - root - ERROR - Modifying URL to https://www.investing.com/rates-bonds/bahrain-2-year-historical-data.
+2023-12-31 15:47:05,778 - root - ERROR - Traceback (most recent call last):
+  File "/home/app/bonds_sync_daily.py", line 397, in get_id
+    driver.execute_script("Object.defineProperty(navigator, 'webdriver', {get: () => undefined})")
+  File "/opt/conda/envs/bonds/lib/python3.12/site-packages/selenium/webdriver/remote/webdriver.py", line 408, in execute_script
+    return self.execute(command, {"script": script, "args": converted_args})["value"]
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/conda/envs/bonds/lib/python3.12/site-packages/selenium/webdriver/remote/webdriver.py", line 348, in execute
+    self.error_handler.check_response(response)
+  File "/opt/conda/envs/bonds/lib/python3.12/site-packages/selenium/webdriver/remote/errorhandler.py", line 229, in check_response
+    raise exception_class(message, screen, stacktrace)
+selenium.common.exceptions.JavascriptException: Message: TypeError: can't redefine non-configurable property "webdriver"
+Stacktrace:
+@moz-nullprincipal:{37c107a2-5a63-4585-8e58-84d48c60305b}:2:14
+@moz-nullprincipal:{37c107a2-5a63-4585-8e58-84d48c60305b}:3:8
+
+
+2023-12-31 15:49:57,978 - root - INFO - Table asset already exists.
+2023-12-31 15:49:57,980 - root - INFO - Table bond_yield already exists.
+2023-12-31 15:49:57,981 - root - INFO - Table bond_yield_realtime already exists.
+2023-12-31 15:50:09,978 - root - INFO - Proxy and database are running. Starting main functionality.
+2023-12-31 15:51:55,497 - root - ERROR - Modifying URL to https://www.investing.com/rates-bonds/australia-5-year-bond-yield-historical-data.
+2023-12-31 15:52:22,037 - root - ERROR - Modifying URL to https://www.investing.com/rates-bonds/australia-5-years-bond-yield-historical-data.
+2023-12-31 15:52:47,999 - root - ERROR - Modifying URL to https://www.investing.com/rates-bonds/australia-5-year-historical-data.
+2023-12-31 15:52:48,005 - logger_failed_ids - INFO - Failed to extract data for australia 5Y after 3 attempts.
+2023-12-31 15:52:51,596 - logger_23870 - INFO - COMPLETE FILE NOT FOUND
+2023-12-31 15:54:14,803 - logger_23857 - INFO - COMPLETE FILE NOT FOUND
+2023-12-31 15:54:15,369 - logger_23854 - INFO - COMPLETE FILE NOT FOUND
+2023-12-31 15:54:44,036 - root - ERROR - Modifying URL to https://www.investing.com/rates-bonds/bahrain-2-years-bond-yield-historical-data.
+2023-12-31 15:55:10,125 - root - ERROR - Modifying URL to https://www.investing.com/rates-bonds/bahrain-2-year-bond-yield-historical-data.
+2023-12-31 15:55:37,044 - logger_1052507 - INFO - COMPLETE FILE NOT FOUND
