@@ -50,17 +50,17 @@ RUN GECKODRIVER_URL=$(curl -s https://api.github.com/repos/mozilla/geckodriver/r
 
 # ENV DISPLAY=:99
 
-COPY others/bonds_sync.txt /etc/cron.d/bonds_sync.txt
+# COPY others/bonds_sync.txt /etc/cron.d/bonds_sync.txt
 
-# Give execution rights on the cron job
-RUN chmod 0644 /etc/cron.d/bonds_sync.txt
+# # Give execution rights on the cron job
+# RUN chmod 0644 /etc/cron.d/bonds_sync.txt
 
-# Apply cron job
-RUN crontab /etc/cron.d/bonds_sync.txt
+# # Apply cron job
+# RUN crontab /etc/cron.d/bonds_sync.txt
  
-# Create the log file to be able to run tail
-RUN touch /var/log/cron_daily.log
-RUN touch /var/log/cron_realtime.log
+# # Create the log file to be able to run tail
+# RUN touch /var/log/cron_daily.log
+# RUN touch /var/log/cron_realtime.log
 
 COPY others/supervisord.conf /etc/supervisor/conf.d/supervisord.conf
 
