@@ -1,0 +1,1262 @@
+2024-01-03 02:44:01,741 - INFO - entry
+2024-01-03 02:45:02,248 - INFO - entry
+2024-01-03 02:46:01,776 - INFO - entry
+2024-01-03 02:47:01,777 - INFO - entry
+2024-01-03 02:58:02,677 - INFO - entry
+2024-01-03 02:59:02,005 - INFO - entry
+2024-01-03 03:01:02,204 - INFO - entry
+2024-01-03 03:02:01,639 - INFO - entry
+2024-01-03 03:05:01,798 - INFO - entry
+2024-01-03 03:06:02,051 - INFO - entry
+2024-01-03 03:07:02,209 - INFO - entry
+2024-01-03 03:08:02,338 - INFO - entry
+2024-01-03 03:09:02,283 - INFO - entry
+2024-01-03 03:10:02,186 - INFO - entry
+2024-01-03 03:11:02,477 - INFO - entry
+2024-01-03 03:12:02,610 - INFO - entry
+2024-01-03 03:13:02,470 - INFO - entry
+2024-01-03 03:14:01,689 - INFO - entry
+2024-01-03 03:14:24,488 - INFO - 2024-01-03 03:14:00+08:00
+2024-01-03 03:14:24,500 - INFO - 2024-01-03 03:14:24.488804+08:00
+2024-01-03 03:14:24,586 - INFO - Traceback (most recent call last):
+  File "/opt/conda/envs/bonds/lib/python3.12/site-packages/sqlalchemy/engine/base.py", line 1969, in _exec_single_context
+    self.dialect.do_execute(
+  File "/opt/conda/envs/bonds/lib/python3.12/site-packages/sqlalchemy/engine/default.py", line 922, in do_execute
+    cursor.execute(statement, parameters)
+psycopg2.errors.NotNullViolation: null value in column "is_open" of relation "bond_yield_realtime" violates not-null constraint
+DETAIL:  Failing row contains (2024-01-02 19:14:00, 1, 3.772, 1, null, null).
+
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/home/app/bonds_sync_realtime.py", line 60, in write_to_database
+    BondYieldRealtime(
+  File "<string>", line 4, in __init__
+  File "/opt/conda/envs/bonds/lib/python3.12/site-packages/sqlalchemy/orm/state.py", line 566, in _initialize_instance
+    with util.safe_reraise():
+  File "/opt/conda/envs/bonds/lib/python3.12/site-packages/sqlalchemy/util/langhelpers.py", line 146, in __exit__
+    raise exc_value.with_traceback(exc_tb)
+  File "/opt/conda/envs/bonds/lib/python3.12/site-packages/sqlalchemy/orm/state.py", line 564, in _initialize_instance
+    manager.original_init(*mixed[1:], **kwargs)
+  File "/home/app/models/bond.py", line 62, in __init__
+    db.session.commit()
+  File "/opt/conda/envs/bonds/lib/python3.12/site-packages/sqlalchemy/orm/scoping.py", line 598, in commit
+    return self._proxied.commit()
+           ^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/conda/envs/bonds/lib/python3.12/site-packages/sqlalchemy/orm/session.py", line 1969, in commit
+    trans.commit(_to_root=True)
+  File "<string>", line 2, in commit
+  File "/opt/conda/envs/bonds/lib/python3.12/site-packages/sqlalchemy/orm/state_changes.py", line 139, in _go
+    ret_value = fn(self, *arg, **kw)
+                ^^^^^^^^^^^^^^^^^^^^
+  File "/opt/conda/envs/bonds/lib/python3.12/site-packages/sqlalchemy/orm/session.py", line 1256, in commit
+    self._prepare_impl()
+  File "<string>", line 2, in _prepare_impl
+  File "/opt/conda/envs/bonds/lib/python3.12/site-packages/sqlalchemy/orm/state_changes.py", line 139, in _go
+    ret_value = fn(self, *arg, **kw)
+                ^^^^^^^^^^^^^^^^^^^^
+  File "/opt/conda/envs/bonds/lib/python3.12/site-packages/sqlalchemy/orm/session.py", line 1231, in _prepare_impl
+    self.session.flush()
+  File "/opt/conda/envs/bonds/lib/python3.12/site-packages/sqlalchemy/orm/session.py", line 4312, in flush
+    self._flush(objects)
+  File "/opt/conda/envs/bonds/lib/python3.12/site-packages/sqlalchemy/orm/session.py", line 4447, in _flush
+    with util.safe_reraise():
+  File "/opt/conda/envs/bonds/lib/python3.12/site-packages/sqlalchemy/util/langhelpers.py", line 146, in __exit__
+    raise exc_value.with_traceback(exc_tb)
+  File "/opt/conda/envs/bonds/lib/python3.12/site-packages/sqlalchemy/orm/session.py", line 4408, in _flush
+    flush_context.execute()
+  File "/opt/conda/envs/bonds/lib/python3.12/site-packages/sqlalchemy/orm/unitofwork.py", line 466, in execute
+    rec.execute(self)
+  File "/opt/conda/envs/bonds/lib/python3.12/site-packages/sqlalchemy/orm/unitofwork.py", line 642, in execute
+    util.preloaded.orm_persistence.save_obj(
+  File "/opt/conda/envs/bonds/lib/python3.12/site-packages/sqlalchemy/orm/persistence.py", line 93, in save_obj
+    _emit_insert_statements(
+  File "/opt/conda/envs/bonds/lib/python3.12/site-packages/sqlalchemy/orm/persistence.py", line 1043, in _emit_insert_statements
+    result = connection.execute(
+             ^^^^^^^^^^^^^^^^^^^
+  File "/opt/conda/envs/bonds/lib/python3.12/site-packages/sqlalchemy/engine/base.py", line 1416, in execute
+    return meth(
+           ^^^^^
+  File "/opt/conda/envs/bonds/lib/python3.12/site-packages/sqlalchemy/sql/elements.py", line 516, in _execute_on_connection
+    return connection._execute_clauseelement(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/conda/envs/bonds/lib/python3.12/site-packages/sqlalchemy/engine/base.py", line 1639, in _execute_clauseelement
+    ret = self._execute_context(
+          ^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/conda/envs/bonds/lib/python3.12/site-packages/sqlalchemy/engine/base.py", line 1848, in _execute_context
+    return self._exec_single_context(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/conda/envs/bonds/lib/python3.12/site-packages/sqlalchemy/engine/base.py", line 1988, in _exec_single_context
+    self._handle_dbapi_exception(
+  File "/opt/conda/envs/bonds/lib/python3.12/site-packages/sqlalchemy/engine/base.py", line 2343, in _handle_dbapi_exception
+    raise sqlalchemy_exception.with_traceback(exc_info[2]) from e
+  File "/opt/conda/envs/bonds/lib/python3.12/site-packages/sqlalchemy/engine/base.py", line 1969, in _exec_single_context
+    self.dialect.do_execute(
+  File "/opt/conda/envs/bonds/lib/python3.12/site-packages/sqlalchemy/engine/default.py", line 922, in do_execute
+    cursor.execute(statement, parameters)
+sqlalchemy.exc.IntegrityError: (psycopg2.errors.NotNullViolation) null value in column "is_open" of relation "bond_yield_realtime" violates not-null constraint
+DETAIL:  Failing row contains (2024-01-02 19:14:00, 1, 3.772, 1, null, null).
+
+[SQL: INSERT INTO bond_yield_realtime (datetime, asset_id, bond_yield, timeframe) VALUES (%(datetime)s, %(asset_id)s, %(bond_yield)s, %(timeframe)s)]
+[parameters: {'datetime': datetime.datetime(2024, 1, 3, 3, 14, tzinfo=<DstTzInfo 'Asia/Singapore' +08+8:00:00 STD>), 'asset_id': 1, 'bond_yield': 3.772, 'timeframe': 1}]
+(Background on this error at: https://sqlalche.me/e/20/gkpj)
+
+2024-01-03 03:15:03,073 - INFO - entry
+2024-01-03 03:15:19,496 - INFO - 2024-01-03 03:15:00+08:00
+2024-01-03 03:15:19,498 - INFO - 2024-01-03 03:15:19.496192+08:00
+2024-01-03 03:15:19,560 - INFO - Traceback (most recent call last):
+  File "/opt/conda/envs/bonds/lib/python3.12/site-packages/sqlalchemy/engine/base.py", line 1969, in _exec_single_context
+    self.dialect.do_execute(
+  File "/opt/conda/envs/bonds/lib/python3.12/site-packages/sqlalchemy/engine/default.py", line 922, in do_execute
+    cursor.execute(statement, parameters)
+psycopg2.errors.NotNullViolation: null value in column "is_open" of relation "bond_yield_realtime" violates not-null constraint
+DETAIL:  Failing row contains (2024-01-02 19:15:00, 1, 3.772, 15, null, null).
+
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/home/app/bonds_sync_realtime.py", line 60, in write_to_database
+    BondYieldRealtime(
+  File "<string>", line 4, in __init__
+  File "/opt/conda/envs/bonds/lib/python3.12/site-packages/sqlalchemy/orm/state.py", line 566, in _initialize_instance
+    with util.safe_reraise():
+  File "/opt/conda/envs/bonds/lib/python3.12/site-packages/sqlalchemy/util/langhelpers.py", line 146, in __exit__
+    raise exc_value.with_traceback(exc_tb)
+  File "/opt/conda/envs/bonds/lib/python3.12/site-packages/sqlalchemy/orm/state.py", line 564, in _initialize_instance
+    manager.original_init(*mixed[1:], **kwargs)
+  File "/home/app/models/bond.py", line 62, in __init__
+    db.session.commit()
+  File "/opt/conda/envs/bonds/lib/python3.12/site-packages/sqlalchemy/orm/scoping.py", line 598, in commit
+    return self._proxied.commit()
+           ^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/conda/envs/bonds/lib/python3.12/site-packages/sqlalchemy/orm/session.py", line 1969, in commit
+    trans.commit(_to_root=True)
+  File "<string>", line 2, in commit
+  File "/opt/conda/envs/bonds/lib/python3.12/site-packages/sqlalchemy/orm/state_changes.py", line 139, in _go
+    ret_value = fn(self, *arg, **kw)
+                ^^^^^^^^^^^^^^^^^^^^
+  File "/opt/conda/envs/bonds/lib/python3.12/site-packages/sqlalchemy/orm/session.py", line 1256, in commit
+    self._prepare_impl()
+  File "<string>", line 2, in _prepare_impl
+  File "/opt/conda/envs/bonds/lib/python3.12/site-packages/sqlalchemy/orm/state_changes.py", line 139, in _go
+    ret_value = fn(self, *arg, **kw)
+                ^^^^^^^^^^^^^^^^^^^^
+  File "/opt/conda/envs/bonds/lib/python3.12/site-packages/sqlalchemy/orm/session.py", line 1231, in _prepare_impl
+    self.session.flush()
+  File "/opt/conda/envs/bonds/lib/python3.12/site-packages/sqlalchemy/orm/session.py", line 4312, in flush
+    self._flush(objects)
+  File "/opt/conda/envs/bonds/lib/python3.12/site-packages/sqlalchemy/orm/session.py", line 4447, in _flush
+    with util.safe_reraise():
+  File "/opt/conda/envs/bonds/lib/python3.12/site-packages/sqlalchemy/util/langhelpers.py", line 146, in __exit__
+    raise exc_value.with_traceback(exc_tb)
+  File "/opt/conda/envs/bonds/lib/python3.12/site-packages/sqlalchemy/orm/session.py", line 4408, in _flush
+    flush_context.execute()
+  File "/opt/conda/envs/bonds/lib/python3.12/site-packages/sqlalchemy/orm/unitofwork.py", line 466, in execute
+    rec.execute(self)
+  File "/opt/conda/envs/bonds/lib/python3.12/site-packages/sqlalchemy/orm/unitofwork.py", line 642, in execute
+    util.preloaded.orm_persistence.save_obj(
+  File "/opt/conda/envs/bonds/lib/python3.12/site-packages/sqlalchemy/orm/persistence.py", line 93, in save_obj
+    _emit_insert_statements(
+  File "/opt/conda/envs/bonds/lib/python3.12/site-packages/sqlalchemy/orm/persistence.py", line 1043, in _emit_insert_statements
+    result = connection.execute(
+             ^^^^^^^^^^^^^^^^^^^
+  File "/opt/conda/envs/bonds/lib/python3.12/site-packages/sqlalchemy/engine/base.py", line 1416, in execute
+    return meth(
+           ^^^^^
+  File "/opt/conda/envs/bonds/lib/python3.12/site-packages/sqlalchemy/sql/elements.py", line 516, in _execute_on_connection
+    return connection._execute_clauseelement(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/conda/envs/bonds/lib/python3.12/site-packages/sqlalchemy/engine/base.py", line 1639, in _execute_clauseelement
+    ret = self._execute_context(
+          ^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/conda/envs/bonds/lib/python3.12/site-packages/sqlalchemy/engine/base.py", line 1848, in _execute_context
+    return self._exec_single_context(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/conda/envs/bonds/lib/python3.12/site-packages/sqlalchemy/engine/base.py", line 1988, in _exec_single_context
+    self._handle_dbapi_exception(
+  File "/opt/conda/envs/bonds/lib/python3.12/site-packages/sqlalchemy/engine/base.py", line 2343, in _handle_dbapi_exception
+    raise sqlalchemy_exception.with_traceback(exc_info[2]) from e
+  File "/opt/conda/envs/bonds/lib/python3.12/site-packages/sqlalchemy/engine/base.py", line 1969, in _exec_single_context
+    self.dialect.do_execute(
+  File "/opt/conda/envs/bonds/lib/python3.12/site-packages/sqlalchemy/engine/default.py", line 922, in do_execute
+    cursor.execute(statement, parameters)
+sqlalchemy.exc.IntegrityError: (psycopg2.errors.NotNullViolation) null value in column "is_open" of relation "bond_yield_realtime" violates not-null constraint
+DETAIL:  Failing row contains (2024-01-02 19:15:00, 1, 3.772, 15, null, null).
+
+[SQL: INSERT INTO bond_yield_realtime (datetime, asset_id, bond_yield, timeframe) VALUES (%(datetime)s, %(asset_id)s, %(bond_yield)s, %(timeframe)s)]
+[parameters: {'datetime': datetime.datetime(2024, 1, 3, 3, 15, tzinfo=<DstTzInfo 'Asia/Singapore' +08+8:00:00 STD>), 'asset_id': 1, 'bond_yield': 3.772, 'timeframe': 15}]
+(Background on this error at: https://sqlalche.me/e/20/gkpj)
+
+2024-01-03 03:18:02,582 - INFO - entry
+2024-01-03 03:18:18,607 - INFO - 2024-01-03 03:18:00+08:00
+2024-01-03 03:18:18,609 - INFO - 2024-01-03 03:18:18.607075+08:00
+2024-01-03 03:18:18,630 - INFO - Traceback (most recent call last):
+  File "/home/app/bonds_sync_realtime.py", line 56, in write_to_database
+    latest_entry = BondYieldRealtime.latest_entry(asset.id)
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AttributeError: type object 'BondYieldRealtime' has no attribute 'latest_entry'
+
+2024-01-03 03:19:02,033 - INFO - entry
+2024-01-03 03:19:22,177 - INFO - 2024-01-03 03:19:00+08:00
+2024-01-03 03:19:22,188 - INFO - 2024-01-03 03:19:22.177267+08:00
+2024-01-03 03:19:22,211 - INFO - Traceback (most recent call last):
+  File "/home/app/bonds_sync_realtime.py", line 56, in write_to_database
+    latest_entry = BondYieldRealtime.latest_entry(asset.id)
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/app/models/bond.py", line 66, in latest_entry
+    return cls.query.filter_by(
+           ^^^^^^^^^^^^^^^^^^^^
+TypeError: Query.filter_by() takes 1 positional argument but 2 were given
+
+2024-01-03 03:21:02,071 - INFO - entry
+2024-01-03 03:21:20,192 - INFO - 2024-01-03 03:21:00+08:00
+2024-01-03 03:21:20,199 - INFO - 2024-01-03 03:21:20.192728+08:00
+2024-01-03 03:21:20,281 - INFO - Traceback (most recent call last):
+  File "/opt/conda/envs/bonds/lib/python3.12/site-packages/sqlalchemy/engine/base.py", line 1969, in _exec_single_context
+    self.dialect.do_execute(
+  File "/opt/conda/envs/bonds/lib/python3.12/site-packages/sqlalchemy/engine/default.py", line 922, in do_execute
+    cursor.execute(statement, parameters)
+psycopg2.errors.NotNullViolation: null value in column "is_open" of relation "bond_yield_realtime" violates not-null constraint
+DETAIL:  Failing row contains (2024-01-02 19:21:00, 1, 3.771, 1, null, null).
+
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/home/app/bonds_sync_realtime.py", line 60, in write_to_database
+    BondYieldRealtime(
+  File "<string>", line 4, in __init__
+  File "/opt/conda/envs/bonds/lib/python3.12/site-packages/sqlalchemy/orm/state.py", line 566, in _initialize_instance
+    with util.safe_reraise():
+  File "/opt/conda/envs/bonds/lib/python3.12/site-packages/sqlalchemy/util/langhelpers.py", line 146, in __exit__
+    raise exc_value.with_traceback(exc_tb)
+  File "/opt/conda/envs/bonds/lib/python3.12/site-packages/sqlalchemy/orm/state.py", line 564, in _initialize_instance
+    manager.original_init(*mixed[1:], **kwargs)
+  File "/home/app/models/bond.py", line 62, in __init__
+    db.session.commit()
+  File "/opt/conda/envs/bonds/lib/python3.12/site-packages/sqlalchemy/orm/scoping.py", line 598, in commit
+    return self._proxied.commit()
+           ^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/conda/envs/bonds/lib/python3.12/site-packages/sqlalchemy/orm/session.py", line 1969, in commit
+    trans.commit(_to_root=True)
+  File "<string>", line 2, in commit
+  File "/opt/conda/envs/bonds/lib/python3.12/site-packages/sqlalchemy/orm/state_changes.py", line 139, in _go
+    ret_value = fn(self, *arg, **kw)
+                ^^^^^^^^^^^^^^^^^^^^
+  File "/opt/conda/envs/bonds/lib/python3.12/site-packages/sqlalchemy/orm/session.py", line 1256, in commit
+    self._prepare_impl()
+  File "<string>", line 2, in _prepare_impl
+  File "/opt/conda/envs/bonds/lib/python3.12/site-packages/sqlalchemy/orm/state_changes.py", line 139, in _go
+    ret_value = fn(self, *arg, **kw)
+                ^^^^^^^^^^^^^^^^^^^^
+  File "/opt/conda/envs/bonds/lib/python3.12/site-packages/sqlalchemy/orm/session.py", line 1231, in _prepare_impl
+    self.session.flush()
+  File "/opt/conda/envs/bonds/lib/python3.12/site-packages/sqlalchemy/orm/session.py", line 4312, in flush
+    self._flush(objects)
+  File "/opt/conda/envs/bonds/lib/python3.12/site-packages/sqlalchemy/orm/session.py", line 4447, in _flush
+    with util.safe_reraise():
+  File "/opt/conda/envs/bonds/lib/python3.12/site-packages/sqlalchemy/util/langhelpers.py", line 146, in __exit__
+    raise exc_value.with_traceback(exc_tb)
+  File "/opt/conda/envs/bonds/lib/python3.12/site-packages/sqlalchemy/orm/session.py", line 4408, in _flush
+    flush_context.execute()
+  File "/opt/conda/envs/bonds/lib/python3.12/site-packages/sqlalchemy/orm/unitofwork.py", line 466, in execute
+    rec.execute(self)
+  File "/opt/conda/envs/bonds/lib/python3.12/site-packages/sqlalchemy/orm/unitofwork.py", line 642, in execute
+    util.preloaded.orm_persistence.save_obj(
+  File "/opt/conda/envs/bonds/lib/python3.12/site-packages/sqlalchemy/orm/persistence.py", line 93, in save_obj
+    _emit_insert_statements(
+  File "/opt/conda/envs/bonds/lib/python3.12/site-packages/sqlalchemy/orm/persistence.py", line 1043, in _emit_insert_statements
+    result = connection.execute(
+             ^^^^^^^^^^^^^^^^^^^
+  File "/opt/conda/envs/bonds/lib/python3.12/site-packages/sqlalchemy/engine/base.py", line 1416, in execute
+    return meth(
+           ^^^^^
+  File "/opt/conda/envs/bonds/lib/python3.12/site-packages/sqlalchemy/sql/elements.py", line 516, in _execute_on_connection
+    return connection._execute_clauseelement(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/conda/envs/bonds/lib/python3.12/site-packages/sqlalchemy/engine/base.py", line 1639, in _execute_clauseelement
+    ret = self._execute_context(
+          ^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/conda/envs/bonds/lib/python3.12/site-packages/sqlalchemy/engine/base.py", line 1848, in _execute_context
+    return self._exec_single_context(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/conda/envs/bonds/lib/python3.12/site-packages/sqlalchemy/engine/base.py", line 1988, in _exec_single_context
+    self._handle_dbapi_exception(
+  File "/opt/conda/envs/bonds/lib/python3.12/site-packages/sqlalchemy/engine/base.py", line 2343, in _handle_dbapi_exception
+    raise sqlalchemy_exception.with_traceback(exc_info[2]) from e
+  File "/opt/conda/envs/bonds/lib/python3.12/site-packages/sqlalchemy/engine/base.py", line 1969, in _exec_single_context
+    self.dialect.do_execute(
+  File "/opt/conda/envs/bonds/lib/python3.12/site-packages/sqlalchemy/engine/default.py", line 922, in do_execute
+    cursor.execute(statement, parameters)
+sqlalchemy.exc.IntegrityError: (psycopg2.errors.NotNullViolation) null value in column "is_open" of relation "bond_yield_realtime" violates not-null constraint
+DETAIL:  Failing row contains (2024-01-02 19:21:00, 1, 3.771, 1, null, null).
+
+[SQL: INSERT INTO bond_yield_realtime (datetime, asset_id, bond_yield, timeframe) VALUES (%(datetime)s, %(asset_id)s, %(bond_yield)s, %(timeframe)s)]
+[parameters: {'datetime': datetime.datetime(2024, 1, 3, 3, 21, tzinfo=<DstTzInfo 'Asia/Singapore' +08+8:00:00 STD>), 'asset_id': 1, 'bond_yield': 3.771, 'timeframe': 1}]
+(Background on this error at: https://sqlalche.me/e/20/gkpj)
+
+2024-01-03 03:22:02,102 - INFO - entry
+2024-01-03 03:22:15,772 - INFO - 2024-01-03 03:22:00+08:00
+2024-01-03 03:22:15,775 - INFO - 2024-01-03 03:22:15.772517+08:00
+2024-01-03 03:22:15,825 - INFO - Traceback (most recent call last):
+  File "/opt/conda/envs/bonds/lib/python3.12/site-packages/sqlalchemy/engine/base.py", line 1969, in _exec_single_context
+    self.dialect.do_execute(
+  File "/opt/conda/envs/bonds/lib/python3.12/site-packages/sqlalchemy/engine/default.py", line 922, in do_execute
+    cursor.execute(statement, parameters)
+psycopg2.errors.NotNullViolation: null value in column "is_open" of relation "bond_yield_realtime" violates not-null constraint
+DETAIL:  Failing row contains (2024-01-02 19:22:00, 1, 3.772, 1, null, null).
+
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/home/app/bonds_sync_realtime.py", line 60, in write_to_database
+    BondYieldRealtime(
+  File "<string>", line 4, in __init__
+  File "/opt/conda/envs/bonds/lib/python3.12/site-packages/sqlalchemy/orm/state.py", line 566, in _initialize_instance
+    with util.safe_reraise():
+  File "/opt/conda/envs/bonds/lib/python3.12/site-packages/sqlalchemy/util/langhelpers.py", line 146, in __exit__
+    raise exc_value.with_traceback(exc_tb)
+  File "/opt/conda/envs/bonds/lib/python3.12/site-packages/sqlalchemy/orm/state.py", line 564, in _initialize_instance
+    manager.original_init(*mixed[1:], **kwargs)
+  File "/home/app/models/bond.py", line 62, in __init__
+    db.session.commit()
+  File "/opt/conda/envs/bonds/lib/python3.12/site-packages/sqlalchemy/orm/scoping.py", line 598, in commit
+    return self._proxied.commit()
+           ^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/conda/envs/bonds/lib/python3.12/site-packages/sqlalchemy/orm/session.py", line 1969, in commit
+    trans.commit(_to_root=True)
+  File "<string>", line 2, in commit
+  File "/opt/conda/envs/bonds/lib/python3.12/site-packages/sqlalchemy/orm/state_changes.py", line 139, in _go
+    ret_value = fn(self, *arg, **kw)
+                ^^^^^^^^^^^^^^^^^^^^
+  File "/opt/conda/envs/bonds/lib/python3.12/site-packages/sqlalchemy/orm/session.py", line 1256, in commit
+    self._prepare_impl()
+  File "<string>", line 2, in _prepare_impl
+  File "/opt/conda/envs/bonds/lib/python3.12/site-packages/sqlalchemy/orm/state_changes.py", line 139, in _go
+    ret_value = fn(self, *arg, **kw)
+                ^^^^^^^^^^^^^^^^^^^^
+  File "/opt/conda/envs/bonds/lib/python3.12/site-packages/sqlalchemy/orm/session.py", line 1231, in _prepare_impl
+    self.session.flush()
+  File "/opt/conda/envs/bonds/lib/python3.12/site-packages/sqlalchemy/orm/session.py", line 4312, in flush
+    self._flush(objects)
+  File "/opt/conda/envs/bonds/lib/python3.12/site-packages/sqlalchemy/orm/session.py", line 4447, in _flush
+    with util.safe_reraise():
+  File "/opt/conda/envs/bonds/lib/python3.12/site-packages/sqlalchemy/util/langhelpers.py", line 146, in __exit__
+    raise exc_value.with_traceback(exc_tb)
+  File "/opt/conda/envs/bonds/lib/python3.12/site-packages/sqlalchemy/orm/session.py", line 4408, in _flush
+    flush_context.execute()
+  File "/opt/conda/envs/bonds/lib/python3.12/site-packages/sqlalchemy/orm/unitofwork.py", line 466, in execute
+    rec.execute(self)
+  File "/opt/conda/envs/bonds/lib/python3.12/site-packages/sqlalchemy/orm/unitofwork.py", line 642, in execute
+    util.preloaded.orm_persistence.save_obj(
+  File "/opt/conda/envs/bonds/lib/python3.12/site-packages/sqlalchemy/orm/persistence.py", line 93, in save_obj
+    _emit_insert_statements(
+  File "/opt/conda/envs/bonds/lib/python3.12/site-packages/sqlalchemy/orm/persistence.py", line 1043, in _emit_insert_statements
+    result = connection.execute(
+             ^^^^^^^^^^^^^^^^^^^
+  File "/opt/conda/envs/bonds/lib/python3.12/site-packages/sqlalchemy/engine/base.py", line 1416, in execute
+    return meth(
+           ^^^^^
+  File "/opt/conda/envs/bonds/lib/python3.12/site-packages/sqlalchemy/sql/elements.py", line 516, in _execute_on_connection
+    return connection._execute_clauseelement(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/conda/envs/bonds/lib/python3.12/site-packages/sqlalchemy/engine/base.py", line 1639, in _execute_clauseelement
+    ret = self._execute_context(
+          ^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/conda/envs/bonds/lib/python3.12/site-packages/sqlalchemy/engine/base.py", line 1848, in _execute_context
+    return self._exec_single_context(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/conda/envs/bonds/lib/python3.12/site-packages/sqlalchemy/engine/base.py", line 1988, in _exec_single_context
+    self._handle_dbapi_exception(
+  File "/opt/conda/envs/bonds/lib/python3.12/site-packages/sqlalchemy/engine/base.py", line 2343, in _handle_dbapi_exception
+    raise sqlalchemy_exception.with_traceback(exc_info[2]) from e
+  File "/opt/conda/envs/bonds/lib/python3.12/site-packages/sqlalchemy/engine/base.py", line 1969, in _exec_single_context
+    self.dialect.do_execute(
+  File "/opt/conda/envs/bonds/lib/python3.12/site-packages/sqlalchemy/engine/default.py", line 922, in do_execute
+    cursor.execute(statement, parameters)
+sqlalchemy.exc.IntegrityError: (psycopg2.errors.NotNullViolation) null value in column "is_open" of relation "bond_yield_realtime" violates not-null constraint
+DETAIL:  Failing row contains (2024-01-02 19:22:00, 1, 3.772, 1, null, null).
+
+[SQL: INSERT INTO bond_yield_realtime (datetime, asset_id, bond_yield, timeframe) VALUES (%(datetime)s, %(asset_id)s, %(bond_yield)s, %(timeframe)s)]
+[parameters: {'datetime': datetime.datetime(2024, 1, 3, 3, 22, tzinfo=<DstTzInfo 'Asia/Singapore' +08+8:00:00 STD>), 'asset_id': 1, 'bond_yield': 3.772, 'timeframe': 1}]
+(Background on this error at: https://sqlalche.me/e/20/gkpj)
+
+2024-01-03 03:23:02,463 - INFO - entry
+2024-01-03 03:23:15,486 - INFO - 2024-01-03 03:23:00+08:00
+2024-01-03 03:23:15,487 - INFO - 2024-01-03 03:23:15.486302+08:00
+2024-01-03 03:23:15,535 - INFO - Traceback (most recent call last):
+  File "/opt/conda/envs/bonds/lib/python3.12/site-packages/sqlalchemy/engine/base.py", line 1969, in _exec_single_context
+    self.dialect.do_execute(
+  File "/opt/conda/envs/bonds/lib/python3.12/site-packages/sqlalchemy/engine/default.py", line 922, in do_execute
+    cursor.execute(statement, parameters)
+psycopg2.errors.NotNullViolation: null value in column "is_open" of relation "bond_yield_realtime" violates not-null constraint
+DETAIL:  Failing row contains (2024-01-02 19:23:00, 1, 3.772, 1, null, null).
+
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/home/app/bonds_sync_realtime.py", line 60, in write_to_database
+    BondYieldRealtime(
+  File "<string>", line 4, in __init__
+  File "/opt/conda/envs/bonds/lib/python3.12/site-packages/sqlalchemy/orm/state.py", line 566, in _initialize_instance
+    with util.safe_reraise():
+  File "/opt/conda/envs/bonds/lib/python3.12/site-packages/sqlalchemy/util/langhelpers.py", line 146, in __exit__
+    raise exc_value.with_traceback(exc_tb)
+  File "/opt/conda/envs/bonds/lib/python3.12/site-packages/sqlalchemy/orm/state.py", line 564, in _initialize_instance
+    manager.original_init(*mixed[1:], **kwargs)
+  File "/home/app/models/bond.py", line 62, in __init__
+    db.session.commit()
+  File "/opt/conda/envs/bonds/lib/python3.12/site-packages/sqlalchemy/orm/scoping.py", line 598, in commit
+    return self._proxied.commit()
+           ^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/conda/envs/bonds/lib/python3.12/site-packages/sqlalchemy/orm/session.py", line 1969, in commit
+    trans.commit(_to_root=True)
+  File "<string>", line 2, in commit
+  File "/opt/conda/envs/bonds/lib/python3.12/site-packages/sqlalchemy/orm/state_changes.py", line 139, in _go
+    ret_value = fn(self, *arg, **kw)
+                ^^^^^^^^^^^^^^^^^^^^
+  File "/opt/conda/envs/bonds/lib/python3.12/site-packages/sqlalchemy/orm/session.py", line 1256, in commit
+    self._prepare_impl()
+  File "<string>", line 2, in _prepare_impl
+  File "/opt/conda/envs/bonds/lib/python3.12/site-packages/sqlalchemy/orm/state_changes.py", line 139, in _go
+    ret_value = fn(self, *arg, **kw)
+                ^^^^^^^^^^^^^^^^^^^^
+  File "/opt/conda/envs/bonds/lib/python3.12/site-packages/sqlalchemy/orm/session.py", line 1231, in _prepare_impl
+    self.session.flush()
+  File "/opt/conda/envs/bonds/lib/python3.12/site-packages/sqlalchemy/orm/session.py", line 4312, in flush
+    self._flush(objects)
+  File "/opt/conda/envs/bonds/lib/python3.12/site-packages/sqlalchemy/orm/session.py", line 4447, in _flush
+    with util.safe_reraise():
+  File "/opt/conda/envs/bonds/lib/python3.12/site-packages/sqlalchemy/util/langhelpers.py", line 146, in __exit__
+    raise exc_value.with_traceback(exc_tb)
+  File "/opt/conda/envs/bonds/lib/python3.12/site-packages/sqlalchemy/orm/session.py", line 4408, in _flush
+    flush_context.execute()
+  File "/opt/conda/envs/bonds/lib/python3.12/site-packages/sqlalchemy/orm/unitofwork.py", line 466, in execute
+    rec.execute(self)
+  File "/opt/conda/envs/bonds/lib/python3.12/site-packages/sqlalchemy/orm/unitofwork.py", line 642, in execute
+    util.preloaded.orm_persistence.save_obj(
+  File "/opt/conda/envs/bonds/lib/python3.12/site-packages/sqlalchemy/orm/persistence.py", line 93, in save_obj
+    _emit_insert_statements(
+  File "/opt/conda/envs/bonds/lib/python3.12/site-packages/sqlalchemy/orm/persistence.py", line 1043, in _emit_insert_statements
+    result = connection.execute(
+             ^^^^^^^^^^^^^^^^^^^
+  File "/opt/conda/envs/bonds/lib/python3.12/site-packages/sqlalchemy/engine/base.py", line 1416, in execute
+    return meth(
+           ^^^^^
+  File "/opt/conda/envs/bonds/lib/python3.12/site-packages/sqlalchemy/sql/elements.py", line 516, in _execute_on_connection
+    return connection._execute_clauseelement(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/conda/envs/bonds/lib/python3.12/site-packages/sqlalchemy/engine/base.py", line 1639, in _execute_clauseelement
+    ret = self._execute_context(
+          ^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/conda/envs/bonds/lib/python3.12/site-packages/sqlalchemy/engine/base.py", line 1848, in _execute_context
+    return self._exec_single_context(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/conda/envs/bonds/lib/python3.12/site-packages/sqlalchemy/engine/base.py", line 1988, in _exec_single_context
+    self._handle_dbapi_exception(
+  File "/opt/conda/envs/bonds/lib/python3.12/site-packages/sqlalchemy/engine/base.py", line 2343, in _handle_dbapi_exception
+    raise sqlalchemy_exception.with_traceback(exc_info[2]) from e
+  File "/opt/conda/envs/bonds/lib/python3.12/site-packages/sqlalchemy/engine/base.py", line 1969, in _exec_single_context
+    self.dialect.do_execute(
+  File "/opt/conda/envs/bonds/lib/python3.12/site-packages/sqlalchemy/engine/default.py", line 922, in do_execute
+    cursor.execute(statement, parameters)
+sqlalchemy.exc.IntegrityError: (psycopg2.errors.NotNullViolation) null value in column "is_open" of relation "bond_yield_realtime" violates not-null constraint
+DETAIL:  Failing row contains (2024-01-02 19:23:00, 1, 3.772, 1, null, null).
+
+[SQL: INSERT INTO bond_yield_realtime (datetime, asset_id, bond_yield, timeframe) VALUES (%(datetime)s, %(asset_id)s, %(bond_yield)s, %(timeframe)s)]
+[parameters: {'datetime': datetime.datetime(2024, 1, 3, 3, 23, tzinfo=<DstTzInfo 'Asia/Singapore' +08+8:00:00 STD>), 'asset_id': 1, 'bond_yield': 3.772, 'timeframe': 1}]
+(Background on this error at: https://sqlalche.me/e/20/gkpj)
+
+2024-01-03 03:24:02,194 - INFO - entry
+2024-01-03 03:24:16,567 - INFO - 2024-01-03 03:24:00+08:00
+2024-01-03 03:24:16,589 - INFO - 2024-01-03 03:24:16.567366+08:00
+2024-01-03 03:24:16,677 - INFO - Traceback (most recent call last):
+  File "/opt/conda/envs/bonds/lib/python3.12/site-packages/sqlalchemy/engine/base.py", line 1969, in _exec_single_context
+    self.dialect.do_execute(
+  File "/opt/conda/envs/bonds/lib/python3.12/site-packages/sqlalchemy/engine/default.py", line 922, in do_execute
+    cursor.execute(statement, parameters)
+psycopg2.errors.NotNullViolation: null value in column "is_open" of relation "bond_yield_realtime" violates not-null constraint
+DETAIL:  Failing row contains (2024-01-02 19:24:00, 1, 3.772, 1, null, null).
+
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/home/app/bonds_sync_realtime.py", line 60, in write_to_database
+    BondYieldRealtime(
+  File "<string>", line 4, in __init__
+  File "/opt/conda/envs/bonds/lib/python3.12/site-packages/sqlalchemy/orm/state.py", line 566, in _initialize_instance
+    with util.safe_reraise():
+  File "/opt/conda/envs/bonds/lib/python3.12/site-packages/sqlalchemy/util/langhelpers.py", line 146, in __exit__
+    raise exc_value.with_traceback(exc_tb)
+  File "/opt/conda/envs/bonds/lib/python3.12/site-packages/sqlalchemy/orm/state.py", line 564, in _initialize_instance
+    manager.original_init(*mixed[1:], **kwargs)
+  File "/home/app/models/bond.py", line 62, in __init__
+    db.session.commit()
+  File "/opt/conda/envs/bonds/lib/python3.12/site-packages/sqlalchemy/orm/scoping.py", line 598, in commit
+    return self._proxied.commit()
+           ^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/conda/envs/bonds/lib/python3.12/site-packages/sqlalchemy/orm/session.py", line 1969, in commit
+    trans.commit(_to_root=True)
+  File "<string>", line 2, in commit
+  File "/opt/conda/envs/bonds/lib/python3.12/site-packages/sqlalchemy/orm/state_changes.py", line 139, in _go
+    ret_value = fn(self, *arg, **kw)
+                ^^^^^^^^^^^^^^^^^^^^
+  File "/opt/conda/envs/bonds/lib/python3.12/site-packages/sqlalchemy/orm/session.py", line 1256, in commit
+    self._prepare_impl()
+  File "<string>", line 2, in _prepare_impl
+  File "/opt/conda/envs/bonds/lib/python3.12/site-packages/sqlalchemy/orm/state_changes.py", line 139, in _go
+    ret_value = fn(self, *arg, **kw)
+                ^^^^^^^^^^^^^^^^^^^^
+  File "/opt/conda/envs/bonds/lib/python3.12/site-packages/sqlalchemy/orm/session.py", line 1231, in _prepare_impl
+    self.session.flush()
+  File "/opt/conda/envs/bonds/lib/python3.12/site-packages/sqlalchemy/orm/session.py", line 4312, in flush
+    self._flush(objects)
+  File "/opt/conda/envs/bonds/lib/python3.12/site-packages/sqlalchemy/orm/session.py", line 4447, in _flush
+    with util.safe_reraise():
+  File "/opt/conda/envs/bonds/lib/python3.12/site-packages/sqlalchemy/util/langhelpers.py", line 146, in __exit__
+    raise exc_value.with_traceback(exc_tb)
+  File "/opt/conda/envs/bonds/lib/python3.12/site-packages/sqlalchemy/orm/session.py", line 4408, in _flush
+    flush_context.execute()
+  File "/opt/conda/envs/bonds/lib/python3.12/site-packages/sqlalchemy/orm/unitofwork.py", line 466, in execute
+    rec.execute(self)
+  File "/opt/conda/envs/bonds/lib/python3.12/site-packages/sqlalchemy/orm/unitofwork.py", line 642, in execute
+    util.preloaded.orm_persistence.save_obj(
+  File "/opt/conda/envs/bonds/lib/python3.12/site-packages/sqlalchemy/orm/persistence.py", line 93, in save_obj
+    _emit_insert_statements(
+  File "/opt/conda/envs/bonds/lib/python3.12/site-packages/sqlalchemy/orm/persistence.py", line 1043, in _emit_insert_statements
+    result = connection.execute(
+             ^^^^^^^^^^^^^^^^^^^
+  File "/opt/conda/envs/bonds/lib/python3.12/site-packages/sqlalchemy/engine/base.py", line 1416, in execute
+    return meth(
+           ^^^^^
+  File "/opt/conda/envs/bonds/lib/python3.12/site-packages/sqlalchemy/sql/elements.py", line 516, in _execute_on_connection
+    return connection._execute_clauseelement(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/conda/envs/bonds/lib/python3.12/site-packages/sqlalchemy/engine/base.py", line 1639, in _execute_clauseelement
+    ret = self._execute_context(
+          ^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/conda/envs/bonds/lib/python3.12/site-packages/sqlalchemy/engine/base.py", line 1848, in _execute_context
+    return self._exec_single_context(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/conda/envs/bonds/lib/python3.12/site-packages/sqlalchemy/engine/base.py", line 1988, in _exec_single_context
+    self._handle_dbapi_exception(
+  File "/opt/conda/envs/bonds/lib/python3.12/site-packages/sqlalchemy/engine/base.py", line 2343, in _handle_dbapi_exception
+    raise sqlalchemy_exception.with_traceback(exc_info[2]) from e
+  File "/opt/conda/envs/bonds/lib/python3.12/site-packages/sqlalchemy/engine/base.py", line 1969, in _exec_single_context
+    self.dialect.do_execute(
+  File "/opt/conda/envs/bonds/lib/python3.12/site-packages/sqlalchemy/engine/default.py", line 922, in do_execute
+    cursor.execute(statement, parameters)
+sqlalchemy.exc.IntegrityError: (psycopg2.errors.NotNullViolation) null value in column "is_open" of relation "bond_yield_realtime" violates not-null constraint
+DETAIL:  Failing row contains (2024-01-02 19:24:00, 1, 3.772, 1, null, null).
+
+[SQL: INSERT INTO bond_yield_realtime (datetime, asset_id, bond_yield, timeframe) VALUES (%(datetime)s, %(asset_id)s, %(bond_yield)s, %(timeframe)s)]
+[parameters: {'datetime': datetime.datetime(2024, 1, 3, 3, 24, tzinfo=<DstTzInfo 'Asia/Singapore' +08+8:00:00 STD>), 'asset_id': 1, 'bond_yield': 3.772, 'timeframe': 1}]
+(Background on this error at: https://sqlalche.me/e/20/gkpj)
+
+2024-01-03 03:25:02,400 - INFO - entry
+2024-01-03 03:25:17,975 - INFO - 2024-01-03 03:25:00+08:00
+2024-01-03 03:25:17,978 - INFO - 2024-01-03 03:25:17.975838+08:00
+2024-01-03 03:25:18,031 - INFO - Traceback (most recent call last):
+  File "/opt/conda/envs/bonds/lib/python3.12/site-packages/sqlalchemy/engine/base.py", line 1969, in _exec_single_context
+    self.dialect.do_execute(
+  File "/opt/conda/envs/bonds/lib/python3.12/site-packages/sqlalchemy/engine/default.py", line 922, in do_execute
+    cursor.execute(statement, parameters)
+psycopg2.errors.NotNullViolation: null value in column "is_open" of relation "bond_yield_realtime" violates not-null constraint
+DETAIL:  Failing row contains (2024-01-02 19:25:00, 1, 3.772, 5, null, null).
+
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/home/app/bonds_sync_realtime.py", line 60, in write_to_database
+    BondYieldRealtime(
+  File "<string>", line 4, in __init__
+  File "/opt/conda/envs/bonds/lib/python3.12/site-packages/sqlalchemy/orm/state.py", line 566, in _initialize_instance
+    with util.safe_reraise():
+  File "/opt/conda/envs/bonds/lib/python3.12/site-packages/sqlalchemy/util/langhelpers.py", line 146, in __exit__
+    raise exc_value.with_traceback(exc_tb)
+  File "/opt/conda/envs/bonds/lib/python3.12/site-packages/sqlalchemy/orm/state.py", line 564, in _initialize_instance
+    manager.original_init(*mixed[1:], **kwargs)
+  File "/home/app/models/bond.py", line 62, in __init__
+    db.session.commit()
+  File "/opt/conda/envs/bonds/lib/python3.12/site-packages/sqlalchemy/orm/scoping.py", line 598, in commit
+    return self._proxied.commit()
+           ^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/conda/envs/bonds/lib/python3.12/site-packages/sqlalchemy/orm/session.py", line 1969, in commit
+    trans.commit(_to_root=True)
+  File "<string>", line 2, in commit
+  File "/opt/conda/envs/bonds/lib/python3.12/site-packages/sqlalchemy/orm/state_changes.py", line 139, in _go
+    ret_value = fn(self, *arg, **kw)
+                ^^^^^^^^^^^^^^^^^^^^
+  File "/opt/conda/envs/bonds/lib/python3.12/site-packages/sqlalchemy/orm/session.py", line 1256, in commit
+    self._prepare_impl()
+  File "<string>", line 2, in _prepare_impl
+  File "/opt/conda/envs/bonds/lib/python3.12/site-packages/sqlalchemy/orm/state_changes.py", line 139, in _go
+    ret_value = fn(self, *arg, **kw)
+                ^^^^^^^^^^^^^^^^^^^^
+  File "/opt/conda/envs/bonds/lib/python3.12/site-packages/sqlalchemy/orm/session.py", line 1231, in _prepare_impl
+    self.session.flush()
+  File "/opt/conda/envs/bonds/lib/python3.12/site-packages/sqlalchemy/orm/session.py", line 4312, in flush
+    self._flush(objects)
+  File "/opt/conda/envs/bonds/lib/python3.12/site-packages/sqlalchemy/orm/session.py", line 4447, in _flush
+    with util.safe_reraise():
+  File "/opt/conda/envs/bonds/lib/python3.12/site-packages/sqlalchemy/util/langhelpers.py", line 146, in __exit__
+    raise exc_value.with_traceback(exc_tb)
+  File "/opt/conda/envs/bonds/lib/python3.12/site-packages/sqlalchemy/orm/session.py", line 4408, in _flush
+    flush_context.execute()
+  File "/opt/conda/envs/bonds/lib/python3.12/site-packages/sqlalchemy/orm/unitofwork.py", line 466, in execute
+    rec.execute(self)
+  File "/opt/conda/envs/bonds/lib/python3.12/site-packages/sqlalchemy/orm/unitofwork.py", line 642, in execute
+    util.preloaded.orm_persistence.save_obj(
+  File "/opt/conda/envs/bonds/lib/python3.12/site-packages/sqlalchemy/orm/persistence.py", line 93, in save_obj
+    _emit_insert_statements(
+  File "/opt/conda/envs/bonds/lib/python3.12/site-packages/sqlalchemy/orm/persistence.py", line 1043, in _emit_insert_statements
+    result = connection.execute(
+             ^^^^^^^^^^^^^^^^^^^
+  File "/opt/conda/envs/bonds/lib/python3.12/site-packages/sqlalchemy/engine/base.py", line 1416, in execute
+    return meth(
+           ^^^^^
+  File "/opt/conda/envs/bonds/lib/python3.12/site-packages/sqlalchemy/sql/elements.py", line 516, in _execute_on_connection
+    return connection._execute_clauseelement(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/conda/envs/bonds/lib/python3.12/site-packages/sqlalchemy/engine/base.py", line 1639, in _execute_clauseelement
+    ret = self._execute_context(
+          ^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/conda/envs/bonds/lib/python3.12/site-packages/sqlalchemy/engine/base.py", line 1848, in _execute_context
+    return self._exec_single_context(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/conda/envs/bonds/lib/python3.12/site-packages/sqlalchemy/engine/base.py", line 1988, in _exec_single_context
+    self._handle_dbapi_exception(
+  File "/opt/conda/envs/bonds/lib/python3.12/site-packages/sqlalchemy/engine/base.py", line 2343, in _handle_dbapi_exception
+    raise sqlalchemy_exception.with_traceback(exc_info[2]) from e
+  File "/opt/conda/envs/bonds/lib/python3.12/site-packages/sqlalchemy/engine/base.py", line 1969, in _exec_single_context
+    self.dialect.do_execute(
+  File "/opt/conda/envs/bonds/lib/python3.12/site-packages/sqlalchemy/engine/default.py", line 922, in do_execute
+    cursor.execute(statement, parameters)
+sqlalchemy.exc.IntegrityError: (psycopg2.errors.NotNullViolation) null value in column "is_open" of relation "bond_yield_realtime" violates not-null constraint
+DETAIL:  Failing row contains (2024-01-02 19:25:00, 1, 3.772, 5, null, null).
+
+[SQL: INSERT INTO bond_yield_realtime (datetime, asset_id, bond_yield, timeframe) VALUES (%(datetime)s, %(asset_id)s, %(bond_yield)s, %(timeframe)s)]
+[parameters: {'datetime': datetime.datetime(2024, 1, 3, 3, 25, tzinfo=<DstTzInfo 'Asia/Singapore' +08+8:00:00 STD>), 'asset_id': 1, 'bond_yield': 3.772, 'timeframe': 5}]
+(Background on this error at: https://sqlalche.me/e/20/gkpj)
+
+2024-01-03 03:26:01,926 - INFO - entry
+2024-01-03 03:26:25,635 - INFO - 2024-01-03 03:26:00+08:00
+2024-01-03 03:26:25,638 - INFO - 2024-01-03 03:26:25.635701+08:00
+2024-01-03 03:26:25,732 - INFO - Traceback (most recent call last):
+  File "/opt/conda/envs/bonds/lib/python3.12/site-packages/sqlalchemy/engine/base.py", line 1969, in _exec_single_context
+    self.dialect.do_execute(
+  File "/opt/conda/envs/bonds/lib/python3.12/site-packages/sqlalchemy/engine/default.py", line 922, in do_execute
+    cursor.execute(statement, parameters)
+psycopg2.errors.NotNullViolation: null value in column "is_open" of relation "bond_yield_realtime" violates not-null constraint
+DETAIL:  Failing row contains (2024-01-02 19:26:00, 1, 3.772, 1, null, null).
+
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/home/app/bonds_sync_realtime.py", line 60, in write_to_database
+    BondYieldRealtime(
+  File "<string>", line 4, in __init__
+  File "/opt/conda/envs/bonds/lib/python3.12/site-packages/sqlalchemy/orm/state.py", line 566, in _initialize_instance
+    with util.safe_reraise():
+  File "/opt/conda/envs/bonds/lib/python3.12/site-packages/sqlalchemy/util/langhelpers.py", line 146, in __exit__
+    raise exc_value.with_traceback(exc_tb)
+  File "/opt/conda/envs/bonds/lib/python3.12/site-packages/sqlalchemy/orm/state.py", line 564, in _initialize_instance
+    manager.original_init(*mixed[1:], **kwargs)
+  File "/home/app/models/bond.py", line 62, in __init__
+    db.session.commit()
+  File "/opt/conda/envs/bonds/lib/python3.12/site-packages/sqlalchemy/orm/scoping.py", line 598, in commit
+    return self._proxied.commit()
+           ^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/conda/envs/bonds/lib/python3.12/site-packages/sqlalchemy/orm/session.py", line 1969, in commit
+    trans.commit(_to_root=True)
+  File "<string>", line 2, in commit
+  File "/opt/conda/envs/bonds/lib/python3.12/site-packages/sqlalchemy/orm/state_changes.py", line 139, in _go
+    ret_value = fn(self, *arg, **kw)
+                ^^^^^^^^^^^^^^^^^^^^
+  File "/opt/conda/envs/bonds/lib/python3.12/site-packages/sqlalchemy/orm/session.py", line 1256, in commit
+    self._prepare_impl()
+  File "<string>", line 2, in _prepare_impl
+  File "/opt/conda/envs/bonds/lib/python3.12/site-packages/sqlalchemy/orm/state_changes.py", line 139, in _go
+    ret_value = fn(self, *arg, **kw)
+                ^^^^^^^^^^^^^^^^^^^^
+  File "/opt/conda/envs/bonds/lib/python3.12/site-packages/sqlalchemy/orm/session.py", line 1231, in _prepare_impl
+    self.session.flush()
+  File "/opt/conda/envs/bonds/lib/python3.12/site-packages/sqlalchemy/orm/session.py", line 4312, in flush
+    self._flush(objects)
+  File "/opt/conda/envs/bonds/lib/python3.12/site-packages/sqlalchemy/orm/session.py", line 4447, in _flush
+    with util.safe_reraise():
+  File "/opt/conda/envs/bonds/lib/python3.12/site-packages/sqlalchemy/util/langhelpers.py", line 146, in __exit__
+    raise exc_value.with_traceback(exc_tb)
+  File "/opt/conda/envs/bonds/lib/python3.12/site-packages/sqlalchemy/orm/session.py", line 4408, in _flush
+    flush_context.execute()
+  File "/opt/conda/envs/bonds/lib/python3.12/site-packages/sqlalchemy/orm/unitofwork.py", line 466, in execute
+    rec.execute(self)
+  File "/opt/conda/envs/bonds/lib/python3.12/site-packages/sqlalchemy/orm/unitofwork.py", line 642, in execute
+    util.preloaded.orm_persistence.save_obj(
+  File "/opt/conda/envs/bonds/lib/python3.12/site-packages/sqlalchemy/orm/persistence.py", line 93, in save_obj
+    _emit_insert_statements(
+  File "/opt/conda/envs/bonds/lib/python3.12/site-packages/sqlalchemy/orm/persistence.py", line 1043, in _emit_insert_statements
+    result = connection.execute(
+             ^^^^^^^^^^^^^^^^^^^
+  File "/opt/conda/envs/bonds/lib/python3.12/site-packages/sqlalchemy/engine/base.py", line 1416, in execute
+    return meth(
+           ^^^^^
+  File "/opt/conda/envs/bonds/lib/python3.12/site-packages/sqlalchemy/sql/elements.py", line 516, in _execute_on_connection
+    return connection._execute_clauseelement(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/conda/envs/bonds/lib/python3.12/site-packages/sqlalchemy/engine/base.py", line 1639, in _execute_clauseelement
+    ret = self._execute_context(
+          ^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/conda/envs/bonds/lib/python3.12/site-packages/sqlalchemy/engine/base.py", line 1848, in _execute_context
+    return self._exec_single_context(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/conda/envs/bonds/lib/python3.12/site-packages/sqlalchemy/engine/base.py", line 1988, in _exec_single_context
+    self._handle_dbapi_exception(
+  File "/opt/conda/envs/bonds/lib/python3.12/site-packages/sqlalchemy/engine/base.py", line 2343, in _handle_dbapi_exception
+    raise sqlalchemy_exception.with_traceback(exc_info[2]) from e
+  File "/opt/conda/envs/bonds/lib/python3.12/site-packages/sqlalchemy/engine/base.py", line 1969, in _exec_single_context
+    self.dialect.do_execute(
+  File "/opt/conda/envs/bonds/lib/python3.12/site-packages/sqlalchemy/engine/default.py", line 922, in do_execute
+    cursor.execute(statement, parameters)
+sqlalchemy.exc.IntegrityError: (psycopg2.errors.NotNullViolation) null value in column "is_open" of relation "bond_yield_realtime" violates not-null constraint
+DETAIL:  Failing row contains (2024-01-02 19:26:00, 1, 3.772, 1, null, null).
+
+[SQL: INSERT INTO bond_yield_realtime (datetime, asset_id, bond_yield, timeframe) VALUES (%(datetime)s, %(asset_id)s, %(bond_yield)s, %(timeframe)s)]
+[parameters: {'datetime': datetime.datetime(2024, 1, 3, 3, 26, tzinfo=<DstTzInfo 'Asia/Singapore' +08+8:00:00 STD>), 'asset_id': 1, 'bond_yield': 3.772, 'timeframe': 1}]
+(Background on this error at: https://sqlalche.me/e/20/gkpj)
+
+2024-01-03 03:27:02,549 - INFO - entry
+2024-01-03 03:27:20,999 - INFO - 2024-01-03 03:27:00+08:00
+2024-01-03 03:27:21,002 - INFO - 2024-01-03 03:27:20.999773+08:00
+2024-01-03 03:27:21,098 - INFO - Traceback (most recent call last):
+  File "/opt/conda/envs/bonds/lib/python3.12/site-packages/sqlalchemy/engine/base.py", line 1969, in _exec_single_context
+    self.dialect.do_execute(
+  File "/opt/conda/envs/bonds/lib/python3.12/site-packages/sqlalchemy/engine/default.py", line 922, in do_execute
+    cursor.execute(statement, parameters)
+psycopg2.errors.NotNullViolation: null value in column "is_open" of relation "bond_yield_realtime" violates not-null constraint
+DETAIL:  Failing row contains (2024-01-02 19:27:00, 1, 3.772, 1, null, null).
+
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/home/app/bonds_sync_realtime.py", line 60, in write_to_database
+    BondYieldRealtime(
+  File "<string>", line 4, in __init__
+  File "/opt/conda/envs/bonds/lib/python3.12/site-packages/sqlalchemy/orm/state.py", line 566, in _initialize_instance
+    with util.safe_reraise():
+  File "/opt/conda/envs/bonds/lib/python3.12/site-packages/sqlalchemy/util/langhelpers.py", line 146, in __exit__
+    raise exc_value.with_traceback(exc_tb)
+  File "/opt/conda/envs/bonds/lib/python3.12/site-packages/sqlalchemy/orm/state.py", line 564, in _initialize_instance
+    manager.original_init(*mixed[1:], **kwargs)
+  File "/home/app/models/bond.py", line 62, in __init__
+    db.session.commit()
+  File "/opt/conda/envs/bonds/lib/python3.12/site-packages/sqlalchemy/orm/scoping.py", line 598, in commit
+    return self._proxied.commit()
+           ^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/conda/envs/bonds/lib/python3.12/site-packages/sqlalchemy/orm/session.py", line 1969, in commit
+    trans.commit(_to_root=True)
+  File "<string>", line 2, in commit
+  File "/opt/conda/envs/bonds/lib/python3.12/site-packages/sqlalchemy/orm/state_changes.py", line 139, in _go
+    ret_value = fn(self, *arg, **kw)
+                ^^^^^^^^^^^^^^^^^^^^
+  File "/opt/conda/envs/bonds/lib/python3.12/site-packages/sqlalchemy/orm/session.py", line 1256, in commit
+    self._prepare_impl()
+  File "<string>", line 2, in _prepare_impl
+  File "/opt/conda/envs/bonds/lib/python3.12/site-packages/sqlalchemy/orm/state_changes.py", line 139, in _go
+    ret_value = fn(self, *arg, **kw)
+                ^^^^^^^^^^^^^^^^^^^^
+  File "/opt/conda/envs/bonds/lib/python3.12/site-packages/sqlalchemy/orm/session.py", line 1231, in _prepare_impl
+    self.session.flush()
+  File "/opt/conda/envs/bonds/lib/python3.12/site-packages/sqlalchemy/orm/session.py", line 4312, in flush
+    self._flush(objects)
+  File "/opt/conda/envs/bonds/lib/python3.12/site-packages/sqlalchemy/orm/session.py", line 4447, in _flush
+    with util.safe_reraise():
+  File "/opt/conda/envs/bonds/lib/python3.12/site-packages/sqlalchemy/util/langhelpers.py", line 146, in __exit__
+    raise exc_value.with_traceback(exc_tb)
+  File "/opt/conda/envs/bonds/lib/python3.12/site-packages/sqlalchemy/orm/session.py", line 4408, in _flush
+    flush_context.execute()
+  File "/opt/conda/envs/bonds/lib/python3.12/site-packages/sqlalchemy/orm/unitofwork.py", line 466, in execute
+    rec.execute(self)
+  File "/opt/conda/envs/bonds/lib/python3.12/site-packages/sqlalchemy/orm/unitofwork.py", line 642, in execute
+    util.preloaded.orm_persistence.save_obj(
+  File "/opt/conda/envs/bonds/lib/python3.12/site-packages/sqlalchemy/orm/persistence.py", line 93, in save_obj
+    _emit_insert_statements(
+  File "/opt/conda/envs/bonds/lib/python3.12/site-packages/sqlalchemy/orm/persistence.py", line 1043, in _emit_insert_statements
+    result = connection.execute(
+             ^^^^^^^^^^^^^^^^^^^
+  File "/opt/conda/envs/bonds/lib/python3.12/site-packages/sqlalchemy/engine/base.py", line 1416, in execute
+    return meth(
+           ^^^^^
+  File "/opt/conda/envs/bonds/lib/python3.12/site-packages/sqlalchemy/sql/elements.py", line 516, in _execute_on_connection
+    return connection._execute_clauseelement(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/conda/envs/bonds/lib/python3.12/site-packages/sqlalchemy/engine/base.py", line 1639, in _execute_clauseelement
+    ret = self._execute_context(
+          ^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/conda/envs/bonds/lib/python3.12/site-packages/sqlalchemy/engine/base.py", line 1848, in _execute_context
+    return self._exec_single_context(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/conda/envs/bonds/lib/python3.12/site-packages/sqlalchemy/engine/base.py", line 1988, in _exec_single_context
+    self._handle_dbapi_exception(
+  File "/opt/conda/envs/bonds/lib/python3.12/site-packages/sqlalchemy/engine/base.py", line 2343, in _handle_dbapi_exception
+    raise sqlalchemy_exception.with_traceback(exc_info[2]) from e
+  File "/opt/conda/envs/bonds/lib/python3.12/site-packages/sqlalchemy/engine/base.py", line 1969, in _exec_single_context
+    self.dialect.do_execute(
+  File "/opt/conda/envs/bonds/lib/python3.12/site-packages/sqlalchemy/engine/default.py", line 922, in do_execute
+    cursor.execute(statement, parameters)
+sqlalchemy.exc.IntegrityError: (psycopg2.errors.NotNullViolation) null value in column "is_open" of relation "bond_yield_realtime" violates not-null constraint
+DETAIL:  Failing row contains (2024-01-02 19:27:00, 1, 3.772, 1, null, null).
+
+[SQL: INSERT INTO bond_yield_realtime (datetime, asset_id, bond_yield, timeframe) VALUES (%(datetime)s, %(asset_id)s, %(bond_yield)s, %(timeframe)s)]
+[parameters: {'datetime': datetime.datetime(2024, 1, 3, 3, 27, tzinfo=<DstTzInfo 'Asia/Singapore' +08+8:00:00 STD>), 'asset_id': 1, 'bond_yield': 3.772, 'timeframe': 1}]
+(Background on this error at: https://sqlalche.me/e/20/gkpj)
+
+2024-01-03 03:28:01,775 - INFO - entry
+2024-01-03 03:28:16,673 - INFO - 2024-01-03 03:28:00+08:00
+2024-01-03 03:28:16,675 - INFO - 2024-01-03 03:28:16.673271+08:00
+2024-01-03 03:28:16,726 - INFO - Traceback (most recent call last):
+  File "/opt/conda/envs/bonds/lib/python3.12/site-packages/sqlalchemy/engine/base.py", line 1969, in _exec_single_context
+    self.dialect.do_execute(
+  File "/opt/conda/envs/bonds/lib/python3.12/site-packages/sqlalchemy/engine/default.py", line 922, in do_execute
+    cursor.execute(statement, parameters)
+psycopg2.errors.NotNullViolation: null value in column "is_open" of relation "bond_yield_realtime" violates not-null constraint
+DETAIL:  Failing row contains (2024-01-02 19:28:00, 1, 3.771, 1, null, null).
+
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/home/app/bonds_sync_realtime.py", line 60, in write_to_database
+    BondYieldRealtime(
+  File "<string>", line 4, in __init__
+  File "/opt/conda/envs/bonds/lib/python3.12/site-packages/sqlalchemy/orm/state.py", line 566, in _initialize_instance
+    with util.safe_reraise():
+  File "/opt/conda/envs/bonds/lib/python3.12/site-packages/sqlalchemy/util/langhelpers.py", line 146, in __exit__
+    raise exc_value.with_traceback(exc_tb)
+  File "/opt/conda/envs/bonds/lib/python3.12/site-packages/sqlalchemy/orm/state.py", line 564, in _initialize_instance
+    manager.original_init(*mixed[1:], **kwargs)
+  File "/home/app/models/bond.py", line 62, in __init__
+    db.session.commit()
+  File "/opt/conda/envs/bonds/lib/python3.12/site-packages/sqlalchemy/orm/scoping.py", line 598, in commit
+    return self._proxied.commit()
+           ^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/conda/envs/bonds/lib/python3.12/site-packages/sqlalchemy/orm/session.py", line 1969, in commit
+    trans.commit(_to_root=True)
+  File "<string>", line 2, in commit
+  File "/opt/conda/envs/bonds/lib/python3.12/site-packages/sqlalchemy/orm/state_changes.py", line 139, in _go
+    ret_value = fn(self, *arg, **kw)
+                ^^^^^^^^^^^^^^^^^^^^
+  File "/opt/conda/envs/bonds/lib/python3.12/site-packages/sqlalchemy/orm/session.py", line 1256, in commit
+    self._prepare_impl()
+  File "<string>", line 2, in _prepare_impl
+  File "/opt/conda/envs/bonds/lib/python3.12/site-packages/sqlalchemy/orm/state_changes.py", line 139, in _go
+    ret_value = fn(self, *arg, **kw)
+                ^^^^^^^^^^^^^^^^^^^^
+  File "/opt/conda/envs/bonds/lib/python3.12/site-packages/sqlalchemy/orm/session.py", line 1231, in _prepare_impl
+    self.session.flush()
+  File "/opt/conda/envs/bonds/lib/python3.12/site-packages/sqlalchemy/orm/session.py", line 4312, in flush
+    self._flush(objects)
+  File "/opt/conda/envs/bonds/lib/python3.12/site-packages/sqlalchemy/orm/session.py", line 4447, in _flush
+    with util.safe_reraise():
+  File "/opt/conda/envs/bonds/lib/python3.12/site-packages/sqlalchemy/util/langhelpers.py", line 146, in __exit__
+    raise exc_value.with_traceback(exc_tb)
+  File "/opt/conda/envs/bonds/lib/python3.12/site-packages/sqlalchemy/orm/session.py", line 4408, in _flush
+    flush_context.execute()
+  File "/opt/conda/envs/bonds/lib/python3.12/site-packages/sqlalchemy/orm/unitofwork.py", line 466, in execute
+    rec.execute(self)
+  File "/opt/conda/envs/bonds/lib/python3.12/site-packages/sqlalchemy/orm/unitofwork.py", line 642, in execute
+    util.preloaded.orm_persistence.save_obj(
+  File "/opt/conda/envs/bonds/lib/python3.12/site-packages/sqlalchemy/orm/persistence.py", line 93, in save_obj
+    _emit_insert_statements(
+  File "/opt/conda/envs/bonds/lib/python3.12/site-packages/sqlalchemy/orm/persistence.py", line 1043, in _emit_insert_statements
+    result = connection.execute(
+             ^^^^^^^^^^^^^^^^^^^
+  File "/opt/conda/envs/bonds/lib/python3.12/site-packages/sqlalchemy/engine/base.py", line 1416, in execute
+    return meth(
+           ^^^^^
+  File "/opt/conda/envs/bonds/lib/python3.12/site-packages/sqlalchemy/sql/elements.py", line 516, in _execute_on_connection
+    return connection._execute_clauseelement(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/conda/envs/bonds/lib/python3.12/site-packages/sqlalchemy/engine/base.py", line 1639, in _execute_clauseelement
+    ret = self._execute_context(
+          ^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/conda/envs/bonds/lib/python3.12/site-packages/sqlalchemy/engine/base.py", line 1848, in _execute_context
+    return self._exec_single_context(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/conda/envs/bonds/lib/python3.12/site-packages/sqlalchemy/engine/base.py", line 1988, in _exec_single_context
+    self._handle_dbapi_exception(
+  File "/opt/conda/envs/bonds/lib/python3.12/site-packages/sqlalchemy/engine/base.py", line 2343, in _handle_dbapi_exception
+    raise sqlalchemy_exception.with_traceback(exc_info[2]) from e
+  File "/opt/conda/envs/bonds/lib/python3.12/site-packages/sqlalchemy/engine/base.py", line 1969, in _exec_single_context
+    self.dialect.do_execute(
+  File "/opt/conda/envs/bonds/lib/python3.12/site-packages/sqlalchemy/engine/default.py", line 922, in do_execute
+    cursor.execute(statement, parameters)
+sqlalchemy.exc.IntegrityError: (psycopg2.errors.NotNullViolation) null value in column "is_open" of relation "bond_yield_realtime" violates not-null constraint
+DETAIL:  Failing row contains (2024-01-02 19:28:00, 1, 3.771, 1, null, null).
+
+[SQL: INSERT INTO bond_yield_realtime (datetime, asset_id, bond_yield, timeframe) VALUES (%(datetime)s, %(asset_id)s, %(bond_yield)s, %(timeframe)s)]
+[parameters: {'datetime': datetime.datetime(2024, 1, 3, 3, 28, tzinfo=<DstTzInfo 'Asia/Singapore' +08+8:00:00 STD>), 'asset_id': 1, 'bond_yield': 3.771, 'timeframe': 1}]
+(Background on this error at: https://sqlalche.me/e/20/gkpj)
+
+2024-01-03 03:29:02,365 - INFO - entry
+2024-01-03 03:29:17,152 - INFO - 2024-01-03 03:29:00+08:00
+2024-01-03 03:29:17,154 - INFO - 2024-01-03 03:29:17.152452+08:00
+2024-01-03 03:29:17,206 - INFO - Traceback (most recent call last):
+  File "/opt/conda/envs/bonds/lib/python3.12/site-packages/sqlalchemy/engine/base.py", line 1969, in _exec_single_context
+    self.dialect.do_execute(
+  File "/opt/conda/envs/bonds/lib/python3.12/site-packages/sqlalchemy/engine/default.py", line 922, in do_execute
+    cursor.execute(statement, parameters)
+psycopg2.errors.NotNullViolation: null value in column "is_open" of relation "bond_yield_realtime" violates not-null constraint
+DETAIL:  Failing row contains (2024-01-02 19:29:00, 1, 3.772, 1, null, null).
+
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/home/app/bonds_sync_realtime.py", line 60, in write_to_database
+    BondYieldRealtime(
+  File "<string>", line 4, in __init__
+  File "/opt/conda/envs/bonds/lib/python3.12/site-packages/sqlalchemy/orm/state.py", line 566, in _initialize_instance
+    with util.safe_reraise():
+  File "/opt/conda/envs/bonds/lib/python3.12/site-packages/sqlalchemy/util/langhelpers.py", line 146, in __exit__
+    raise exc_value.with_traceback(exc_tb)
+  File "/opt/conda/envs/bonds/lib/python3.12/site-packages/sqlalchemy/orm/state.py", line 564, in _initialize_instance
+    manager.original_init(*mixed[1:], **kwargs)
+  File "/home/app/models/bond.py", line 62, in __init__
+    db.session.commit()
+  File "/opt/conda/envs/bonds/lib/python3.12/site-packages/sqlalchemy/orm/scoping.py", line 598, in commit
+    return self._proxied.commit()
+           ^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/conda/envs/bonds/lib/python3.12/site-packages/sqlalchemy/orm/session.py", line 1969, in commit
+    trans.commit(_to_root=True)
+  File "<string>", line 2, in commit
+  File "/opt/conda/envs/bonds/lib/python3.12/site-packages/sqlalchemy/orm/state_changes.py", line 139, in _go
+    ret_value = fn(self, *arg, **kw)
+                ^^^^^^^^^^^^^^^^^^^^
+  File "/opt/conda/envs/bonds/lib/python3.12/site-packages/sqlalchemy/orm/session.py", line 1256, in commit
+    self._prepare_impl()
+  File "<string>", line 2, in _prepare_impl
+  File "/opt/conda/envs/bonds/lib/python3.12/site-packages/sqlalchemy/orm/state_changes.py", line 139, in _go
+    ret_value = fn(self, *arg, **kw)
+                ^^^^^^^^^^^^^^^^^^^^
+  File "/opt/conda/envs/bonds/lib/python3.12/site-packages/sqlalchemy/orm/session.py", line 1231, in _prepare_impl
+    self.session.flush()
+  File "/opt/conda/envs/bonds/lib/python3.12/site-packages/sqlalchemy/orm/session.py", line 4312, in flush
+    self._flush(objects)
+  File "/opt/conda/envs/bonds/lib/python3.12/site-packages/sqlalchemy/orm/session.py", line 4447, in _flush
+    with util.safe_reraise():
+  File "/opt/conda/envs/bonds/lib/python3.12/site-packages/sqlalchemy/util/langhelpers.py", line 146, in __exit__
+    raise exc_value.with_traceback(exc_tb)
+  File "/opt/conda/envs/bonds/lib/python3.12/site-packages/sqlalchemy/orm/session.py", line 4408, in _flush
+    flush_context.execute()
+  File "/opt/conda/envs/bonds/lib/python3.12/site-packages/sqlalchemy/orm/unitofwork.py", line 466, in execute
+    rec.execute(self)
+  File "/opt/conda/envs/bonds/lib/python3.12/site-packages/sqlalchemy/orm/unitofwork.py", line 642, in execute
+    util.preloaded.orm_persistence.save_obj(
+  File "/opt/conda/envs/bonds/lib/python3.12/site-packages/sqlalchemy/orm/persistence.py", line 93, in save_obj
+    _emit_insert_statements(
+  File "/opt/conda/envs/bonds/lib/python3.12/site-packages/sqlalchemy/orm/persistence.py", line 1043, in _emit_insert_statements
+    result = connection.execute(
+             ^^^^^^^^^^^^^^^^^^^
+  File "/opt/conda/envs/bonds/lib/python3.12/site-packages/sqlalchemy/engine/base.py", line 1416, in execute
+    return meth(
+           ^^^^^
+  File "/opt/conda/envs/bonds/lib/python3.12/site-packages/sqlalchemy/sql/elements.py", line 516, in _execute_on_connection
+    return connection._execute_clauseelement(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/conda/envs/bonds/lib/python3.12/site-packages/sqlalchemy/engine/base.py", line 1639, in _execute_clauseelement
+    ret = self._execute_context(
+          ^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/conda/envs/bonds/lib/python3.12/site-packages/sqlalchemy/engine/base.py", line 1848, in _execute_context
+    return self._exec_single_context(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/conda/envs/bonds/lib/python3.12/site-packages/sqlalchemy/engine/base.py", line 1988, in _exec_single_context
+    self._handle_dbapi_exception(
+  File "/opt/conda/envs/bonds/lib/python3.12/site-packages/sqlalchemy/engine/base.py", line 2343, in _handle_dbapi_exception
+    raise sqlalchemy_exception.with_traceback(exc_info[2]) from e
+  File "/opt/conda/envs/bonds/lib/python3.12/site-packages/sqlalchemy/engine/base.py", line 1969, in _exec_single_context
+    self.dialect.do_execute(
+  File "/opt/conda/envs/bonds/lib/python3.12/site-packages/sqlalchemy/engine/default.py", line 922, in do_execute
+    cursor.execute(statement, parameters)
+sqlalchemy.exc.IntegrityError: (psycopg2.errors.NotNullViolation) null value in column "is_open" of relation "bond_yield_realtime" violates not-null constraint
+DETAIL:  Failing row contains (2024-01-02 19:29:00, 1, 3.772, 1, null, null).
+
+[SQL: INSERT INTO bond_yield_realtime (datetime, asset_id, bond_yield, timeframe) VALUES (%(datetime)s, %(asset_id)s, %(bond_yield)s, %(timeframe)s)]
+[parameters: {'datetime': datetime.datetime(2024, 1, 3, 3, 29, tzinfo=<DstTzInfo 'Asia/Singapore' +08+8:00:00 STD>), 'asset_id': 1, 'bond_yield': 3.772, 'timeframe': 1}]
+(Background on this error at: https://sqlalche.me/e/20/gkpj)
+
+2024-01-03 03:30:01,978 - INFO - entry
+2024-01-03 03:30:17,482 - INFO - 2024-01-03 03:30:00+08:00
+2024-01-03 03:30:17,497 - INFO - 2024-01-03 03:30:17.482515+08:00
+2024-01-03 03:30:17,559 - INFO - Traceback (most recent call last):
+  File "/opt/conda/envs/bonds/lib/python3.12/site-packages/sqlalchemy/engine/base.py", line 1969, in _exec_single_context
+    self.dialect.do_execute(
+  File "/opt/conda/envs/bonds/lib/python3.12/site-packages/sqlalchemy/engine/default.py", line 922, in do_execute
+    cursor.execute(statement, parameters)
+psycopg2.errors.NotNullViolation: null value in column "is_open" of relation "bond_yield_realtime" violates not-null constraint
+DETAIL:  Failing row contains (2024-01-02 19:30:00, 1, 3.771, 30, null, null).
+
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/home/app/bonds_sync_realtime.py", line 60, in write_to_database
+    BondYieldRealtime(
+  File "<string>", line 4, in __init__
+  File "/opt/conda/envs/bonds/lib/python3.12/site-packages/sqlalchemy/orm/state.py", line 566, in _initialize_instance
+    with util.safe_reraise():
+  File "/opt/conda/envs/bonds/lib/python3.12/site-packages/sqlalchemy/util/langhelpers.py", line 146, in __exit__
+    raise exc_value.with_traceback(exc_tb)
+  File "/opt/conda/envs/bonds/lib/python3.12/site-packages/sqlalchemy/orm/state.py", line 564, in _initialize_instance
+    manager.original_init(*mixed[1:], **kwargs)
+  File "/home/app/models/bond.py", line 62, in __init__
+    db.session.commit()
+  File "/opt/conda/envs/bonds/lib/python3.12/site-packages/sqlalchemy/orm/scoping.py", line 598, in commit
+    return self._proxied.commit()
+           ^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/conda/envs/bonds/lib/python3.12/site-packages/sqlalchemy/orm/session.py", line 1969, in commit
+    trans.commit(_to_root=True)
+  File "<string>", line 2, in commit
+  File "/opt/conda/envs/bonds/lib/python3.12/site-packages/sqlalchemy/orm/state_changes.py", line 139, in _go
+    ret_value = fn(self, *arg, **kw)
+                ^^^^^^^^^^^^^^^^^^^^
+  File "/opt/conda/envs/bonds/lib/python3.12/site-packages/sqlalchemy/orm/session.py", line 1256, in commit
+    self._prepare_impl()
+  File "<string>", line 2, in _prepare_impl
+  File "/opt/conda/envs/bonds/lib/python3.12/site-packages/sqlalchemy/orm/state_changes.py", line 139, in _go
+    ret_value = fn(self, *arg, **kw)
+                ^^^^^^^^^^^^^^^^^^^^
+  File "/opt/conda/envs/bonds/lib/python3.12/site-packages/sqlalchemy/orm/session.py", line 1231, in _prepare_impl
+    self.session.flush()
+  File "/opt/conda/envs/bonds/lib/python3.12/site-packages/sqlalchemy/orm/session.py", line 4312, in flush
+    self._flush(objects)
+  File "/opt/conda/envs/bonds/lib/python3.12/site-packages/sqlalchemy/orm/session.py", line 4447, in _flush
+    with util.safe_reraise():
+  File "/opt/conda/envs/bonds/lib/python3.12/site-packages/sqlalchemy/util/langhelpers.py", line 146, in __exit__
+    raise exc_value.with_traceback(exc_tb)
+  File "/opt/conda/envs/bonds/lib/python3.12/site-packages/sqlalchemy/orm/session.py", line 4408, in _flush
+    flush_context.execute()
+  File "/opt/conda/envs/bonds/lib/python3.12/site-packages/sqlalchemy/orm/unitofwork.py", line 466, in execute
+    rec.execute(self)
+  File "/opt/conda/envs/bonds/lib/python3.12/site-packages/sqlalchemy/orm/unitofwork.py", line 642, in execute
+    util.preloaded.orm_persistence.save_obj(
+  File "/opt/conda/envs/bonds/lib/python3.12/site-packages/sqlalchemy/orm/persistence.py", line 93, in save_obj
+    _emit_insert_statements(
+  File "/opt/conda/envs/bonds/lib/python3.12/site-packages/sqlalchemy/orm/persistence.py", line 1043, in _emit_insert_statements
+    result = connection.execute(
+             ^^^^^^^^^^^^^^^^^^^
+  File "/opt/conda/envs/bonds/lib/python3.12/site-packages/sqlalchemy/engine/base.py", line 1416, in execute
+    return meth(
+           ^^^^^
+  File "/opt/conda/envs/bonds/lib/python3.12/site-packages/sqlalchemy/sql/elements.py", line 516, in _execute_on_connection
+    return connection._execute_clauseelement(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/conda/envs/bonds/lib/python3.12/site-packages/sqlalchemy/engine/base.py", line 1639, in _execute_clauseelement
+    ret = self._execute_context(
+          ^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/conda/envs/bonds/lib/python3.12/site-packages/sqlalchemy/engine/base.py", line 1848, in _execute_context
+    return self._exec_single_context(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/conda/envs/bonds/lib/python3.12/site-packages/sqlalchemy/engine/base.py", line 1988, in _exec_single_context
+    self._handle_dbapi_exception(
+  File "/opt/conda/envs/bonds/lib/python3.12/site-packages/sqlalchemy/engine/base.py", line 2343, in _handle_dbapi_exception
+    raise sqlalchemy_exception.with_traceback(exc_info[2]) from e
+  File "/opt/conda/envs/bonds/lib/python3.12/site-packages/sqlalchemy/engine/base.py", line 1969, in _exec_single_context
+    self.dialect.do_execute(
+  File "/opt/conda/envs/bonds/lib/python3.12/site-packages/sqlalchemy/engine/default.py", line 922, in do_execute
+    cursor.execute(statement, parameters)
+sqlalchemy.exc.IntegrityError: (psycopg2.errors.NotNullViolation) null value in column "is_open" of relation "bond_yield_realtime" violates not-null constraint
+DETAIL:  Failing row contains (2024-01-02 19:30:00, 1, 3.771, 30, null, null).
+
+[SQL: INSERT INTO bond_yield_realtime (datetime, asset_id, bond_yield, timeframe) VALUES (%(datetime)s, %(asset_id)s, %(bond_yield)s, %(timeframe)s)]
+[parameters: {'datetime': datetime.datetime(2024, 1, 3, 3, 30, tzinfo=<DstTzInfo 'Asia/Singapore' +08+8:00:00 STD>), 'asset_id': 1, 'bond_yield': 3.771, 'timeframe': 30}]
+(Background on this error at: https://sqlalche.me/e/20/gkpj)
+
+2024-01-03 03:31:02,250 - INFO - entry
+2024-01-03 03:31:17,191 - INFO - 2024-01-03 03:31:00+08:00
+2024-01-03 03:31:17,194 - INFO - 2024-01-03 03:31:17.191838+08:00
+2024-01-03 03:31:17,242 - INFO - Traceback (most recent call last):
+  File "/opt/conda/envs/bonds/lib/python3.12/site-packages/sqlalchemy/engine/base.py", line 1969, in _exec_single_context
+    self.dialect.do_execute(
+  File "/opt/conda/envs/bonds/lib/python3.12/site-packages/sqlalchemy/engine/default.py", line 922, in do_execute
+    cursor.execute(statement, parameters)
+psycopg2.errors.NotNullViolation: null value in column "is_open" of relation "bond_yield_realtime" violates not-null constraint
+DETAIL:  Failing row contains (2024-01-02 19:31:00, 1, 3.771, 1, null, null).
+
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/home/app/bonds_sync_realtime.py", line 60, in write_to_database
+    BondYieldRealtime(
+  File "<string>", line 4, in __init__
+  File "/opt/conda/envs/bonds/lib/python3.12/site-packages/sqlalchemy/orm/state.py", line 566, in _initialize_instance
+    with util.safe_reraise():
+  File "/opt/conda/envs/bonds/lib/python3.12/site-packages/sqlalchemy/util/langhelpers.py", line 146, in __exit__
+    raise exc_value.with_traceback(exc_tb)
+  File "/opt/conda/envs/bonds/lib/python3.12/site-packages/sqlalchemy/orm/state.py", line 564, in _initialize_instance
+    manager.original_init(*mixed[1:], **kwargs)
+  File "/home/app/models/bond.py", line 62, in __init__
+    db.session.commit()
+  File "/opt/conda/envs/bonds/lib/python3.12/site-packages/sqlalchemy/orm/scoping.py", line 598, in commit
+    return self._proxied.commit()
+           ^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/conda/envs/bonds/lib/python3.12/site-packages/sqlalchemy/orm/session.py", line 1969, in commit
+    trans.commit(_to_root=True)
+  File "<string>", line 2, in commit
+  File "/opt/conda/envs/bonds/lib/python3.12/site-packages/sqlalchemy/orm/state_changes.py", line 139, in _go
+    ret_value = fn(self, *arg, **kw)
+                ^^^^^^^^^^^^^^^^^^^^
+  File "/opt/conda/envs/bonds/lib/python3.12/site-packages/sqlalchemy/orm/session.py", line 1256, in commit
+    self._prepare_impl()
+  File "<string>", line 2, in _prepare_impl
+  File "/opt/conda/envs/bonds/lib/python3.12/site-packages/sqlalchemy/orm/state_changes.py", line 139, in _go
+    ret_value = fn(self, *arg, **kw)
+                ^^^^^^^^^^^^^^^^^^^^
+  File "/opt/conda/envs/bonds/lib/python3.12/site-packages/sqlalchemy/orm/session.py", line 1231, in _prepare_impl
+    self.session.flush()
+  File "/opt/conda/envs/bonds/lib/python3.12/site-packages/sqlalchemy/orm/session.py", line 4312, in flush
+    self._flush(objects)
+  File "/opt/conda/envs/bonds/lib/python3.12/site-packages/sqlalchemy/orm/session.py", line 4447, in _flush
+    with util.safe_reraise():
+  File "/opt/conda/envs/bonds/lib/python3.12/site-packages/sqlalchemy/util/langhelpers.py", line 146, in __exit__
+    raise exc_value.with_traceback(exc_tb)
+  File "/opt/conda/envs/bonds/lib/python3.12/site-packages/sqlalchemy/orm/session.py", line 4408, in _flush
+    flush_context.execute()
+  File "/opt/conda/envs/bonds/lib/python3.12/site-packages/sqlalchemy/orm/unitofwork.py", line 466, in execute
+    rec.execute(self)
+  File "/opt/conda/envs/bonds/lib/python3.12/site-packages/sqlalchemy/orm/unitofwork.py", line 642, in execute
+    util.preloaded.orm_persistence.save_obj(
+  File "/opt/conda/envs/bonds/lib/python3.12/site-packages/sqlalchemy/orm/persistence.py", line 93, in save_obj
+    _emit_insert_statements(
+  File "/opt/conda/envs/bonds/lib/python3.12/site-packages/sqlalchemy/orm/persistence.py", line 1043, in _emit_insert_statements
+    result = connection.execute(
+             ^^^^^^^^^^^^^^^^^^^
+  File "/opt/conda/envs/bonds/lib/python3.12/site-packages/sqlalchemy/engine/base.py", line 1416, in execute
+    return meth(
+           ^^^^^
+  File "/opt/conda/envs/bonds/lib/python3.12/site-packages/sqlalchemy/sql/elements.py", line 516, in _execute_on_connection
+    return connection._execute_clauseelement(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/conda/envs/bonds/lib/python3.12/site-packages/sqlalchemy/engine/base.py", line 1639, in _execute_clauseelement
+    ret = self._execute_context(
+          ^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/conda/envs/bonds/lib/python3.12/site-packages/sqlalchemy/engine/base.py", line 1848, in _execute_context
+    return self._exec_single_context(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/conda/envs/bonds/lib/python3.12/site-packages/sqlalchemy/engine/base.py", line 1988, in _exec_single_context
+    self._handle_dbapi_exception(
+  File "/opt/conda/envs/bonds/lib/python3.12/site-packages/sqlalchemy/engine/base.py", line 2343, in _handle_dbapi_exception
+    raise sqlalchemy_exception.with_traceback(exc_info[2]) from e
+  File "/opt/conda/envs/bonds/lib/python3.12/site-packages/sqlalchemy/engine/base.py", line 1969, in _exec_single_context
+    self.dialect.do_execute(
+  File "/opt/conda/envs/bonds/lib/python3.12/site-packages/sqlalchemy/engine/default.py", line 922, in do_execute
+    cursor.execute(statement, parameters)
+sqlalchemy.exc.IntegrityError: (psycopg2.errors.NotNullViolation) null value in column "is_open" of relation "bond_yield_realtime" violates not-null constraint
+DETAIL:  Failing row contains (2024-01-02 19:31:00, 1, 3.771, 1, null, null).
+
+[SQL: INSERT INTO bond_yield_realtime (datetime, asset_id, bond_yield, timeframe) VALUES (%(datetime)s, %(asset_id)s, %(bond_yield)s, %(timeframe)s)]
+[parameters: {'datetime': datetime.datetime(2024, 1, 3, 3, 31, tzinfo=<DstTzInfo 'Asia/Singapore' +08+8:00:00 STD>), 'asset_id': 1, 'bond_yield': 3.771, 'timeframe': 1}]
+(Background on this error at: https://sqlalche.me/e/20/gkpj)
+
+2024-01-03 03:32:01,870 - INFO - entry
+2024-01-03 03:32:15,715 - INFO - 2024-01-03 03:32:00+08:00
+2024-01-03 03:32:15,718 - INFO - 2024-01-03 03:32:15.715583+08:00
+2024-01-03 03:32:15,767 - INFO - Traceback (most recent call last):
+  File "/opt/conda/envs/bonds/lib/python3.12/site-packages/sqlalchemy/engine/base.py", line 1969, in _exec_single_context
+    self.dialect.do_execute(
+  File "/opt/conda/envs/bonds/lib/python3.12/site-packages/sqlalchemy/engine/default.py", line 922, in do_execute
+    cursor.execute(statement, parameters)
+psycopg2.errors.NotNullViolation: null value in column "is_open" of relation "bond_yield_realtime" violates not-null constraint
+DETAIL:  Failing row contains (2024-01-02 19:32:00, 1, 3.771, 1, null, null).
+
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/home/app/bonds_sync_realtime.py", line 60, in write_to_database
+    BondYieldRealtime(
+  File "<string>", line 4, in __init__
+  File "/opt/conda/envs/bonds/lib/python3.12/site-packages/sqlalchemy/orm/state.py", line 566, in _initialize_instance
+    with util.safe_reraise():
+  File "/opt/conda/envs/bonds/lib/python3.12/site-packages/sqlalchemy/util/langhelpers.py", line 146, in __exit__
+    raise exc_value.with_traceback(exc_tb)
+  File "/opt/conda/envs/bonds/lib/python3.12/site-packages/sqlalchemy/orm/state.py", line 564, in _initialize_instance
+    manager.original_init(*mixed[1:], **kwargs)
+  File "/home/app/models/bond.py", line 62, in __init__
+    db.session.commit()
+  File "/opt/conda/envs/bonds/lib/python3.12/site-packages/sqlalchemy/orm/scoping.py", line 598, in commit
+    return self._proxied.commit()
+           ^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/conda/envs/bonds/lib/python3.12/site-packages/sqlalchemy/orm/session.py", line 1969, in commit
+    trans.commit(_to_root=True)
+  File "<string>", line 2, in commit
+  File "/opt/conda/envs/bonds/lib/python3.12/site-packages/sqlalchemy/orm/state_changes.py", line 139, in _go
+    ret_value = fn(self, *arg, **kw)
+                ^^^^^^^^^^^^^^^^^^^^
+  File "/opt/conda/envs/bonds/lib/python3.12/site-packages/sqlalchemy/orm/session.py", line 1256, in commit
+    self._prepare_impl()
+  File "<string>", line 2, in _prepare_impl
+  File "/opt/conda/envs/bonds/lib/python3.12/site-packages/sqlalchemy/orm/state_changes.py", line 139, in _go
+    ret_value = fn(self, *arg, **kw)
+                ^^^^^^^^^^^^^^^^^^^^
+  File "/opt/conda/envs/bonds/lib/python3.12/site-packages/sqlalchemy/orm/session.py", line 1231, in _prepare_impl
+    self.session.flush()
+  File "/opt/conda/envs/bonds/lib/python3.12/site-packages/sqlalchemy/orm/session.py", line 4312, in flush
+    self._flush(objects)
+  File "/opt/conda/envs/bonds/lib/python3.12/site-packages/sqlalchemy/orm/session.py", line 4447, in _flush
+    with util.safe_reraise():
+  File "/opt/conda/envs/bonds/lib/python3.12/site-packages/sqlalchemy/util/langhelpers.py", line 146, in __exit__
+    raise exc_value.with_traceback(exc_tb)
+  File "/opt/conda/envs/bonds/lib/python3.12/site-packages/sqlalchemy/orm/session.py", line 4408, in _flush
+    flush_context.execute()
+  File "/opt/conda/envs/bonds/lib/python3.12/site-packages/sqlalchemy/orm/unitofwork.py", line 466, in execute
+    rec.execute(self)
+  File "/opt/conda/envs/bonds/lib/python3.12/site-packages/sqlalchemy/orm/unitofwork.py", line 642, in execute
+    util.preloaded.orm_persistence.save_obj(
+  File "/opt/conda/envs/bonds/lib/python3.12/site-packages/sqlalchemy/orm/persistence.py", line 93, in save_obj
+    _emit_insert_statements(
+  File "/opt/conda/envs/bonds/lib/python3.12/site-packages/sqlalchemy/orm/persistence.py", line 1043, in _emit_insert_statements
+    result = connection.execute(
+             ^^^^^^^^^^^^^^^^^^^
+  File "/opt/conda/envs/bonds/lib/python3.12/site-packages/sqlalchemy/engine/base.py", line 1416, in execute
+    return meth(
+           ^^^^^
+  File "/opt/conda/envs/bonds/lib/python3.12/site-packages/sqlalchemy/sql/elements.py", line 516, in _execute_on_connection
+    return connection._execute_clauseelement(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/conda/envs/bonds/lib/python3.12/site-packages/sqlalchemy/engine/base.py", line 1639, in _execute_clauseelement
+    ret = self._execute_context(
+          ^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/conda/envs/bonds/lib/python3.12/site-packages/sqlalchemy/engine/base.py", line 1848, in _execute_context
+    return self._exec_single_context(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/conda/envs/bonds/lib/python3.12/site-packages/sqlalchemy/engine/base.py", line 1988, in _exec_single_context
+    self._handle_dbapi_exception(
+  File "/opt/conda/envs/bonds/lib/python3.12/site-packages/sqlalchemy/engine/base.py", line 2343, in _handle_dbapi_exception
+    raise sqlalchemy_exception.with_traceback(exc_info[2]) from e
+  File "/opt/conda/envs/bonds/lib/python3.12/site-packages/sqlalchemy/engine/base.py", line 1969, in _exec_single_context
+    self.dialect.do_execute(
+  File "/opt/conda/envs/bonds/lib/python3.12/site-packages/sqlalchemy/engine/default.py", line 922, in do_execute
+    cursor.execute(statement, parameters)
+sqlalchemy.exc.IntegrityError: (psycopg2.errors.NotNullViolation) null value in column "is_open" of relation "bond_yield_realtime" violates not-null constraint
+DETAIL:  Failing row contains (2024-01-02 19:32:00, 1, 3.771, 1, null, null).
+
+[SQL: INSERT INTO bond_yield_realtime (datetime, asset_id, bond_yield, timeframe) VALUES (%(datetime)s, %(asset_id)s, %(bond_yield)s, %(timeframe)s)]
+[parameters: {'datetime': datetime.datetime(2024, 1, 3, 3, 32, tzinfo=<DstTzInfo 'Asia/Singapore' +08+8:00:00 STD>), 'asset_id': 1, 'bond_yield': 3.771, 'timeframe': 1}]
+(Background on this error at: https://sqlalche.me/e/20/gkpj)
+
+2024-01-03 03:36:02,496 - INFO - entry
+2024-01-03 03:36:18,073 - INFO - 2024-01-03 03:36:00+08:00
+2024-01-03 03:36:18,076 - INFO - 2024-01-03 03:36:18.073860+08:00
+2024-01-03 03:37:02,021 - INFO - entry
+2024-01-03 03:37:16,637 - INFO - 2024-01-03 03:37:00+08:00
+2024-01-03 03:37:16,640 - INFO - 2024-01-03 03:37:16.637646+08:00

@@ -1,4 +1,4 @@
-from flask import Flask, request, jsonify, Response
+from flask import Flask, request, jsonify, Response, render_template
 from flask.cli import with_appcontext
 import os
 import logging
@@ -192,6 +192,11 @@ def get_historical():
     except Exception as e:
         logging.error(traceback.format_exc())
         return Response("Internal Server Error", status=500, mimetype='text/html')
+    
+@app.route("/data", methods=['GET'])
+def get_data():
+    return render_template("index.html")
+
 
 if __name__ == "__main__":
     app.run(debug=True)

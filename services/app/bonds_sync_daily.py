@@ -7,6 +7,7 @@ from selenium.webdriver.common.desired_capabilities import DesiredCapabilities
 from selenium.common.exceptions import TimeoutException, NoSuchElementException
 from selenium.webdriver import FirefoxProfile
 from sqlalchemy.orm import Session
+from selenium.webdriver.firefox.service import Service
 
 from datetime import datetime, timedelta
 import time
@@ -33,7 +34,7 @@ from models import BondYield, Asset
 from app import app
 from logging_config import write_to_logfile, OK, NO_CONTENT
 
-# count = 1
+count = 1
 
 ##############################
 # CREATING PROFILE AND CERT
@@ -57,11 +58,17 @@ class BondSync():
         self.setup_profile()
         options = FirefoxOptions()
         options.profile = self.profile_path
+        options.binary_location='/usr/bin/firefox'
         options.add_argument("--headless")  # Run in headless mode
         options.add_argument('--no-sandbox')
         options.add_argument('--disable-gpu')
-        options.add_argument("--enable-javascript")
-        options.add_argument('--disable-blink-features=AutomationControlled')
+        # Set the path to the geckodriver executable
+        geckodriver_path = '/usr/local/bin/geckodriver'  # Replace with your geckodriver path
+
+        # Create a service object for the Firefox driver
+        self.service = Service(geckodriver_path)
+        # options.add_argument("--enable-javascript")
+        # options.add_argument('--disable-blink-features=AutomationControlled')
         self.options = options
 
     #############################
@@ -110,7 +117,7 @@ class BondSync():
     ##################################################################
 
     def get_new_data(self, retries):
-        with webdriver.Firefox(options=self.options) as driver:
+        with webdriver.Firefox(service=self.service, options=self.options) as driver:
             try:
                 driver.set_page_load_timeout(5)
                 driver.get(self.realtime_url)
@@ -136,7 +143,7 @@ class BondSync():
                                 period = row.find_element(By.XPATH, './/td/a[contains(text(), " 2Y") or contains(text(), " 5Y")]')
                                 if period:
                                     # Extract the last value
-                                    last = row.find_element(By.XPATH, './/td[contains(@class, "last") and not(contains(@class, "last_close"))]').text
+                                    last = row.find_element(By.XPATH, './/td[3]').text
                                     # Check for the clock icon status
                                     status = 'closed' if row.find_elements(By.XPATH, './/span[contains(@class, "redClockIcon")]') else 'open'
                                     # Append the extracted data to the list
@@ -242,11 +249,13 @@ class BondSync():
                 for year in ('2', '5'):
                     latest_date = self.get_latest_date(country, int(year))
                     if not latest_date or latest_date + timedelta(days=1) < datetime.now().date():
+                        
+                        new_from_date = latest_date + timedelta(days=1) if latest_date else None
                         # if not latest_date:
                         #     print(f"Getting data for {country} {year}Y as no latest date")
                         # else:
                         #     print(f"Getting data for {country} {year}Y as latest date was {datetime.strftime(latest_date, "%Y/%m/%d")}")
-                        self.jobs.put((country, year))
+                        self.jobs.put((country, year, new_from_date))
 
             for _ in range(MAX_THREADS):
                 worker = threading.Thread(target=CountryYearData.extract_data_into_database, args=(self.jobs, self.options))
@@ -266,6 +275,7 @@ class BondSync():
                             .order_by(BondYield.date.desc())
                             .first())
         if not latest_bond_yield:
+            # logging.info(f"no latest date for {country} {year}Y")
             return None
         
         return latest_bond_yield.date
@@ -274,11 +284,13 @@ class CountryYearData():
 
     url_list_path = "/var/log/url_list.log"
 
-    def __init__(self, country, year):
+    def __init__(self, country, year, new_date):
+        self.cloud = 1 if os.environ.get("CLOUD") == '1' else 0
         self.country = country
         self._id = None
         self.year = year
         self.data_directory = Path("/home/app/data")
+        self.new_from_date = new_date
     
     @property
     def pending_file(self):
@@ -298,9 +310,10 @@ class CountryYearData():
             args = jobs.get()
             country = args[0]
             year = args[1]
+            from_date = args[2]
 
             try:
-                new_country_year = cls(country, year)
+                new_country_year = cls(country, year, from_date)
                 new_country_year.run_main_thread(options)
             except Exception as e:
                 logging.error(traceback.format_exc())
@@ -420,7 +433,11 @@ class CountryYearData():
                         state = outer_json['props']['pageProps']['state']
                         new_json = json.loads(state)
                         self._id = new_json['dataStore']['pageInfoStore']['identifiers']['instrument_id']
-                        return
+
+                        if not self.cloud:
+                            return
+                        else:
+                            self.cloud_get_data(driver)
                     # else:
                         # print("no element found")
                 except TimeoutException:
@@ -428,6 +445,75 @@ class CountryYearData():
                     pass
                 except Exception as e:
                     logging.error(traceback.format_exc())
+
+
+    ############################################
+    # CLOUDFLARE BLOCKING UNFORTUNATELY
+    ############################################
+
+    def cloud_get_data(self, driver):
+            
+        try:
+            # WebDriverWait(driver, 10).until(EC.presence_of_element_located((By.XPATH, '//table[contains(@class, "w-full text-xs leading-4 overflow-x-auto freeze-column-w-1")]')))
+            # Initialize a list to store the data
+            self.cloud_data = []
+
+            # Find all the rows in the table
+            rows = driver.find_elements(By.XPATH, '//tr[contains(@class, "historical-data-v2_price__atUfP")]')
+
+            for row in rows:
+                try:
+                    # Check if the row contains "2Y" or "5Y"
+                    time_el = row.find_element(By.XPATH, './/td/time[@datetime]')
+                    if time_el:
+                        date_obj = datetime.strptime(time_el.text, "%m/%d/%Y")
+                        if self.new_from_date and not date_obj.date() > self.new_from_date:
+                            continue
+                        # Extract the yield, XPATH is 1 based indexing
+                        bond_yield = row.find_element(By.XPATH, './/td[2]').text
+                        # Append the extracted data to the list
+                        self.cloud_data.append((bond_yield, date_obj))
+
+                except NoSuchElementException as e:
+                    continue
+        
+        except Exception as e:
+            logging.error(traceback.format_exc())
+        
+    def cloud_write_to_database(self):
+        
+        if len(self.cloud_data) == 0:
+            # write_to_logfile(self._id, "no new cloud data")
+            return
+
+        try:
+
+            extracted_data = [
+                {"yield": item[0], "date": item[1]}
+                for item in self.cloud_data
+            ]
+
+            # write_to_logfile(self._id, f"writing to database: {extracted_data}")
+
+            # Create a DataFrame from the extracted data
+            df = pd.DataFrame(extracted_data)
+            df['date'] = df['date'].dt.date
+
+            write_to_logfile(self._id, df.info())
+            df['date'] = pd.to_datetime(df['date'])
+            df.sort_values(by='date', ascending=False, inplace=True)
+
+            with app.app_context():
+                asset = db.session.query(Asset).filter_by(name=self.country, period=int(self.year)).first()
+                if not asset:
+                    asset = Asset(name=self.country, period=self.year)
+
+                # Iterate over the DataFrame and insert bond yields
+                for _, row in df.iterrows():
+                    BondYield(date=row['date'], asset_id=asset.id, bond_yield=row['yield'], ref_id = self._id)
+        
+        except Exception as e:
+            write_to_logfile(self._id, traceback.format_exc())
 
 
     ####################################################################
@@ -496,7 +582,7 @@ class CountryYearData():
             df = pd.DataFrame(extracted_data)
             df['date'] = df.date.apply(lambda x: x.split('T')[0])
             df['date'] = pd.to_datetime(df['date'])
-            df.sort_values(by='date', ascending=True, inplace=True)
+            df.sort_values(by='date', ascending=False, inplace=True)
 
             with app.app_context():
                 asset = db.session.query(Asset).filter_by(name=self.country, period=int(self.year)).first()
@@ -517,7 +603,7 @@ class CountryYearData():
     ###########################################
 
     def run_main_thread(self, options):
-        with webdriver.Firefox(options=options) as driver:
+        with webdriver.Firefox(service=self.service, options=options) as driver:
             try:
                 driver.set_page_load_timeout(5)  # Set timeout to 10 seconds
 
@@ -534,6 +620,9 @@ class CountryYearData():
                     try:
                         historical_data_url = self.url_list[attempt_count]
                         # get the instrument id, or return None if 404 returned
+
+                        # logging.info(historical_data_url)
+                        
                         self.get_id(driver, historical_data_url, retries=2)
 
                         # print(f"instrument id: {self._id}")
@@ -543,7 +632,12 @@ class CountryYearData():
                         if not official_url or historical_data_url != official_url:
                             self.update_url_list_file(historical_data_url)
 
-                        self.update_file() # ADD TO DATABASE
+                        # CLOUD WILL HAVE LATEST DATE
+                        if not self.cloud:
+                            self.update_file() # ADD TO DATABASE
+                        else:
+                            self.cloud_write_to_database()
+
                         found = 1
                     except FileNotFoundError:
                         print("FileNotFoundError caught. Attempting to modify URL and retry.")

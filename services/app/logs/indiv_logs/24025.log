@@ -1,7 +1,6 @@
-2023-12-31 14:38:12,406 - INFO - (PROXY) latest bond yield for 24025: 2009-07-01
-2023-12-31 14:38:12,409 - INFO - Latest date was 2009-07-01
-2023-12-31 14:38:12,411 - INFO - (PROXY) Getting data from 2009-07-02 to 2023-12-31
-2023-12-31 14:38:12,591 - INFO - (PROXY) latest bond yield for 24025: 2009-07-01
-2023-12-31 14:38:12,594 - INFO - Latest date was 2009-07-01
-2023-12-31 14:38:12,597 - INFO - (PROXY) Getting data from 2009-07-02 to 2023-12-31
-2023-12-31 14:38:14,012 - INFO - Added data for /home/app/data/24025_PENDING.txt
+2023-12-31 20:15:09,534 - INFO - (PROXY) latest bond yield for 24025: None
+2023-12-31 20:15:09,537 - INFO - (PROXY) Getting data from 2000-01-01 to 2023-12-31
+2023-12-31 20:15:09,630 - INFO - (PROXY) latest bond yield for 24025: None
+2023-12-31 20:15:09,631 - INFO - (PROXY) Getting data from 2000-01-01 to 2023-12-31
+2023-12-31 20:15:10,625 - INFO - Added data for /home/app/data/24025_PENDING.txt
+2023-12-31 20:15:45,627 - INFO - FILE ADDED TO DATABASE

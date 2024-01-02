@@ -45,16 +45,22 @@ class BondYieldRealtime(db.Model):
     asset_id = db.Column(db.Integer, db.ForeignKey('asset.id'), primary_key=True, nullable=False)
     bond_yield = db.Column(db.Float, nullable=False)
     timeframe = db.Column(db.Integer, nullable=False)
+    is_open = db.Column(db.Integer, nullable=False)
+    is_close = db.Column(db.Integer, nullable=False)
     # Relationship to Country
     asset = relationship('Asset')
 
-    def __init__(self, datetime, asset_id, bond_yield, timeframe):
+    def __init__(self, datetime, asset_id, bond_yield, is_open, timeframe):
         # self.id = f"{datetime.datetime.strftime(date, "%Y-%m-%d")}_{country_name}_{period}"
         self.datetime = datetime
         self.asset_id = int(asset_id)
         self.bond_yield = float(bond_yield)
+        self.is_open = is_open
+        self.is_close = 0
         self.timeframe = timeframe
         db.session.add(self)
         db.session.commit()
 
-
+    @classmethod
+    def latest_entry(cls, asset_id):
+        return cls.query.filter(cls.asset_id == asset_id).order_by(cls.datetime.desc()).first()

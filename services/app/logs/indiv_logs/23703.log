@@ -1,0 +1,8 @@
+2023-12-31 20:56:13,195 - INFO - (PROXY) latest bond yield for 23703: None
+2023-12-31 20:56:13,197 - INFO - (PROXY) Getting data from 2000-01-01 to 2023-12-31
+2023-12-31 20:56:13,492 - INFO - (PROXY) latest bond yield for 23703: None
+2023-12-31 20:56:13,494 - INFO - (PROXY) Getting data from 2000-01-01 to 2023-12-31
+2023-12-31 20:56:14,567 - INFO - Added data for /home/app/data/23703_PENDING.txt
+2023-12-31 20:56:14,934 - INFO - (PROXY) Getting data from 2018-09-05 to 2023-12-31
+2023-12-31 20:56:15,496 - INFO - Appended data for /home/app/data/23703_PENDING.txt
+2023-12-31 20:57:01,601 - INFO - FILE ADDED TO DATABASE

@@ -1,0 +1,8 @@
+2023-12-31 20:37:05,113 - INFO - (PROXY) latest bond yield for 42407: None
+2023-12-31 20:37:05,115 - INFO - (PROXY) Getting data from 2000-01-01 to 2023-12-31
+2023-12-31 20:37:05,236 - INFO - (PROXY) latest bond yield for 42407: None
+2023-12-31 20:37:05,238 - INFO - (PROXY) Getting data from 2000-01-01 to 2023-12-31
+2023-12-31 20:37:06,069 - INFO - Added data for /home/app/data/42407_PENDING.txt
+2023-12-31 20:37:06,466 - INFO - (PROXY) Getting data from 2021-05-18 to 2023-12-31
+2023-12-31 20:37:06,867 - INFO - Appended data for /home/app/data/42407_PENDING.txt
+2023-12-31 20:37:48,668 - INFO - FILE ADDED TO DATABASE

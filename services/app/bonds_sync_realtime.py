@@ -51,7 +51,9 @@ def write_to_database(df):
                 asset = db.session.query(Asset).filter_by(name=country_name, period=int(period)).first()
                 if not asset:
                     asset = Asset(name=country_name, period=period)
-                    # write_to_logfile("realtime_data", "asset added!")
+                    write_to_logfile("realtime_data", "asset added!")
+
+                latest_entry = BondYieldRealtime.latest_entry(asset.id)
 
                 # Create a new instance of the model
                 if row['Status'] == "open":
@@ -59,15 +61,19 @@ def write_to_database(df):
                         datetime=rounded_datetime,
                         asset_id=asset.id,
                         bond_yield=row['Yield'],
+                        is_open=1 if latest_entry and latest_entry.is_close == 1 else 0,
                         timeframe=highest_timeframe
                     )
                     
+                elif latest_entry and not latest_entry.is_close == 1:
+                    latest_entry.is_close == 1
+                    db.session.commit()
 
     except Exception as e:
         write_to_logfile("realtime_data", traceback.format_exc())
 
 def main():
-    # write_to_logfile("realtime_data", "entry")
+    write_to_logfile("realtime_data", "entry")
     bond_sync_controller = BondSync()
     print(bond_sync_controller.cert_path)
     new_data = bond_sync_controller.get_new_data(retries=3)

@@ -1,7 +1,8 @@
-2023-12-31 14:38:03,059 - INFO - (PROXY) latest bond yield for 23818: 2023-12-29
-2023-12-31 14:38:03,062 - INFO - Latest date was 2023-12-29
-2023-12-31 14:38:03,065 - INFO - (PROXY) Getting data from 2023-12-30 to 2023-12-31
-2023-12-31 14:38:03,266 - INFO - (PROXY) latest bond yield for 23818: 2023-12-29
-2023-12-31 14:38:03,268 - INFO - Latest date was 2023-12-29
-2023-12-31 14:38:03,270 - INFO - (PROXY) Getting data from 2023-12-30 to 2023-12-31
-2023-12-31 14:38:03,846 - INFO - COMPLETE FILE EMPTY
+2023-12-31 20:14:05,660 - INFO - (PROXY) latest bond yield for 23818: None
+2023-12-31 20:14:05,662 - INFO - (PROXY) Getting data from 2000-01-01 to 2023-12-31
+2023-12-31 20:14:05,771 - INFO - (PROXY) latest bond yield for 23818: None
+2023-12-31 20:14:05,773 - INFO - (PROXY) Getting data from 2000-01-01 to 2023-12-31
+2023-12-31 20:14:06,817 - INFO - Added data for /home/app/data/23818_PENDING.txt
+2023-12-31 20:14:07,221 - INFO - (PROXY) Getting data from 2017-09-17 to 2023-12-31
+2023-12-31 20:14:10,262 - INFO - Appended data for /home/app/data/23818_PENDING.txt
+2023-12-31 20:15:01,213 - INFO - FILE ADDED TO DATABASE

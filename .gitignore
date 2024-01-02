@@ -1,5 +1,6 @@
 .env
 .env.db
+/old
 **/.env
 **/.env.db
 **/img
