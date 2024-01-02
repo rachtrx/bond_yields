@@ -34,14 +34,14 @@ def write_to_database(df):
         rounded_datetime = datetime_now - timedelta(seconds=datetime_now.second, microseconds=datetime_now.microsecond)
         total_min = rounded_datetime.hour * 60 + rounded_datetime.minute
 
-        write_to_logfile("realtime_data", f"{rounded_datetime}")
+        # write_to_logfile("realtime_data", f"{rounded_datetime}")
 
         for timeframe in [240, 120, 60, 30, 15, 5, 1]:
             if total_min % timeframe == 0:
                 highest_timeframe = timeframe
                 break
 
-        write_to_logfile("realtime_data", datetime_now)
+        # write_to_logfile("realtime_data", datetime_now)
 
         with app.app_context():
 
@@ -73,9 +73,9 @@ def write_to_database(df):
         write_to_logfile("realtime_data", traceback.format_exc())
 
 def main():
-    write_to_logfile("realtime_data", "entry")
+    # write_to_logfile("realtime_data", "entry")
     bond_sync_controller = BondSync()
-    print(bond_sync_controller.cert_path)
+    # print(bond_sync_controller.cert_path)
     new_data = bond_sync_controller.get_new_data(retries=3)
     if new_data == None:
         write_to_logfile("realtime_data", f"failed to get data for {datetime.strftime(current_sg_time(), '%Y-%m-%d %H:%M')}")
