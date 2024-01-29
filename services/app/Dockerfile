@@ -26,6 +26,7 @@ RUN apt-get update && apt-get install -y --no-install-recommends \
     wget \
     curl \
     postgresql-client \
+    tzdata \
     cron \
     gnupg2 \
     ca-certificates \
@@ -51,6 +52,10 @@ RUN GECKODRIVER_URL=$(curl -s https://api.github.com/repos/mozilla/geckodriver/r
 # ENV DISPLAY=:99
 
 COPY others/bonds_sync.txt /etc/cron.d/bonds_sync.txt
+
+# Set timezone
+RUN ln -sf /usr/share/zoneinfo/Asia/Singapore /etc/localtime \
+    && echo "Asia/Singapore" > /etc/timezone
 
 # Give execution rights on the cron job
 RUN chmod 0644 /etc/cron.d/bonds_sync.txt

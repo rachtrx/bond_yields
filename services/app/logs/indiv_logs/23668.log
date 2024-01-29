@@ -1,8 +1,0 @@
-2023-12-31 20:55:14,321 - INFO - (PROXY) latest bond yield for 23668: None
-2023-12-31 20:55:14,324 - INFO - (PROXY) Getting data from 2000-01-01 to 2023-12-31
-2023-12-31 20:55:14,565 - INFO - (PROXY) latest bond yield for 23668: None
-2023-12-31 20:55:14,567 - INFO - (PROXY) Getting data from 2000-01-01 to 2023-12-31
-2023-12-31 20:55:15,399 - INFO - Added data for /home/app/data/23668_PENDING.txt
-2023-12-31 20:55:15,698 - INFO - (PROXY) Getting data from 2018-05-17 to 2023-12-31
-2023-12-31 20:55:16,260 - INFO - Appended data for /home/app/data/23668_PENDING.txt
-2023-12-31 20:56:04,053 - INFO - FILE ADDED TO DATABASE

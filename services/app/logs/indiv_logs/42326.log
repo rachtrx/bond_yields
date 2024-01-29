@@ -1,6 +1,0 @@
-2023-12-31 20:54:33,752 - INFO - (PROXY) latest bond yield for 42326: None
-2023-12-31 20:54:33,755 - INFO - (PROXY) Getting data from 2000-01-01 to 2023-12-31
-2023-12-31 20:54:34,034 - INFO - (PROXY) latest bond yield for 42326: None
-2023-12-31 20:54:34,037 - INFO - (PROXY) Getting data from 2000-01-01 to 2023-12-31
-2023-12-31 20:54:34,608 - INFO - Added data for /home/app/data/42326_PENDING.txt
-2023-12-31 20:54:59,615 - INFO - FILE ADDED TO DATABASE

@@ -13,8 +13,8 @@ from logging_config import write_to_logfile, OK, NO_CONTENT
 class CaptureAuthHeader:
     def request(self, flow: http.HTTPFlow) -> None:
 
-        print(os.environ.get('CLOUD'))
-        if os.environ.get('CLOUD'):
+        print(f"CLOUD: {os.environ.get('CLOUD')}")
+        if os.environ.get('CLOUD') == "1":
             return
 
         # Check if the request URL meets the criteria. its always in the form /api/financialdata/historical/23703?start_date=2023-11-20&end-date=2023-12-18&time-frame=Daily&add-missing-rows=false
@@ -65,7 +65,7 @@ class CaptureAuthHeader:
 
     def response(self, flow: http.HTTPFlow) -> None:
 
-        if os.environ.get('CLOUD'):
+        if os.environ.get('CLOUD') == "1":
             return
         
         # Check if the URL matches the pattern for which you want to log the response

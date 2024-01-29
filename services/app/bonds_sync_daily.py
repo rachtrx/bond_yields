@@ -23,6 +23,7 @@ import re
 import socket
 import subprocess
 import threading
+import sys
 from queue import Queue
 
 
@@ -34,7 +35,10 @@ from models import BondYield, Asset
 from app import app
 from logging_config import write_to_logfile, OK, NO_CONTENT
 
-count = 1
+# count = 1
+
+from dotenv import load_dotenv
+load_dotenv(".env")
 
 ##############################
 # CREATING PROFILE AND CERT
@@ -62,13 +66,7 @@ class BondSync():
         options.add_argument("--headless")  # Run in headless mode
         options.add_argument('--no-sandbox')
         options.add_argument('--disable-gpu')
-        # Set the path to the geckodriver executable
-        geckodriver_path = '/usr/local/bin/geckodriver'  # Replace with your geckodriver path
-
-        # Create a service object for the Firefox driver
-        self.service = Service(geckodriver_path)
-        # options.add_argument("--enable-javascript")
-        # options.add_argument('--disable-blink-features=AutomationControlled')
+        
         self.options = options
 
     #############################
@@ -115,9 +113,15 @@ class BondSync():
     ##################################################################
     # SENDING HTTP REQUESTS FOR REALTIME DATA / GETTING COUNTRIES LIST
     ##################################################################
+            
+    @staticmethod
+    def get_service():
+        geckodriver_path = '/usr/local/bin/geckodriver'  # Replace with your geckodriver path
+        return Service(geckodriver_path)
 
     def get_new_data(self, retries):
-        with webdriver.Firefox(service=self.service, options=self.options) as driver:
+
+        with webdriver.Firefox(options=self.options, service=self.get_service()) as driver:
             try:
                 driver.set_page_load_timeout(5)
                 driver.get(self.realtime_url)
@@ -285,7 +289,7 @@ class CountryYearData():
     url_list_path = "/var/log/url_list.log"
 
     def __init__(self, country, year, new_date):
-        self.cloud = 1 if os.environ.get("CLOUD") == '1' else 0
+        self.cloud = 1 if os.environ.get("CLOUD") == "1" else 0
         self.country = country
         self._id = None
         self.year = year
@@ -463,7 +467,6 @@ class CountryYearData():
 
             for row in rows:
                 try:
-                    # Check if the row contains "2Y" or "5Y"
                     time_el = row.find_element(By.XPATH, './/td/time[@datetime]')
                     if time_el:
                         date_obj = datetime.strptime(time_el.text, "%m/%d/%Y")
@@ -511,6 +514,8 @@ class CountryYearData():
                 # Iterate over the DataFrame and insert bond yields
                 for _, row in df.iterrows():
                     BondYield(date=row['date'], asset_id=asset.id, bond_yield=row['yield'], ref_id = self._id)
+
+            
         
         except Exception as e:
             write_to_logfile(self._id, traceback.format_exc())
@@ -603,7 +608,7 @@ class CountryYearData():
     ###########################################
 
     def run_main_thread(self, options):
-        with webdriver.Firefox(service=self.service, options=options) as driver:
+        with webdriver.Firefox(options=options, service=BondSync.get_service()) as driver:
             try:
                 driver.set_page_load_timeout(5)  # Set timeout to 10 seconds
 
@@ -658,8 +663,12 @@ class CountryYearData():
 
 if __name__ == "__main__":
     try:
-        bond_sync_controller = BondSync()
-        bond_sync_controller.run_all_threads()
+        if len(sys.argv) > 1 and sys.argv[1] == "1" and os.environ.get('CLOUD') == "1":
+            pass
+        else:
+            logging.info("entry")
+            bond_sync_controller = BondSync()
+            bond_sync_controller.run_all_threads()
     except Exception as e:
         logging.error(traceback.format_exc())
     
